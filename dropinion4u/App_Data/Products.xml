@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<TblProduct>
+  <Table>
+    <NAME>PhD theses</NAME>
+    <NEVURL>PhD</NEVURL>
+    <controller>PhD/theses</controller>
+  </Table>
+  <Table>
+    <NAME>MBBS these</NAME>
+    <NEVURL>MBBS</NEVURL>
+    <controller>MBBS/these</controller>
+  </Table>
+	<Table>
+		<NAME>Publishing</NAME>
+		<NEVURL>paper</NEVURL>
+		<controller>Publishing/paper</controller>
+	</Table>
+</TblProduct>

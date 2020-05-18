@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="dropinion, corona, covid19, Drhelp, theses, paper, corona test, MBBS doctors, Phd Docters,MS, MD, lab, xrays, Women's health , joint replacement" />
+    <meta name="description" content="dropion is India's leading health care services provider." />
+    <title>@ViewBag.Title : Dr.Opinion </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("/Content/main.css")
+    <style>
+        #nvadiv {
+            display: block;
+            width: 80%;
+            -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        }
+
+            #nvadiv > li > a {
+                display: block;
+                padding: 12px 14px;
+                font-size: 1.0em;
+                color: #d4d4d4;
+                text-decoration: none;
+                border-bottom: 1px solid #212121;
+                background-color: #343434;
+                background: -webkit-gradient(linear, left top, left bottom, from(#343434), to(#292929));
+                background: -webkit-linear-gradient(top, #343434, #292929);
+                background: -moz-linear-gradient(top, #343434, #292929);
+                background: -ms-linear-gradient(top, #343434, #292929);
+                background: -o-linear-gradient(top, #343434, #292929);
+                background: linear-gradient(top, #343434, #292929);
+            }
+
+                #nvadiv > li > a:hover, #nav > li > a.open {
+                    color: #e9e9e9;
+                    border-bottom-color: #384f76;
+                    background-color: #6985b5;
+                    background: -webkit-gradient(linear, left top, left bottom, from(#6985b5), to(#456397));
+                    background: -webkit-linear-gradient(top, #6985b5, #456397);
+                    background: -moz-linear-gradient(top, #6985b5, #456397);
+                    background: -ms-linear-gradient(top, #6985b5, #456397);
+                    background: -o-linear-gradient(top, #6985b5, #456397);
+                    background: linear-gradient(top, #6985b5, #456397);
+                }
+    </style>
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div style="float: left;padding-right:70px">
+            <a class="navbar-brand" href='@Url.Action("HomePage", "Home")'>
+                <img src="~/images/Logodropinion.png" class="img-responsive" style="height:35px;width:100px;margin-top:-1vh" />
+            </a>
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Home", "HomePage", "Home", null, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul id="nvadiv" class="nav navbar-nav" style="font-weight:bold">
+                    <li>
+                        <a href='@Url.Action("HomePage", "Home")'>
+                            <span class="glyphicon glyphicon-home"></span> <b>Home</b>
+                        </a>
+                        @* @Html.ActionLink("Home", "HomePage", "Home")*@
+
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" title="Products" href="#">
+                            <span class="glyphicon glyphicon-shopping-comment"></span><b>Services</b>
+                            <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("General publishing", "General", "publishing/General")</li>
+                           
+                        </ul>
+                    </li>                  
+
+
+
+                    <li>
+                        <a href='@Url.Action("Clients", "Clients")'>
+                            <span class="glyphicon glyphicon-comment"></span> <b>Blog</b>
+                        </a>
+                        @* style="font-weight:bold">@Html.ActionLink("Clients", "Clients", "Clients")*@
+                    </li>
+                    <li>
+                        <a href='@Url.Action("Support", "Support")'>
+                            <span class="glyphicon glyphicon-earphone"></span> <b>Support</b>
+                        </a>
+                        @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" title="About Us" href="#">
+                            <span class="glyphicon glyphicon-user"></span>    <b>About Us</b>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Company Overview", "CompOverview", "AboutUs/CompOverview")</li>
+                            <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "AboutUs/VisionPolicy")</li>
+                            <li>@Html.ActionLink("Locations", "Location", "AboutUs")</li>
+                            <li>@Html.ActionLink("Become a Reseller", "BecomeReseller", "AboutUs/BecomeReseller")</li>
+                            <li>@Html.ActionLink("Join Us", "JoinUs", "AboutUs/JoinUs")</li>
+                        </ul>
+                    </li>
+
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+
+    @*<div class="container body-content">*@
+    <div style="width:100%">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

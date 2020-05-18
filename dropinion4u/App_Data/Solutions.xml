@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<solutions>
+  <node>
+    <description> Attendance</description>
+    <NEVURL>Attendance</NEVURL>
+    <controller>Solutions/Attendance</controller>
+  </node>
+  <node>
+    <description> Visitor Management System</description>
+    <NEVURL>Visitor</NEVURL>
+    <controller>Solutions/Visitor</controller>
+  </node>
+</solutions>
