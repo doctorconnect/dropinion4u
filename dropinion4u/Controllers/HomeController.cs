@@ -10,7 +10,7 @@ namespace dropinion4u.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult HomePage()
         {
             return View();
         }
@@ -29,7 +29,7 @@ namespace dropinion4u.Controllers
             return View();
         }
 
-        public ActionResult HomePage()
+        public ActionResult Index()
         {
             #region -----------------------------------  PRODUCT XML BIND SET----------------------------
 
