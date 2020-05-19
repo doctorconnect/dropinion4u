@@ -71,7 +71,7 @@
                 <!-- Slide Title -->
                 <h2 class="title">Dr.Opinoin</h2>
                 <!-- Slide Text -->
-                <h3 class="subtitle">The Future of Healthcare</h3>
+                <h3 class="subtitle">Next Level in Healthcare</h3>
                 <!-- Slide Image -->
                 <img class="slide-img img-responsive" src="/images/1.png" alt="Slide 1" />
             </li>
@@ -81,14 +81,14 @@
                 <!-- Slide Title -->
                 <h2 class="title">Our Mission </h2>
                 <!-- Slide Text -->
-                <h3 class="subtitle">Working for Your Better Health.</h3>
+                <h3 class="subtitle">Working for World's Better Health.</h3>
                 <!-- Slide Image -->
                 @*<img class="slide-img img-responsive" src="/images/4.png" style="width:450px;height:500px" alt="Slide 1" />*@
                 <img class="slide-img img-responsive" src="/images/4.png" alt="Slide 1" />
             </li>
             <!-- End Slide 3 -->
         </ul>
-     
+
     </div>
 </div>
 <!-- End Homepage Slider -->
@@ -102,7 +102,7 @@
                 <div class="service-wrapper">
                     <img src="/images/achievement.png" class="img-thumbnail" alt="Service 1">
                     <h3> Why Dr.Opinion?</h3>
-                    <p>  Why are 'Dropinion' .... on the top?.. </p>
+                    <p>  DrOpinion has vision is to develop a dedicated network for healthcare specialists where they can collaborate in order to provide better healthcare to the world. </p>
                     <a href='@Url.Action("Focus03", "Home")' class="w3-button w3-blue">    Read more   </a>
                 </div>
             </div>
@@ -125,9 +125,8 @@
         </div>
     </div>
 </div>
-
 <div class="section">
-    <div class="container">      
+    <div class="container">
         <div class="row">
             <div class=" col-md-4 col-sm-6">
                 <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
@@ -144,7 +143,7 @@
                     </div>
                     <ul style="margin-top: 0px; margin-left: 25px; margin-right: 25px; margin-bottom: 38px; padding: 0px; text-align: justify; list-style-image: url('../images/arrowli-active.jpg')">
                         <li>
-                           Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque
+                            Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque
                         </li>
                         <li>
                             Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus.
@@ -192,7 +191,29 @@
                 </div>
 
             </div>
-        </div>                
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-4 col-sm-6">
+                <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+                    <div class="headerRound" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
+                       border-bottom-color: #d8d8d8; border-bottom-style: solid; border-bottom-width: 1px;
+                       background-color: rgb(242,242,242); background-attachment: scroll; z-index: 1;">
+                        <h3 class="headertxt">LATEST INDUSTRY UPDATES</h3>
+                    </div>
+                    <div>
+                        <center>
+                            @*<img alt="imgRating" style="margin-top: 10px;" src="@{images/ratings.jpg}" width="100px" />*@
+                            <img alt="imgRating" style="margin-top: 10px;" src="/images/ratings.jpg" width:"100px" class="img-responsive img-thumbnail" />
+                        </center>
+                    </div>
+                    @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
