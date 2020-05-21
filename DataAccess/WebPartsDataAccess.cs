@@ -16,16 +16,13 @@ namespace DataAccess
         public WebPartsDataAccess(string key = null)
         {
             string connectionkey = GetconnectionKey(key);
-            m_Database = DatabaseFactory.CreateDatabase(connectionkey);
-            
+            m_Database = DatabaseFactory.CreateDatabase(connectionkey);            
         }
-
         private string GetconnectionKey(string KEY)
         {
             string connectionkey = DBConstants.Connectstring;
             return connectionkey;
         }
-
       
         public List<RSSFeed> GetRssFeedList()
         {
@@ -45,7 +42,6 @@ namespace DataAccess
 
             return ObjRSSFeed;
         }
-
         private RSSFeed GetRssFeedListFromDataReader(IDataReader datareader)
         {
             RSSFeed RSSFeed = new RSSFeed();
