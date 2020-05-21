@@ -1,4 +1,5 @@
-﻿using dropinion4u.DropinionDataAccess;
+﻿using BusinessEntities;
+using DataAccess;
 using dropinion4u.Models;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,12 @@ namespace dropinion4u.Controllers
     public class WebPartsController : Controller
     {
         private WebPartsDataAccess objWebPartsDataAccess;
+
+        public WebPartsController()
+        {
+            objWebPartsDataAccess = new WebPartsDataAccess();
+            
+        }
         // GET: WebParts
         public ActionResult _RssFeeds()
         {

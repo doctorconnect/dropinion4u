@@ -1,4 +1,5 @@
-﻿using dropinion4u.Models;
+﻿using DataAccess;
+using dropinion4u.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace dropinion4u.Controllers
 {
     public class HomeController : Controller
     {
+        private WebPartsDataAccess objWebPartsDataAccess;
+        public HomeController()
+        {
+            objWebPartsDataAccess = new WebPartsDataAccess();
+        }
         public ActionResult HomePage()
         {
             return View();
