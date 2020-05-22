@@ -178,6 +178,7 @@
     <Content Include="images\proxypunch.png" />
     <Content Include="images\ratings.jpg" />
     <Content Include="images\SaviorNew.gif" />
+    <Content Include="images\tempLogo.PNG" />
     <Content Include="images\twitter.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
