@@ -9,6 +9,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("/Content/main.css")
+    <link href="~/Content/chat.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <style>
         #nvadiv {
             display: block;
@@ -96,8 +98,8 @@
                         @* style="font-weight:bold">@Html.ActionLink("Clients", "Clients", "Clients")*@
                     </li>
                     <li>
-                        <a href='@Url.Action("Support", "Support")'>
-                            <span class="glyphicon glyphicon-earphone"></span> <b>Support</b>
+                        <a href='@Url.Action("SignalRChat", "ChatRoom")'>
+                            <span class="glyphicon glyphicon-earphone"></span> <b>Chat Support</b>
                         </a>
                         @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
                     </li>
