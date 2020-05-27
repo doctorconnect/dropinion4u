@@ -41,7 +41,7 @@ namespace dropinion4u.Controllers
         {
             List<RSSFeed> rssFeeds = new List<RSSFeed>();
             try
-            {
+            {                              
 
                 XmlReader reader = XmlReader.Create(url);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);

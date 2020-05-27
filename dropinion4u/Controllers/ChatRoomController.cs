@@ -9,7 +9,7 @@ namespace dropinion4u.Controllers
     public class ChatRoomController : Controller
     {
          // GET: ChatRoom/Create
-        public ActionResult SignalRChat()
+        public ActionResult DrChat()
         {
             return View();
         }

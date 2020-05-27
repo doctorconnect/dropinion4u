@@ -7,8 +7,8 @@ namespace DataAccess
 {
     public class DBConstants
     {
-        //public const string Connectstring = "LocConnect";
-        public const string Connectstring = "ServerConnect";
+        public const string Connectstring = "LocConnect";
+       // public const string Connectstring = "ServerConnect";
         public const string PROCGETRSSFEED = "uspGetRSSFeed";
     }
 }
