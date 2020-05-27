@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="dropinion, corona, covid19, Drhelp, theses, paper, corona test, MBBS doctors, Phd Docters,MS, MD, lab, xrays, Women's health , joint replacement" />
-    <meta name="description" content="dropion is India's leading health care services provider." />
+    <meta name="keywords" content="dropinion, corona, covid19, Drhelp, theses, paper, corona test, MBBS doctors, Phd Docters,MS, MD, lab, xrays, Women's health , joint replacement, Journals, Medical Blogs, Doctor Network, Doctor World, Medicines, Hydrocephalus, Brain Dropsy" />
+    <meta name="description" content="DrOpinion has vision is to develop a dedicated network for healthcare specialists where they can collaborate in order to provide better healthcare to the world." />
     <title>@ViewBag.Title : Dr.Opinion </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -52,45 +52,36 @@
 <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
-
-        <div style="float: left;padding-right:70px">
-            <a class="navbar-brand" href='@Url.Action("HomePage", "Home")'>
-                <img src="~/images/Logodropinion.png" class="img-responsive" style="height:35px;width:100px;margin-top:-1vh" />
-            </a>
-        </div>
         <div class="container">
-            <div class="navbar-header">
-
+            <div class="pull-left">
+                <a class="navbar-brand" href='@Url.Action("HomePage", "Home")'>
+                    @*<img src="~/images/Logodropinion.png" class="img-responsive" style="height:35px;width:100px;margin-top:-1vh" />*@
+                    <img src="~/images/tempLogo.PNG" class="img-responsive" style="height:35px;width:150px;margin-top:-1vh" />
+                </a>
+            </div>
+            @*<div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*@Html.ActionLink("Home", "HomePage", "Home", null, new { @class = "navbar-brand" })*@
-            </div>
+                @Html.ActionLink("Home", "HomePage", "Home", null, new { @class = "navbar-brand" })
+                </div>*@
             <div class="navbar-collapse collapse">
                 <ul id="nvadiv" class="nav navbar-nav" style="font-weight:bold">
-                    <li>
-                        <a href='@Url.Action("HomePage", "Home")'>
-                            <span class="glyphicon glyphicon-home"></span> <b>Home</b>
-                        </a>
-                        @* @Html.ActionLink("Home", "HomePage", "Home")*@
-
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" title="Products" href="#">
-                            <span class="glyphicon glyphicon-shopping-comment"></span><b>Services</b>
-                            <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("General publishing", "General", "publishing/General")</li>
-                           
-                        </ul>
-                    </li>                  
-
-
-
+                    @*<li>
+                                <a href='@Url.Action("HomePage", "Home")'><span class="glyphicon glyphicon-home"></span> <b>Home</b></a>
+                                 @Html.ActionLink("Home", "HomePage", "Home")
+                            </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" title="Products" href="#">
+                                <span class="glyphicon glyphicon-shopping-comment"></span><b>Services</b>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("General publishing", "General", "publishing/General")</li>
+                            </ul>
+                        </li>*@
                     <li>
                         <a href='@Url.Action("Clients", "Clients")'>
                             <span class="glyphicon glyphicon-comment"></span> <b>Blog</b>
@@ -98,12 +89,17 @@
                         @* style="font-weight:bold">@Html.ActionLink("Clients", "Clients", "Clients")*@
                     </li>
                     <li>
-                        <a href='@Url.Action("SignalRChat", "ChatRoom")'>
-                            <span class="glyphicon glyphicon-earphone"></span> <b>Chat Support</b>
+                        <a href='@Url.Action("Support", "Support")'>
+                            <span class="glyphicon glyphicon-earphone"></span> <b>Feedback</b>
                         </a>
                         @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
                     </li>
-
+                    <li>
+                        <a href='@Url.Action("Support", "Support")'>
+                            <span class="glyphicon glyphicon-earphone"></span> <b>FAQs</b>
+                        </a>
+                        @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
+                    </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" title="About Us" href="#">
                             <span class="glyphicon glyphicon-user"></span>    <b>About Us</b>
@@ -113,11 +109,10 @@
                             <li>@Html.ActionLink("Company Overview", "CompOverview", "AboutUs/CompOverview")</li>
                             <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "AboutUs/VisionPolicy")</li>
                             <li>@Html.ActionLink("Locations", "Location", "AboutUs")</li>
-                            <li>@Html.ActionLink("Become a Reseller", "BecomeReseller", "AboutUs/BecomeReseller")</li>
+                            <li>@Html.ActionLink("Terms and Conditions", "BecomeReseller", "AboutUs/BecomeReseller")</li>
                             <li>@Html.ActionLink("Join Us", "JoinUs", "AboutUs/JoinUs")</li>
                         </ul>
                     </li>
-
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
@@ -129,7 +124,12 @@
         @RenderBody()
         <hr />
     </div>
-
+    <div class="footer-bg">
+        <div class="container">
+            <p class="pull-left"><a href="#">Copyright Protected</a></p>
+            <p class="pull-right"><a href="#">Terms and Conditions</a></p>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
