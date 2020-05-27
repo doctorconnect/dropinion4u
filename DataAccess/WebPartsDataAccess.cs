@@ -29,8 +29,8 @@ namespace DataAccess
             List<RSSFeed> ObjRSSFeed = new List<RSSFeed>();
             using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.PROCGETRSSFEED))
             {
-                m_Database.AddInParameter(dbCommand, "@CapabilitiesId", DbType.String, "info");
-                m_Database.AddInParameter(dbCommand, "@IsAdmin", DbType.Boolean, "info");
+                m_Database.AddInParameter(dbCommand, "@CapabilitiesId", DbType.String, "1");
+                m_Database.AddInParameter(dbCommand, "@IsAdmin", DbType.Boolean, true);
                 using (IDataReader dataReader = m_Database.ExecuteReader(dbCommand))
                 {
                     while (dataReader.Read())
