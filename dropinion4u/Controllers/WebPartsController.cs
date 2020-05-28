@@ -3,6 +3,7 @@ using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using System.Xml;
@@ -41,8 +42,12 @@ namespace dropinion4u.Controllers
         {
             List<RSSFeed> rssFeeds = new List<RSSFeed>();
             try
-            {                              
-
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                       | SecurityProtocolType.Tls11
+                       | SecurityProtocolType.Tls12
+                       | SecurityProtocolType.Ssl3;
                 XmlReader reader = XmlReader.Create(url);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
@@ -56,9 +61,9 @@ namespace dropinion4u.Controllers
                 }
                 return rssFeeds;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // throw ex;
+                //throw ex;
             }
             return rssFeeds;
         }
