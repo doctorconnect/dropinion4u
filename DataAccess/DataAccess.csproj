@@ -15,6 +15,9 @@
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
       <HintPath>Reference\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
     </Reference>
+	  <Reference Include="System.Web">
+		  <HintPath>Reference\System.Web.dll</HintPath>
+	  </Reference>
   </ItemGroup>
 
 </Project>

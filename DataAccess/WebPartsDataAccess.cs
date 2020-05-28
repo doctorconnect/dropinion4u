@@ -4,24 +4,39 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Web;
+
 
 namespace DataAccess
 {
     public class WebPartsDataAccess
     {
         Database m_Database;
-        
         private WebPartsDataAccess ObjDirectoryDataAccess;
 
         public WebPartsDataAccess(string key = null)
         {
             string connectionkey = GetconnectionKey(key);
+           // ObjDirectoryDataAccess = new WebPartsDataAccess(); 
             m_Database = DatabaseFactory.CreateDatabase(connectionkey);            
         }
         private string GetconnectionKey(string KEY)
         {
-            string connectionkey = DBConstants.Connectstring;
+            string connectionkey = string.Empty;
+            if (HttpContext.Current.Request.Url.ToString().Contains("dropinion"))
+            {
+                connectionkey = DBConstants.Connectstring;
+            }
+            else if (HttpContext.Current.Request.Url.ToString().Contains("44328"))
+            {
+                connectionkey = DBConstants.LocConnectB;
+            }
+            else
+            {
+                connectionkey = DBConstants.LocConnectV;
+            }
             return connectionkey;
+           
         }
       
         public List<RSSFeed> GetRssFeedList()
