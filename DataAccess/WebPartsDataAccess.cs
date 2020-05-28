@@ -30,7 +30,7 @@ namespace DataAccess
             using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.PROCGETRSSFEED))
             {
                 m_Database.AddInParameter(dbCommand, "@CapabilitiesId", DbType.String, "1");
-                m_Database.AddInParameter(dbCommand, "@IsAdmin", DbType.Boolean, 1);
+                m_Database.AddInParameter(dbCommand, "@IsAdmin", DbType.Boolean, true);
                 using (IDataReader dataReader = m_Database.ExecuteReader(dbCommand))
                 {
                     while (dataReader.Read())
