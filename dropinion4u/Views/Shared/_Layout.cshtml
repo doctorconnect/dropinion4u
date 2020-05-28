@@ -52,7 +52,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="pull-left">
-                <a class="navbar-brand" href='@Url.Action("HomePage", "Home")'>
+                <a class="navbar-brand" href='@Url.Action("Index", "Home")'>
                     @*<img src="~/images/Logodropinion.png" class="img-responsive" style="height:35px;width:100px;margin-top:-1vh" />*@
                     <img src="~/images/tempLogo.PNG" class="img-responsive" style="height:35px;width:150px;margin-top:-1vh" />
                 </a>
@@ -87,13 +87,13 @@
                         @* style="font-weight:bold">@Html.ActionLink("Clients", "Clients", "Clients")*@
                     </li>
                     <li>
-                        <a href='@Url.Action("Support", "Support")'>
+                        <a href='@Url.Action("Feedback", "Support")'>
                             <span class="glyphicon glyphicon-earphone"></span> <b>Feedback</b>
                         </a>
                         @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
                     </li>
                     <li>
-                        <a href='@Url.Action("Support", "Support")'>
+                        <a href='@Url.Action("FAQs", "Support")'>
                             <span class="glyphicon glyphicon-earphone"></span> <b>FAQs</b>
                         </a>
                         @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
@@ -104,11 +104,12 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Company Overview", "CompOverview", "AboutUs/CompOverview")</li>
-                            <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "AboutUs/VisionPolicy")</li>
-                            <li>@Html.ActionLink("Locations", "Location", "AboutUs")</li>
-                            <li>@Html.ActionLink("Terms and Conditions", "BecomeReseller", "AboutUs/BecomeReseller")</li>
-                            <li>@Html.ActionLink("Join Us", "JoinUs", "AboutUs/JoinUs")</li>
+                            <li>@Html.ActionLink("Company Overview", "CompOverview", "Support")</li>
+                            <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "Support")</li>
+                            <li>@Html.ActionLink("Locations", "Location", "Support")</li>
+                            <li>@Html.ActionLink("Terms and Conditions", "BecomeReseller", "Support")</li>
+                            <li>@Html.ActionLink("Join Us", "JoinUs", "Support")</li>
+                            <li>@Html.ActionLink("Terms and Conditions", "Privacy", "Support")</li>
                         </ul>
                     </li>
                 </ul>
@@ -122,10 +123,21 @@
         @RenderBody()
         <hr />
     </div>
+    <div class="notification">
+        <span id="cookieconsent:desc" class="cc-message">
+            This website uses cookies to ensure you get the best experience on our website.
+            <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
+        </span>
+        <div class="cc-compliance">
+            <a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+        </div>
+    </div>
     <div class="footer-bg">
         <div class="container">
-            <p class="pull-left"><a href="#">Copyright Protected</a></p>
-            <p class="pull-right"><a href="#">Terms and Conditions</a></p>
+            <p class="pull-left">
+                <a href="#">&copy; 2020 - Dr. Opinion Point - Copyright Protected</a>
+            </p>
+            <p class="pull-right"><a href="@Url.Action("Privacy", "Support")" target="_blank">Terms and Conditions</a></p>
         </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
