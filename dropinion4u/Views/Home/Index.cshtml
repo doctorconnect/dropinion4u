@@ -5,7 +5,7 @@
 <style type="text/css">
     #jsMarquee {
         position: relative; /* mandatory */ /* width: 200px;*/
-        height: 175px; /* set as required */
+        height: 300px; /* set as required */
         overflow: hidden; /* mandatory */
     }
 
@@ -35,122 +35,81 @@
         group.height(tallest);
     }
 </script>
-
-<!-- Homepage Slider -->
-<div style="height:50vh;">
-
-    <div id="sequence">
-        <ul class="sequence-canvas">
-            <!-- Slide 4 -->
-            <li class="bg1 thumbnail">
-                <!-- Slide Title -->
-                <h2 class="title">Better healthcare experience.</h2>
-                <!-- Slide Text -->
-                <h3 class="subtitle">
-                    -Our Mission is Life..<br />
-                    -Our specialty is you.<br />
-                    -Partnerships for Health.<br />
-                </h3>
-                @*<img class="slide-img" img-responsive" src="/images/2.png" style="width:175px;height:150px" alt="Slide 1" />*@
-                <img class="slide-img" src="/images/2.png" alt="Slide 1" />
-            </li>
-            <!-- End Slide 4 -->
-            <!-- Slide 1 -->
-            <li class="bg4">
-                <!-- Slide Title -->
-                <h2 class="title">Covid-19</h2>
-                <!-- Slide Text -->
-                <h3 class="subtitle">Protecting yourself and others from the spread COVID-19</h3>
-                <!-- Slide Image -->
-                @*<img class="slide-img img-responsive" src="/images/3.png" style="width:450px;height:300px" alt="Slide 1" />*@
-                <img class="slide-img img-responsive" src="/images/3.png" alt="Slide 1" />
-            </li>
-            <!-- End Slide 1 -->
-            <!-- Slide 2 -->
-            <li class="bg3">
-                <!-- Slide Title -->
-                <h2 class="title">Dr.Opinoin</h2>
-                <!-- Slide Text -->
-                <h4 class="subtitle">DrOpinion has vision is to develop a dedicated network for healthcare specialists where they can collaborate in order to provide better healthcare to the world. </h4>
-                <!-- Slide Image -->
-                <img class="slide-img img-responsive" src="/images/1.png" alt="Slide 1" />
-            </li>
-            <!-- End Slide 2 -->
-            <!-- Slide 3 -->
-            <li class="bg2">
-                <!-- Slide Title -->
-                <h2 class="title">Our Mission </h2>
-                <!-- Slide Text -->
-                <h3 class="subtitle">Working for Your Better Health.</h3>
-                <!-- Slide Image -->
-                @*<img class="slide-img img-responsive" src="/images/4.png" style="width:450px;height:500px" alt="Slide 1" />*@
-                <img class="slide-img img-responsive" src="/images/4.png" alt="Slide 1" />
-            </li>
-            <!-- End Slide 3 -->
-        </ul>
-
-    </div>
-</div>
-<!-- End Homepage Slider -->
-<!-- Press Coverage -->
-<br />
-<br />
-
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class=" col-md-4 col-sm-6">
-                <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
-                    <div class="headerRound" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
-                       border-bottom-color: #d8d8d8; border-bottom-style: solid; border-bottom-width: 1px;
-                       background-color: rgb(242,242,242); background-attachment: scroll; z-index: 1;">
-                        <h3 class="headertxt">LATEST INDUSTRY UPDATES</h3>
-                    </div>
-
-                    @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="round service-wrapper" style="border: solid 1px #d8d8d8; padding-bottom: 65px; margin-top: 10px; background-color: White;">
-                    <div class="headerRound" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
-                       border-bottom-color: #d8d8d8; border-bottom-style: solid; border-bottom-width: 1px;
-                       background-color: rgb(242,242,242); background-attachment: scroll; z-index: 1;">
-                        <h3>Highlights</h3>
-                    </div>
-                    <div id="jsMarquee" style="margin: 15px; text-align: center;">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
-                    <div class="headerRound" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
-                       border-bottom-color: #d8d8d8; border-bottom-style: solid; border-bottom-width: 1px;
-                       background-color: rgb(242,242,242); background-attachment: scroll; z-index: 1;">
-                        <h3 class="headertxt">Product Catagory</h3>
-                    </div>
-                    <div style="text-align: center; margin-bottom: 10px; margin-top: 10px;margin-left:25px">
-                        <img alt="contact" src="/images/products.gif" class="img-responsive" width="200" height="100" />
-                    </div>
-                    <div style="padding-bottom: 0px; padding-left: 15px;">
-                        <table style="border-style:none;border-collapse:collapse;width:100%" id="tblProducts">
-
-                            @foreach (dropinion4u.Models.urllink jap in ViewBag.listdata)
-                            {
-                                <tr>
-                                    <td>
-                                        <img src="../images/arrowli-active.jpg" />&nbsp;
-                                    </td>
-                                    <td style="text-align:left">
-                                        @Html.ActionLink(@jap.NAME, @jap.action1, @jap.control1)
-                                    </td>
-                                </tr>
-                            }
-                        </table>
-                    </div>
-                </div>
-            </div>
-
+<div class="row">
+    <div class="col-sm-3">
+        <h3 class="text-center"> LATEST INDUSTRY UPDATES </h3>
+        <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">            
+                @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
+    </div>
+    <!-- Homepage Slider -->
+    <div class="col-sm-6">
+        <br />
+        <div class="nav-custom">
+            <div class="tab-content tab-custom">
+                <div id="new" class="tab-pane fade in active ">
+                    <div class="slider">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" id="divImages">
+                                <div class='item active'>
+                                    <img style="height:200px;width:100%" src="/images/01.png" />
+                                    <div class='carousel-caption'>
+                                        <a data-toggle='modal' data-target='#3' style="color:white"><b>Dr.Opinoin</b></a><br />
+                                        <a data-toggle='modal' data-target='#3' style="color:white">Dr Opinion Point has vision is to develop a dedicated network for healthcare specialists where they can collaborate in order to provide better healthcare to the world.</a>
+                                    </div>
+                                </div>
+                                <div class='item'>
+                                    <img style="height:200px;width:100%" src="/images/02.png" />
+                                    <div class='carousel-caption'>
+                                        <a data-toggle='modal' data-target='#1' style="color:white"><b>Our Mission</b></a><br />
+                                        <a data-toggle='modal' data-target='#1' style="color:white">
+                                            -Our Mission is Better Health Of People<br />
+                                            -We Partnership for Health.<br />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Homepage Slider -->
+    <!-- Press Coverage -->
+    <div class="col-sm-3">
+        <h3 class="text-center">HIGHLIGHTS</h3>
+        <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div id="jsMarquee" style="text-align: center;">
+            </div>
+        </div>
+        @*<div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="headerRound" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
+                       border-bottom-color: #d8d8d8; border-bottom-style: solid; border-bottom-width: 1px;
+                       background-color: rgb(242,242,242); background-attachment: scroll; z-index: 1;">
+                <h3 class="headertxt">Product Catagory</h3>
+            </div>
+            <div style="text-align: center; margin-bottom: 10px; margin-top: 10px;margin-left:25px">
+                <img alt="contact" src="/images/products.gif" class="img-responsive" width="200" height="100" />
+            </div>
+            <div style="padding-bottom: 0px; padding-left: 15px;">
+                <table style="border-style:none;border-collapse:collapse;width:100%" id="tblProducts">
+
+                    @foreach (dropinion4u.Models.urllink jap in ViewBag.listdata)
+                    {
+                        <tr>
+                            <td>
+                                <img src="../images/arrowli-active.jpg" />&nbsp;
+                            </td>
+                            <td style="text-align:left">
+                                @Html.ActionLink(@jap.NAME, @jap.action1, @jap.control1)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>*@
     </div>
 </div>
 @section Scripts {

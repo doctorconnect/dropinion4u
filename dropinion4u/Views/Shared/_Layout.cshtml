@@ -50,88 +50,75 @@
     </style>
 </head>
 <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="pull-left">
-                <a class="navbar-brand" href='@Url.Action("Index", "Home")'>
-                    @*<img src="~/images/Logodropinion.png" class="img-responsive" style="height:35px;width:100px;margin-top:-1vh" />*@
-                    <img src="~/images/tempLogo.PNG" class="img-responsive" style="height:35px;width:150px;margin-top:-1vh" />
-                </a>
-            </div>
-            @*<div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Home", "HomePage", "Home", null, new { @class = "navbar-brand" })
-                </div>*@
-            <div class="navbar-collapse collapse">
-                <ul id="nvadiv" class="nav navbar-nav" style="font-weight:bold">
-                    @*<li>
-                                <a href='@Url.Action("HomePage", "Home")'><span class="glyphicon glyphicon-home"></span> <b>Home</b></a>
-                                 @Html.ActionLink("Home", "HomePage", "Home")
+            <div class="row">
+                <div class="navbar-header col-sm-2">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/images/tempLogo.png" alt="" />
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>                
+                <div class="col-sm-9 right">                    
+                    <div class="navbar-collapse collapse">
+                        @*@Html.Partial("~/Views/Shared/_search.cshtml")*@
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="@Url.Action("FAQs","Support")">
+                                    <span class="glyphicon glyphicon-earphone"></span>
+                                    FAQs
+                                </a>
                             </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" title="Products" href="#">
-                                <span class="glyphicon glyphicon-shopping-comment"></span><b>Services</b>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("General publishing", "General", "publishing/General")</li>
-                            </ul>
-                        </li>*@
-                    <li>
-                        <a href='@Url.Action("Clients", "Clients")'>
-                            <span class="glyphicon glyphicon-comment"></span> <b>Blog</b>
-                        </a>
-                        @* style="font-weight:bold">@Html.ActionLink("Clients", "Clients", "Clients")*@
-                    </li>
-                    <li>
-                        <a href='@Url.Action("Feedback", "Support")'>
-                            <span class="glyphicon glyphicon-earphone"></span> <b>Feedback</b>
-                        </a>
-                        @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
-                    </li>
-                    <li>
-                        <a href='@Url.Action("FAQs", "Support")'>
-                            <span class="glyphicon glyphicon-earphone"></span> <b>FAQs</b>
-                        </a>
-                        @*style="font-weight:bold">@Html.ActionLink("Support", "Support", "Support")*@
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" title="About Us" href="#">
-                            <span class="glyphicon glyphicon-user"></span>    <b>About Us</b>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Company Overview", "CompOverview", "Support")</li>
-                            <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "Support")</li>
-                            <li>@Html.ActionLink("Locations", "Location", "Support")</li>
-                            <li>@Html.ActionLink("Terms and Conditions", "BecomeReseller", "Support")</li>
-                            <li>@Html.ActionLink("Join Us", "JoinUs", "Support")</li>
-                            <li>@Html.ActionLink("Terms and Conditions", "Privacy", "Support")</li>
+                            <li>
+                                <a href="@Url.Action("Feedback","Support")">
+                                    <span class="glyphicon glyphicon-earphone"></span>
+                                    Feedback
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#">
+                                    <span class="glyphicon glyphicon-user"></span><b>More</b>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @*<li>@Html.ActionLink("Company Overview", "CompOverview", "Support")</li>
+                    <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "Support")</li>
+                    <li>@Html.ActionLink("Locations", "Location", "Support")</li>
+                    <li>@Html.ActionLink("Terms and Conditions", "BecomeReseller", "Support")</li>*@
+                                    <li>@Html.ActionLink("Join Us", "JoinUs", "Support")</li>
+                                    <li>@Html.ActionLink("Terms and Conditions", "Privacy", "Support")</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-                @*@Html.Partial("_LoginPartial")*@
+                        @*@Html.Partial("_LoginPartial")*@
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    
+                </div>
             </div>
         </div>
     </div>
-
     @*<div class="container body-content">*@
-    <div style="width:100%">
+    <div class="container">
         @RenderBody()
-        <hr />
+        <br /><br />
     </div>
-    <div class="notification">
-        <span id="cookieconsent:desc" class="cc-message">
-            This website uses cookies to ensure you get the best experience on our website.
-            <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-        </span>
-        <div class="cc-compliance">
-            <a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11" style="text-align:center">
+                <span id="cookieconsent:desc" class="cc-message">
+                    This website uses cookies to ensure you get the best experience on our website.
+                    <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
+                </span>
+                <div class="cc-compliance">
+                    <a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer-bg">

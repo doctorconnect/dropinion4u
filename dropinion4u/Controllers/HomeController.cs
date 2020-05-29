@@ -20,9 +20,6 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
-
-        
-
         public ActionResult Index()
         {
             #region -----------------------------------  PRODUCT XML BIND SET----------------------------
