@@ -386,6 +386,7 @@
     <Content Include="images\laugh.gif" />
     <Content Include="images\linkedin.png" />
     <Content Include="images\loading-spinner.gif" />
+    <Content Include="images\Logo.png" />
     <Content Include="images\Logodropinion.png" />
     <Content Include="images\panelback.gif" />
     <Content Include="images\panelback2.gif" />
