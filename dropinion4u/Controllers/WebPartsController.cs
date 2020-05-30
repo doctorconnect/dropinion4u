@@ -28,18 +28,16 @@ namespace dropinion4u.Controllers
 
         public List<RSSFeed> GetRSSFeedList()
         {
-            var list = objWebPartsDataAccess.GetRssFeedList().Where(r => r.IsActive == true).Select(l => new { l.Url });
-
+            var list = objWebPartsDataAccess.GetRssFeedList().Where(r => r.IsActive == true).Select(l => new { l.Url, l.Title });            
             List<RSSFeed> feeds = new List<RSSFeed>();
             foreach (var item in list)
             {
-                feeds.AddRange(GetRSS(item.Url));
-
+                feeds.AddRange(GetRSS(item.Url,item.Title));
             }
             return feeds;
         }
 
-        private List<RSSFeed> GetRSS(string url)
+        private List<RSSFeed> GetRSS(string url, string title)
         {
             List<RSSFeed> rssFeeds = new List<RSSFeed>();
             try
@@ -62,6 +60,8 @@ namespace dropinion4u.Controllers
                     RSSFeed rssFeed = new RSSFeed();
                     rssFeed.FeedUrl = feedItem.Links[0].GetAbsoluteUri().ToString();
                     rssFeed.FeedTitle = feedItem.Title.Text;
+                    rssFeed.Url = url;
+                    rssFeed.Title = title;
                     rssFeeds.Add(rssFeed);
 
                 }
