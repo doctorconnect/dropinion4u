@@ -378,6 +378,7 @@
     <Content Include="images\btn_close.gif" />
     <Content Include="images\bullet.gif" />
     <Content Include="images\calender.jpeg" />
+    <Content Include="images\Camera.png" />
     <Content Include="images\contact.gif" />
     <Content Include="images\cool.gif" />
     <Content Include="images\CoverFile-2.png" />
@@ -390,9 +391,11 @@
     <Content Include="images\Logodropinion.png" />
     <Content Include="images\panelback.gif" />
     <Content Include="images\panelback2.gif" />
+    <Content Include="images\Photo.png" />
     <Content Include="images\proxypunch.png" />
     <Content Include="images\ratings.jpg" />
     <Content Include="images\SaviorNew.gif" />
+    <Content Include="images\Smiley.png" />
     <Content Include="images\tempLogo.PNG" />
     <Content Include="images\smile.gif" />
     <Content Include="images\twitter.png" />
