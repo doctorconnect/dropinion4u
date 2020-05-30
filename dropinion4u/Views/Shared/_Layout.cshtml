@@ -58,7 +58,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: rgba(246, 246, 246, 0.60);
+            background-color: rgba(239, 239, 239, 0.90);
             border-radius: 5px;
             box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
         }
@@ -155,7 +155,7 @@
     @if (Request.Cookies["dropiniondisclaimer4xy9"] == null)
     {
         <div id="cookie_disclaimer">
-            <p class="col-sm-10">
+            <p class="col-sm-10" style="text-align:center">
                 This website uses cookies to ensure you get the best experience on our website.
                 <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
             </p>
