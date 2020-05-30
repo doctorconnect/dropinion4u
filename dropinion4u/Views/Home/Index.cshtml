@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-sm-3">
         <h3 class="text-center"> NEWSFEEDS </h3>
-        <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">            
-                @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
+        <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
-    </div>    
+    </div>
     <div class="col-sm-6">
         <br />
         <div class="nav-custom">
@@ -21,7 +21,7 @@
                                 <div class='item active'>
                                     <img style="height:200px;width:100%" src="/images/01.png" />
                                     <div class='carousel-caption'>
-                                        <a data-toggle='modal' data-target='#3' style="color:white"><b>Dr.Opinoin</b></a><br />
+                                        <a data-toggle='modal' data-target='#3' style="color:white"><b>Dr.Opinion</b></a><br />
                                         <a data-toggle='modal' data-target='#3' style="color:white">Dr Opinion Point has vision is to develop a dedicated network for healthcare specialists where they can collaborate in order to provide better healthcare to the world.</a>
                                     </div>
                                 </div>
@@ -41,11 +41,22 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="col-sm-3">
-        <h3 class="text-center">HIGHLIGHTS</h3>
+        <h3 class="text-center">WEBSITES</h3>
         <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
-            <div id="jsMarquee" style="text-align: center;">
+            @*<div id="jsMarquee" style="text-align: center;">
+                </div>*@
+            <div style="text-align: center;position: relative;height: 400px;overflow: hidden;">
+                <a href="https://www.nih.gov" target="_blank">National Institutes of Health</a><br /><br />
+                <a href="https://www.webmd.com" target="_blank">WedMD</a><br /><br />
+                <a href="https://www.drugs.com" target="_blank">Drug information Online</a><br /><br />
+                <a href="https://www.who.int/" target="_blank">World Health organization</a><br /><br />
+                <a href="https://www.worldometers.info/coronavirus/" target="_blank">World Coronavirus Tracker</a><br /><br />
+                <a href="https://www.mohfw.gov.in/" target="_blank">Ministry of Health and Family Welfare - Government of India</a><br /><br />
+                <a href="https://www.mygov.in/covid-19" target="_blank">myGOV - Covid 19 Page </a><br /><br />
+                <a href="https://www.covid19india.org/" target="_blank">Covid 19 India Tracker - A crowdsourced initiative.</a><br /><br />
+                <a href="https://indiasmile.org/covid/" target="_blank">Find How Near Covid19 is</a><br /><br />
             </div>
         </div>
     </div>
