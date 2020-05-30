@@ -2,47 +2,13 @@
     ViewBag.Title = "HomePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style type="text/css">
-    #jsMarquee {
-        position: relative; /* mandatory */ /* width: 200px;*/
-        height: 400px; /* set as required */
-        overflow: hidden; /* mandatory */
-    }
-
-    .divmark {
-    }
-
-    .column {
-        float: left;
-        width: 30%;
-        text-align: center;
-    }
-</style>
-<script>
-    $(window).resize(function () { equalHeight('.column'); });
-    $(document).ready(function () {
-        equalHeight($(".column"));
-    });
-
-    function equalHeight(group) {
-        tallest = 0;
-        group.each(function () {
-            thisHeight = $(this).height();
-            if (thisHeight > tallest) {
-                tallest = thisHeight;
-            }
-        });
-        group.height(tallest);
-    }
-</script>
 <div class="row">
     <div class="col-sm-3">
         <h3 class="text-center"> NEWSFEEDS </h3>
         <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">            
                 @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
-    </div>
-    <!-- Homepage Slider -->
+    </div>    
     <div class="col-sm-6">
         <br />
         <div class="nav-custom">
@@ -75,72 +41,12 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Homepage Slider -->
-    <!-- Press Coverage -->
+    </div>    
     <div class="col-sm-3">
         <h3 class="text-center">HIGHLIGHTS</h3>
         <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
             <div id="jsMarquee" style="text-align: center;">
             </div>
         </div>
-        @*<div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
-            <div class="headerRound" style="padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
-                       border-bottom-color: #d8d8d8; border-bottom-style: solid; border-bottom-width: 1px;
-                       background-color: rgb(242,242,242); background-attachment: scroll; z-index: 1;">
-                <h3 class="headertxt">Product Catagory</h3>
-            </div>
-            <div style="text-align: center; margin-bottom: 10px; margin-top: 10px;margin-left:25px">
-                <img alt="contact" src="/images/products.gif" class="img-responsive" width="200" height="100" />
-            </div>
-            <div style="padding-bottom: 0px; padding-left: 15px;">
-                <table style="border-style:none;border-collapse:collapse;width:100%" id="tblProducts">
-
-                    @foreach (dropinion4u.Models.urllink jap in ViewBag.listdata)
-                    {
-                        <tr>
-                            <td>
-                                <img src="../images/arrowli-active.jpg" />&nbsp;
-                            </td>
-                            <td style="text-align:left">
-                                @Html.ActionLink(@jap.NAME, @jap.action1, @jap.control1)
-                            </td>
-                        </tr>
-                    }
-                </table>
-            </div>
-        </div>*@
     </div>
 </div>
-@section Scripts {
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("/css/icomoon-social.css")
-    @Styles.Render("/Content/bootstrap1.css")
-    @Styles.Render("/Content/bootstrap.min.css")
-    @Scripts.Render("/js/jsMarQuee.js")
-    @Scripts.Render("/js/jquery.sequence-min.js")
-    @Scripts.Render("/js/template.js")
-    @Scripts.Render("/js/jquery.bxslider.js")
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //$('#media').carousel({
-            //    interval: 2000
-            //})
-            $('#imgmap').mouseenter(function () {
-                $(this).animate({
-
-                    height: '400px',
-                    width: '450px'
-                }, 5000);
-            });
-            $('#imgmap').mouseleave(function () {
-                $(this).animate({
-                    height: '200px',
-                    width: '250px'
-                }, 5000);
-            });
-        });
-    </script>
-}

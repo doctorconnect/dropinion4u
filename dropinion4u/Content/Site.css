@@ -87,3 +87,9 @@ textarea {
     height:0px;
     bottom:0px;
 }
+
+#jsMarquee {
+    position: relative; /* mandatory */ /* width: 200px;*/
+    height: 400px; /* set as required */
+    overflow: hidden; /* mandatory */
+}
