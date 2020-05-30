@@ -449,6 +449,8 @@
     <Content Include="Views\Support\Feedback.cshtml" />
     <Content Include="Views\Support\FAQs.cshtml" />
     <Content Include="Views\ChatRoom\DrChat.cshtml" />
+    <Content Include="Views\WebParts\_Carousal.cshtml" />
+    <Content Include="Views\WebParts\_CentralPane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">

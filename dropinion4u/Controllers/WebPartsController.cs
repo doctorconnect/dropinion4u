@@ -25,7 +25,15 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+        public ActionResult _Carousal()
+        {
+            return View();
+        }
 
+        public ActionResult _CentralPane()
+        {
+            return View();
+        }
         public List<RSSFeed> GetRSSFeedList()
         {
             var list = objWebPartsDataAccess.GetRssFeedList().Where(r => r.IsActive == true).Select(l => new { l.Url, l.Title });            

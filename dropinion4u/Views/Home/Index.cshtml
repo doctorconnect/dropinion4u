@@ -11,36 +11,9 @@
     </div>
     <div class="col-sm-6">
         <br />
-        <div class="nav-custom">
-            <div class="tab-content tab-custom">
-                <div id="new" class="tab-pane fade in active ">
-                    <div class="slider">
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" id="divImages">
-                                <div class='item active'>
-                                    <img style="height:200px;width:100%" src="/images/01.png" />
-                                    <div class='carousel-caption'>
-                                        <a data-toggle='modal' data-target='#3' style="color:white"><b>Dr.Opinion</b></a><br />
-                                        <a data-toggle='modal' data-target='#3' style="color:white">Dr Opinion Point has a vision to develop a dedicated network for healthcare specialists where they can collaborate in order to provide better healthcare to the world.</a>
-                                    </div>
-                                </div>
-                                <div class='item'>
-                                    <img style="height:200px;width:100%" src="/images/02.png" />
-                                    <div class='carousel-caption'>
-                                        <a data-toggle='modal' data-target='#1' style="color:white"><b>Our Mission</b></a><br />
-                                        <a data-toggle='modal' data-target='#1' style="color:white">
-                                            -Our Mission is Better Health Of People<br />
-                                            -We Partnership for Health.<br />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
+        <br />
+        @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
     </div>
     <div class="col-sm-3">
         <h3 class="text-center">WEBSITES</h3>
