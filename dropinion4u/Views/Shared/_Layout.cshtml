@@ -11,64 +11,7 @@
     @Styles.Render("/Content/main.css")
     <link href="~/Content/chat.css" rel="stylesheet" />
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    <style>
-        #nvadiv {
-            display: block;
-            width: 80%;
-            -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-            -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-            box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-        }
-
-            #nvadiv > li > a {
-                display: block;
-                padding: 12px 14px;
-                font-size: 1.0em;
-                color: #d4d4d4;
-                text-decoration: none;
-                border-bottom: 1px solid #212121;
-                background-color: #343434;
-                background: -webkit-gradient(linear, left top, left bottom, from(#343434), to(#292929));
-                background: -webkit-linear-gradient(top, #343434, #292929);
-                background: -moz-linear-gradient(top, #343434, #292929);
-                background: -ms-linear-gradient(top, #343434, #292929);
-                background: -o-linear-gradient(top, #343434, #292929);
-                background: linear-gradient(top, #343434, #292929);
-            }
-
-                #nvadiv > li > a:hover, #nav > li > a.open {
-                    color: #e9e9e9;
-                    border-bottom-color: #384f76;
-                    background-color: #6985b5;
-                    background: -webkit-gradient(linear, left top, left bottom, from(#6985b5), to(#456397));
-                    background: -webkit-linear-gradient(top, #6985b5, #456397);
-                    background: -moz-linear-gradient(top, #6985b5, #456397);
-                    background: -ms-linear-gradient(top, #6985b5, #456397);
-                    background: -o-linear-gradient(top, #6985b5, #456397);
-                    background: linear-gradient(top, #6985b5, #456397);
-                }
-
-        #cookie_disclaimer {
-            position: fixed;
-            bottom: 0px;
-            left: 5%;
-            right: 5%;
-            width: 90%;
-            padding: 3px 5px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgba(239, 239, 239, 0.90);
-            border-radius: 5px;
-            box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-        }
-
-        #cookie_stop {
-            border-radius: 2px;
-            width: 100px;
-            cursor: pointer;
-        }
-    </style>
+    
     <script src="~/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -143,8 +86,31 @@
     <div class="container">
         @RenderBody()
     </div>
-    <hr />
     <div class="footer-bg">
+        @if (Request.Cookies["dropiniondisclaimer4xy9"] == null)
+        {
+            <div id="cookie_disclaimer">
+                <p class="col-sm-10" style="text-align:center">
+                    This website uses cookies to ensure you get the best experience on our website.
+                    <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
+                </p>
+                <p id="cookie_stop">
+                    <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+                </p>
+            </div>
+        }
+        else if (!(Request.Cookies["dropiniondisclaimer4xy9"].Value == "true"))
+        {
+            <div id="cookie_disclaimer">
+                <p class="col-sm-10">
+                    This website uses cookies to ensure you get the best experience on our website.
+                    <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
+                </p>
+                <p id="cookie_stop">
+                    <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+                </p>
+            </div>
+        }
         <div class="container">
             <p class="pull-left">
                 <a href="#">&copy; 2020 - Dr. Opinion Point - Copyright Protected</a>
@@ -152,32 +118,10 @@
             <p class="pull-right"><a href="@Url.Action("Privacy", "Support")" target="_blank">Terms and Conditions</a></p>
         </div>
     </div>
-    @if (Request.Cookies["dropiniondisclaimer4xy9"] == null)
-    {
-        <div id="cookie_disclaimer">
-            <p class="col-sm-10" style="text-align:center">
-                This website uses cookies to ensure you get the best experience on our website.
-                <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-            </p>
-            <p id="cookie_stop">
-                <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
-            </p>
-        </div>
-    }
-    else if (!(Request.Cookies["dropiniondisclaimer4xy9"].Value == "true"))
-    {
-        <div id="cookie_disclaimer">
-            <p class="col-sm-10">
-                This website uses cookies to ensure you get the best experience on our website.
-                <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-            </p>
-            <p id="cookie_stop">
-                <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
-            </p>
-        </div>
-    }
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
