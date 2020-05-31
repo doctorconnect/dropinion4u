@@ -34,6 +34,11 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+
+        public ActionResult _CookiesBanner()
+        {
+            return View();
+        }
         public List<RSSFeed> GetRSSFeedList()
         {
             var list = objWebPartsDataAccess.GetRssFeedList().Where(r => r.IsActive == true).Select(l => new { l.Url, l.Title });            

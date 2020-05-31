@@ -22,21 +22,6 @@
     <link href="~/Content/chat.css" rel="stylesheet" />
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="~/js/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#cookie_stop').click(function () {
-                $('#cookie_disclaimer').slideUp();
-                var nDays = 999;
-                var cookieName = "dropiniondisclaimer4xy9";
-                var cookieValue = "true";
-                var today = new Date();
-                var expire = new Date();
-                expire.setTime(today.getTime() + 3600000 * 24 * nDays);
-                document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString() + ";path=/";
-            });
-
-        });
-    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(242,242,242)">
@@ -96,30 +81,6 @@
         @RenderBody()
     </div>
     <div class="footer-bg">
-        @if (Request.Cookies["dropiniondisclaimer4xy9"] == null)
-        {
-            <div id="cookie_disclaimer">
-                <p class="col-sm-10" style="text-align:center">
-                    This website uses cookies to ensure you get the best experience on our website.
-                    <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-                </p>
-                <p id="cookie_stop">
-                    <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
-                </p>
-            </div>
-        }
-        else if (!(Request.Cookies["dropiniondisclaimer4xy9"].Value == "true"))
-        {
-            <div id="cookie_disclaimer">
-                <p class="col-sm-10">
-                    This website uses cookies to ensure you get the best experience on our website.
-                    <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-                </p>
-                <p id="cookie_stop">
-                    <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
-                </p>
-            </div>
-        }
         <div class="container">
             <p class="pull-left">
                 <a href="#">&copy; 2020 - Dr. Opinion Point - Copyright Protected</a>
@@ -128,4 +89,7 @@
         </div>
     </div>
 </body>
+@Html.Partial("~/Views/WebParts/_CookiesBanner.cshtml")
+@Html.Partial("~/Views/ModalDialog/_LoginForm.cshtml")
+@Html.Partial("~/Views/ModalDialog/_PostForm.cshtml")
 </html>

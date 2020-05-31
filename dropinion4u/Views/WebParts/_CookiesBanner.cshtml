@@ -1,0 +1,39 @@
+﻿<script type="text/javascript">
+        $(function () {
+            $('#cookie_stop').click(function () {
+                $('#cookie_disclaimer').slideUp();
+                var nDays = 999;
+                var cookieName = "dropiniondisclaimer4xy921";
+                var cookieValue = "true";
+                var today = new Date();
+                var expire = new Date();
+                expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+                document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString() + ";path=/";
+            });
+
+        });
+</script>
+@if (Request.Cookies["dropiniondisclaimer4xy921"] == null)
+{
+    <div id="cookie_disclaimer">
+        <p class="col-sm-10" style="text-align:center">
+            This website uses cookies to ensure you get the best experience on our website.
+            <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
+        </p>
+        <p id="cookie_stop">
+            <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+        </p>
+    </div>
+}
+else if (!(Request.Cookies["dropiniondisclaimer4xy921"].Value == "true"))
+{
+    <div id="cookie_disclaimer">
+        <p class="col-sm-10">
+            This website uses cookies to ensure you get the best experience on our website.
+            <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
+        </p>
+        <p id="cookie_stop">
+            <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
+        </p>
+    </div>
+}

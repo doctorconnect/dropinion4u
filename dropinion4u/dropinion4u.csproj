@@ -273,6 +273,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChatRoomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModalDialogController.cs" />
     <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\WebPartsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -454,6 +455,9 @@
     <Content Include="Views\ChatRoom\DrChat.cshtml" />
     <Content Include="Views\WebParts\_Carousal.cshtml" />
     <Content Include="Views\WebParts\_CentralPane.cshtml" />
+    <Content Include="Views\ModalDialog\_PostForm.cshtml" />
+    <Content Include="Views\ModalDialog\_LoginForm.cshtml" />
+    <Content Include="Views\WebParts\_CookiesBanner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
