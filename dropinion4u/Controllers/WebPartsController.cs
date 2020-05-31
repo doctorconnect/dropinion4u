@@ -35,6 +35,11 @@ namespace dropinion4u.Controllers
             return View();
         }
 
+        public ActionResult _NewsFeeds()
+        {
+            return View();
+        }
+
         public ActionResult _CookiesBanner()
         {
             return View();

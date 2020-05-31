@@ -16,7 +16,7 @@
 
 #cookie_stop { border-radius: 2px; width: 100px; cursor: pointer; }
 
-.footer-bg { border-top:1px solid black; padding-bottom:0px; margin-bottom:0px; height:0px; bottom:0px; }
+.footer-bg { padding-bottom:0px; margin-bottom:0px; height:0px; bottom:20px;position:fixed; }
 
 #jsMarquee { position: relative; /* mandatory */ /* width: 200px;*/ height: 400px; /* set as required */  overflow: hidden; /* mandatory */}
 

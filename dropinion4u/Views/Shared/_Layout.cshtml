@@ -43,19 +43,19 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="@Url.Action("FAQs","Support")">
-                                    <span class="glyphicon glyphicon-earphone"></span>
+                                    <span class="glyphicon glyphicon-question-sign"></span>
                                     FAQs
                                 </a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Feedback","Support")">
-                                    <span class="glyphicon glyphicon-earphone"></span>
+                                <a data-toggle="modal" data-target="#modalFeedbackForm" style="cursor:pointer">
+                                    <span class="glyphicon glyphicon-envelope"></span>
                                     Feedback
                                 </a>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#">
-                                    <span class="glyphicon glyphicon-user"></span><b>More</b>
+                                    More
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
@@ -63,7 +63,12 @@
                                         <li>@Html.ActionLink("Vision and Quality Policy", "VisionPolicy", "Support")</li>
                                         <li>@Html.ActionLink("Locations", "Location", "Support")</li>
                                         <li>@Html.ActionLink("Terms and Conditions", "BecomeReseller", "Support")</li>*@
-                                    <li>@Html.ActionLink("Join Us", "JoinUs", "Support")</li>
+                                    <li>
+                                        <a data-toggle="modal" data-target="#modalLoginForm" style="cursor:pointer">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            Join Us
+                                        </a>
+                                    </li>
                                     <li>@Html.ActionLink("Terms and Conditions", "Privacy", "Support")</li>
                                 </ul>
                             </li>
@@ -80,7 +85,7 @@
     <div class="container">
         @RenderBody()
     </div>
-    <div class="footer-bg">
+    <div class="footer-bg" style="display:none">
         <div class="container">
             <p class="pull-left">
                 <a href="#">&copy; 2020 - Dr. Opinion Point - Copyright Protected</a>
@@ -92,4 +97,5 @@
 @Html.Partial("~/Views/WebParts/_CookiesBanner.cshtml")
 @Html.Partial("~/Views/ModalDialog/_LoginForm.cshtml")
 @Html.Partial("~/Views/ModalDialog/_PostForm.cshtml")
+@Html.Partial("~/Views/ModalDialog/_FeedbackForm.cshtml")
 </html>

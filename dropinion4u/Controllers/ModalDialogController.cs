@@ -18,5 +18,10 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+
+        public ActionResult _FeedbackForm()
+        {
+            return View();
+        }
     }
 }
