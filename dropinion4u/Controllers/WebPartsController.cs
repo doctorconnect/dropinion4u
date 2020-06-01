@@ -7,6 +7,7 @@ using System.Net;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using System.Xml;
+using System.Xml.Schema;
 
 namespace dropinion4u.Controllers
 {
@@ -24,21 +25,37 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+        public ActionResult _Carousal()
+        {
+            return View();
+        }
 
+        public ActionResult _CentralPane()
+        {
+            return View();
+        }
+
+        public ActionResult _NewsFeeds()
+        {
+            return View();
+        }
+
+        public ActionResult _CookiesBanner()
+        {
+            return View();
+        }
         public List<RSSFeed> GetRSSFeedList()
         {
-            var list = objWebPartsDataAccess.GetRssFeedList().Where(r => r.IsActive == true).Select(l => new { l.Url });
-
+            var list = objWebPartsDataAccess.GetRssFeedList().Where(r => r.IsActive == true).Select(l => new { l.Url, l.Title });            
             List<RSSFeed> feeds = new List<RSSFeed>();
             foreach (var item in list)
             {
-                feeds.AddRange(GetRSS(item.Url));
-
+                feeds.AddRange(GetRSS(item.Url,item.Title));
             }
             return feeds;
         }
 
-        private List<RSSFeed> GetRSS(string url)
+        private List<RSSFeed> GetRSS(string url, string title)
         {
             List<RSSFeed> rssFeeds = new List<RSSFeed>();
             try
@@ -48,7 +65,12 @@ namespace dropinion4u.Controllers
                        | SecurityProtocolType.Tls11
                        | SecurityProtocolType.Tls12
                        | SecurityProtocolType.Ssl3;
-                XmlReader reader = XmlReader.Create(url);
+                // Set the validation settings.
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.DtdProcessing = DtdProcessing.Parse;
+                settings.ValidationType = ValidationType.DTD;
+                settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
+                XmlReader reader = XmlReader.Create(url,settings);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
                 foreach (SyndicationItem feedItem in feed.Items)
@@ -56,6 +78,8 @@ namespace dropinion4u.Controllers
                     RSSFeed rssFeed = new RSSFeed();
                     rssFeed.FeedUrl = feedItem.Links[0].GetAbsoluteUri().ToString();
                     rssFeed.FeedTitle = feedItem.Title.Text;
+                    rssFeed.Url = url;
+                    rssFeed.Title = title;
                     rssFeeds.Add(rssFeed);
 
                 }
@@ -67,6 +91,10 @@ namespace dropinion4u.Controllers
             }
             return rssFeeds;
         }
-
+        // Display any validation errors.
+        private static void ValidationCallBack(object sender, ValidationEventArgs e)
+        {
+            Console.WriteLine("Validation Error: {0}", e.Message);
+        }
     }
 }

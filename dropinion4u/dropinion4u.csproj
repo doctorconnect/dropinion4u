@@ -273,6 +273,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChatRoomController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ModalDialogController.cs" />
     <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\WebPartsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -378,9 +379,13 @@
     <Content Include="images\btn_close.gif" />
     <Content Include="images\bullet.gif" />
     <Content Include="images\calender.jpeg" />
+    <Content Include="images\Camera.png" />
     <Content Include="images\contact.gif" />
     <Content Include="images\cool.gif" />
     <Content Include="images\CoverFile-2.png" />
+    <Content Include="images\digitization-5231610_1280.jpg" />
+    <Content Include="images\digitization-5231610_1920.jpg" />
+    <Content Include="images\digitization-5231610_640.jpg" />
     <Content Include="images\facebook.png" />
     <Content Include="images\google.png" />
     <Content Include="images\laugh.gif" />
@@ -390,9 +395,11 @@
     <Content Include="images\Logodropinion.png" />
     <Content Include="images\panelback.gif" />
     <Content Include="images\panelback2.gif" />
+    <Content Include="images\Photo.png" />
     <Content Include="images\proxypunch.png" />
     <Content Include="images\ratings.jpg" />
     <Content Include="images\SaviorNew.gif" />
+    <Content Include="images\Smiley.png" />
     <Content Include="images\tempLogo.PNG" />
     <Content Include="images\smile.gif" />
     <Content Include="images\twitter.png" />
@@ -449,6 +456,14 @@
     <Content Include="Views\Support\Feedback.cshtml" />
     <Content Include="Views\Support\FAQs.cshtml" />
     <Content Include="Views\ChatRoom\DrChat.cshtml" />
+    <Content Include="Views\WebParts\_Carousal.cshtml" />
+    <Content Include="Views\WebParts\_CentralPane.cshtml" />
+    <Content Include="Views\ModalDialog\_PostForm.cshtml" />
+    <Content Include="Views\ModalDialog\_LoginForm.cshtml" />
+    <Content Include="Views\WebParts\_CookiesBanner.cshtml" />
+    <Content Include="Views\ModalDialog\_FeedbackForm.cshtml" />
+    <Content Include="Views\WebParts\_NewsFeeds.cshtml" />
+    <Content Include="Views\WebParts\_Loading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
