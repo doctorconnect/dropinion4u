@@ -13,7 +13,10 @@
         <br />
         @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
         <br />
-        @*@Html.Partial("~/Views/WebParts/_CentralPane.cshtml")*@
+        @if (Session["UserID"] != null)
+        {
+        @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
+        }
         <br />
         @*@Html.Partial("~/Views/WebParts/_NewsFeeds.cshtml")*@
     </div>

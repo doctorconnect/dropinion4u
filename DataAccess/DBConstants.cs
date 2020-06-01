@@ -11,5 +11,7 @@ namespace DataAccess
         public const string LocConnectV = "LocConnectVinay";
         public const string Connectstring = "ServerConnect";
         public const string PROCGETRSSFEED = "uspGetRSSFeed";
+        public const string PROCGETLISTOFREGISTEREDUSER = "UspGetRegister";
+        public const string SUBMITUSERDETAILS = "UspSubmitDetails";
     }
 }
