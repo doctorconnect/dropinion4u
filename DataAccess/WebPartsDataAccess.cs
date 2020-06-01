@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Security.Principal;
 using System.Web;
 
 
@@ -21,14 +22,16 @@ namespace DataAccess
             m_Database = DatabaseFactory.CreateDatabase(connectionkey);            
         }
         private string GetconnectionKey(string KEY)
-        {
+       {
             string connectionkey = string.Empty;
+
             if (HttpContext.Current.Request.Url.ToString().Contains("dropinion"))
             {
                 connectionkey = DBConstants.Connectstring;
             }
-            else if (HttpContext.Current.Request.Url.ToString().Contains("44328"))
+            else if (HttpContext.Current.Request.Url.ToString().Contains("44327"))
             {
+                
                 connectionkey = DBConstants.LocConnectB;
             }
             else
