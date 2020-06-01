@@ -463,6 +463,7 @@
     <Content Include="Views\WebParts\_CookiesBanner.cshtml" />
     <Content Include="Views\ModalDialog\_FeedbackForm.cshtml" />
     <Content Include="Views\WebParts\_NewsFeeds.cshtml" />
+    <Content Include="Views\WebParts\_Loading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
