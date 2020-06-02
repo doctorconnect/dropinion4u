@@ -69,6 +69,19 @@ namespace DataAccess
             return success;
         }
 
+        public int UpdateUserRequest(string UserEmail, string UserPassword)
+        {
+            int success = 0;
+            using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.UPDATEUSERDETAILS))
+            {
+                m_Database.AddInParameter(dbCommand, "@Email", DbType.String, UserEmail);
+                m_Database.AddInParameter(dbCommand, "@Password", DbType.String, UserPassword);
+
+                success = m_Database.ExecuteNonQuery(dbCommand);
+            }
+            return success;
+        }
+
 
 
 

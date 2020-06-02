@@ -19,12 +19,13 @@
                 <div class="md-form mb-5">
                     <i class="fas fa-lock prefix grey-text"></i>
 
-                    <input type="hidden" id="email" name="email" value="@Session["email"]" />                    
+                    <input type="hidden" id="email" name="email" value="@Session["email"]" />
                     <input type="password" id="defaultForm-pass" class="form-control validate" name="pass">
                     <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
                     <br />
-                    @TempData["P_error"]                   
+                    @TempData["P_error"]
                     <button class="btn btn-success">Next</button>
+                    <button class="btn btn-success">Forgot Password</button>
                 </div>              
             </div>
          
