@@ -15,7 +15,7 @@
         <br />
         @if (Session["UserID"] != null)
         {
-        @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
+            @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
         }
         <br />
         @*@Html.Partial("~/Views/WebParts/_NewsFeeds.cshtml")*@
@@ -39,3 +39,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["LoginAgain"]");
+            };
+</script>

@@ -13,5 +13,6 @@ namespace DataAccess
         public const string PROCGETRSSFEED = "uspGetRSSFeed";
         public const string PROCGETLISTOFREGISTEREDUSER = "UspGetRegister";
         public const string SUBMITUSERDETAILS = "UspSubmitDetails";
+        public const string UPDATEUSERDETAILS = "Dro_UpdateUserDetails";
     }
 }

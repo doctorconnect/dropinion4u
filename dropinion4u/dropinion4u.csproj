@@ -281,6 +281,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
+    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\urllink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -467,6 +468,7 @@
     <Content Include="Views\WebParts\_Loading.cshtml" />
     <Content Include="Views\Login\Signin.cshtml" />
     <Content Include="Views\Login\SigninVerify.cshtml" />
+    <Content Include="Views\Login\SigninWithRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
