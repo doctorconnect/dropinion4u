@@ -17,6 +17,25 @@
         {
             @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
         }
+        else
+        {
+            <div style="background-image: url('../../images/createpostbackground.PNG');">
+                <div style="border: 2px solid rgba(246,246,246);background-color: rgba(246,246,246,.85);border-radius: 10px;">
+                    <br />
+                    <div class="text-center">
+                        <a href="@Url.Action("Signin","Login")" class="btn btn-default btn-rounded mb-4">
+                            <b>Join Us</b>
+                        </a><br /><br />
+                        @*<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
+                                Join Us
+                            </a><br /><br />*@
+                        <a href="@Url.Action("Signin","Login")">
+                            <b><u>Already a Member. Sign In!</u></b>
+                        </a>
+                    </div><br />
+                </div>
+            </div>
+        }
         <br />
         @Html.Partial("~/Views/Timeline/_FeedPost.cshtml")
     </div>
