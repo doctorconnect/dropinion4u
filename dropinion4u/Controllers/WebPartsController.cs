@@ -33,12 +33,7 @@ namespace dropinion4u.Controllers
         public ActionResult _CentralPane()
         {
             return View();
-        }
-
-        public ActionResult _NewsFeeds()
-        {
-            return View();
-        }
+        }        
 
         public ActionResult _CookiesBanner()
         {

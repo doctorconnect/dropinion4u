@@ -76,6 +76,9 @@ namespace dropinion4u.Controllers
             return View();
         }
 
-
+        public ActionResult UserProfile()
+        {
+            return View();
+        }
     }
 }

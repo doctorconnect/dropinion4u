@@ -276,6 +276,8 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ModalDialogController.cs" />
     <Compile Include="Controllers\SupportController.cs" />
+    <Compile Include="Controllers\TimelineController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\WebPartsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -463,10 +465,11 @@
     <Content Include="Views\ModalDialog\_LoginForm.cshtml" />
     <Content Include="Views\WebParts\_CookiesBanner.cshtml" />
     <Content Include="Views\ModalDialog\_FeedbackForm.cshtml" />
-    <Content Include="Views\WebParts\_NewsFeeds.cshtml" />
+    <Content Include="Views\Timeline\_FeedPost.cshtml" />
     <Content Include="Views\WebParts\_Loading.cshtml" />
     <Content Include="Views\Login\Signin.cshtml" />
     <Content Include="Views\Login\SigninVerify.cshtml" />
+    <Content Include="Views\Home\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
@@ -491,7 +494,9 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\UserProfile\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

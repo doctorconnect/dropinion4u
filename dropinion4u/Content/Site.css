@@ -43,10 +43,6 @@
 
 .CreatePostMoreimagecontainer { border-bottom-right-radius: 8px; border-top-left-radius: 8px; min-height: 0; padding-bottom: 8px; padding-left: 8px; box-sizing: border-box; flex-basis: 0px; border-top-right-radius: 8px; margin-bottom: 0; -webkit-tap-highlight-color: transparent; cursor: pointer; position: relative; border-bottom-left-radius: 8px; margin-top: 0; min-width: fit-content; text-align: inherit; margin-left: 0; background-color: transparent; flex-shrink: 1; touch-action: manipulation; z-index: 0; padding-right: 8px; margin-right: 0; padding-top: 8px; flex-grow: 1; flex-direction: row; -webkit-user-select: none; border-right-color: var(--always-dark-overlay); border-left-width: 0; border-bottom-style: solid; border-top-width: 0; border-bottom-color: var(--always-dark-overlay); border-left-color: var(--always-dark-overlay); border-right-width: 0; border-top-color: var(--always-dark-overlay); border-left-style: solid; border-top-style: solid; border-right-style: solid;  border-bottom-width: 0; list-style: none; outline: none; text-decoration: none; }
 
-.containeroffeedscontainer { transition-duration: var(--fds-slow); transition-property: opacity,transform; opacity: 1; }
-
-.spacinger { clip: rect(0,0,0,0); position: absolute; clip-path: polygon(0 0,0 0,0 0,0 0); }
-
-.newsfeedtitle { font-weight: inherit; font-size: inherit; color: inherit; outline: none; }
-
-.singlefeedcontainer { margin-bottom: 16px; position: relative; width: 100%; z-index: 0; }
+.userimageandtitle { padding-top: 12px; margin-bottom: 12px; align-items: flex-start; display: flex; padding-right: 16px; padding-left: 16px; flex-direction: row; }
+.posttext { margin-bottom: 12px; align-items: flex-start; display: flex; padding-right: 16px; padding-left: 16px; flex-direction: row; }
+.likecommentinfo{ margin-bottom: 12px;display: flex; margin-right: 16px; margin-left: 16px; }
