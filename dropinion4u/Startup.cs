@@ -11,7 +11,7 @@ namespace dropinion4u
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();
+            //app.MapSignalR();
         }
     }
 }
