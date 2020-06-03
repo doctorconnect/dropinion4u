@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,11 @@ namespace dropinion4u.Controllers
 {
     public class SupportController : Controller
     {
+        private WebPartsDataAccess objWebPartsDataAccess;
+        public SupportController()
+        {
+            objWebPartsDataAccess = new WebPartsDataAccess();
+        }
         // GET: Support
         public ActionResult About()
         {
@@ -30,11 +36,12 @@ namespace dropinion4u.Controllers
             return View();
         }
 
-        public ActionResult Feedback()
+        [HttpPost]
+        public ActionResult Feedback(string Feedback)
         {
-            ViewBag.Message = "Your Feedback page.";
-
-            return View();
+            objWebPartsDataAccess.SubmitFeedBack(Feedback);
+            ViewBag.message = "Submmit Feedback";
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult FAQs()

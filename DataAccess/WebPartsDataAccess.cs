@@ -74,5 +74,16 @@ namespace DataAccess
 
             return RSSFeed;
         }
+
+        public int SubmitFeedBack(string FeedBack)
+        {
+            int success = 0;
+            using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.SUBMITFEEDBACK))
+            {
+                m_Database.AddInParameter(dbCommand, "@Feedback", DbType.String, FeedBack);
+                 success = m_Database.ExecuteNonQuery(dbCommand);
+            }
+            return success;
+        }
     }
 }
