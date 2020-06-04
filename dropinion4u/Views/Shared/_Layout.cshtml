@@ -44,24 +44,15 @@
                         <ul class="nav navbar-nav navbar-right">
                             @if (Session["UserID"] != null)
                             {
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#">
-                                        <span class="glyphicon glyphicon-user"></span>@Session["UserID"]
+                                <li>
+                                    <a href="@Url.Action("EditProfile","SelfProfile")">
+                                        @*if No photo*@
+                                        <span class="glyphicon glyphicon-user"> </span>
+                                        @*else*@
+
+                                        @Session["UserID"]
                                     </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="@Url.Action("EditProfile","UserProfile")">
-                                                <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                                Edit/Complete your profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("VerifyAccount","UserProfile")">
-                                                <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                                Verify your account
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    
                                 </li>
                             }
                             <li>

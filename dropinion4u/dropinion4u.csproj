@@ -460,8 +460,8 @@
     <Content Include="Views\Login\SigninVerify.cshtml" />
     <Content Include="Views\Login\SigninWithRegister.cshtml" />
     <Content Include="Views\Home\UserProfile.cshtml" />
-    <Content Include="Views\UserProfile\EditProfile.cshtml" />
-    <Content Include="Views\UserProfile\VerifyAccount.cshtml" />
+    <Content Include="Views\UserProfile\SelfProfile.cshtml" />
+    <Content Include="Views\UserProfile\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
