@@ -46,3 +46,4 @@
 .userimageandtitle { padding-top: 12px; margin-bottom: 12px; align-items: flex-start; display: flex; padding-right: 16px; padding-left: 16px; flex-direction: row; }
 .posttext { margin-bottom: 12px; align-items: flex-start; display: flex; padding-right: 16px; padding-left: 16px; flex-direction: row; }
 .likecommentinfo{ margin-bottom: 12px;display: flex; margin-right: 16px; margin-left: 16px; }
+.likecommentpanel { align-items: center; color: #606770; display: flex; flex: 1 0; font-weight: 600; height: 32px; justify-content: center; line-height: 14px; padding: 0 2px; position: relative; text-decoration: none; transition: 400ms cubic-bezier(.08,.52,.52,1) transform; }
