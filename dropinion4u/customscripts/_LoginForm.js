@@ -33,7 +33,7 @@ function submitEmail() {
                 else if (data.Item1 == "Register") {
                     $('#emailform').hide();
                     $('#registerform').show();
-                    $('#hmsg').html('Password for <a><b>' + data.Item2 + '</b></a>');
+                    $('#hmsg').html('Create account for <a><b>' + data.Item2 + '</b></a>');
                 }
                 else if (data.Item1 == "LoginFailed") {
                     $('#spanerrorNext').html('0oo0... Email Missing');

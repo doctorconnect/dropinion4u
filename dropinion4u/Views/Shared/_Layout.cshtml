@@ -43,7 +43,19 @@
                     <div class="navbar-collapse collapse">
                         @*@Html.Partial("~/Views/Shared/_search.cshtml")*@
                         <ul class="nav navbar-nav navbar-right">
+                            @if (Session["UserID"] != null)
+                            {
+                                <li>
+                                    <a href="@Url.Action("EditProfile","SelfProfile")">
+                                        @*if No photo*@
+                                        <span class="glyphicon glyphicon-user"> </span>
+                                        @*else*@
 
+                                        @Session["UserID"]
+                                    </a>
+                                    
+                                </li>
+                            }
                             <li>
                                 <a data-toggle="modal" data-target="#modalFeedbackForm" style="cursor:pointer">
                                     <span class="glyphicon glyphicon-envelope"></span>
