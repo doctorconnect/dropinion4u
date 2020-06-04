@@ -35,13 +35,7 @@ namespace dropinion4u.Controllers
 
             return View();
         }
-
       
-        public JsonResult Feedback(string Feedback)
-        {
-            objWebPartsDataAccess.SubmitFeedBack(Feedback);            
-            return new JsonResult { Data = ("Feedback Submmit Successfully") };
-        }
 
         public ActionResult FAQs()
         {

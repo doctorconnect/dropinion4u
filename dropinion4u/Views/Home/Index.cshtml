@@ -37,12 +37,15 @@
         @*@Html.Partial("~/Views/Timeline/_FeedPost.cshtml")*@
     </div>
     <div class="col-sm-3">
-        <h3 class="text-center"> NEWSFEEDS </h3>
-        <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+             
+        <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="panel-heading"><h3>NEWSFEEDS</h3></div>
             @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
-        <h3 class="text-center">WEBSITES</h3>
-        <div class="round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+       
+        <div class="  panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="panel-heading"><h3>WEBSITES</h3></div>
+            <br />
             <div style="text-align: center;position: relative;height: 200px;overflow-y: scroll;word-wrap:hyphenate">
                 <a href="https://www.nih.gov">National Institutes of Health</a><br /><br />
                 <a href="https://www.webmd.com">WedMD</a><br /><br />
