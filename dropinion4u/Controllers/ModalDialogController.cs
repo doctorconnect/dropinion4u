@@ -31,64 +31,87 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
-        
+
         public JsonResult CheckEmail(string email)
         {
-            if (email != null && email != "")
+            try
             {
-                Session["email"] = email;
-                var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-                if (userDetails == null)
+                if (email != null && email != "")
                 {
-                    string pass = "xytxmshivnandan123456dropinior";
-                    objLogindataAccess.SubmitUserRequest(email, pass);
-                    return new JsonResult { Data = "Register" };
+                    Session["email"] = email;
+                    var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+                    if (userDetails == null)
+                    {
+                        string pass = "xytxmshivnandan123456dropinior";
+                        objLogindataAccess.SubmitUserRequest(email, pass);
+                        return new JsonResult { Data = ("Register", email) };
+                    }
+                    else
+                    {
+                        var userDetailsLogin = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+
+                        if (userDetailsLogin.UserPassword == "xytxmshivnandan123456dropinior")
+                        {
+                            return new JsonResult { Data = ("Register", email) };
+                        }
+                        else
+                        {
+                            return new JsonResult { Data = ("Login", email) };
+                        }
+                    }
+                }
+                else
+                {
+                    return new JsonResult { Data = ("LoginFailed", "EmailMissing") };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult { Data = ("Error", "Something Wrong at our side...") };
+            }
+        }
+        public JsonResult Login(string Pass)
+        {
+            try
+            {
+                string email = Session["email"].ToString();
+                var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email && x.UserPassword == Pass).FirstOrDefault();
+                if (userDetails != null)
+                {
+                    Session["UserID"] = userDetails.UserID;
+                    return new JsonResult { Data = ("LoginSuccessful", Session["UserID"]) };
                 }
                 else
                 {
                     var userDetailsLogin = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-
-                    if (userDetailsLogin.UserPassword == "xytxmshivnandan123456dropinior")
-                    {
-                        return new JsonResult { Data = "Register" };
-                    }
-                    else
-                    {
-                        return new JsonResult { Data = "Login" };
-                    }
+                    TempData["P_error"] = "Password is incorrect !!!";
+                    return new JsonResult { Data = ("LoginFailed", "IncorrectPassword") };
                 }
             }
-            return new JsonResult { Data = "Register" };
-        }
-        public JsonResult Login(string Pass)
-        {
-            string email= Session["email"].ToString();
-            var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email && x.UserPassword == Pass).FirstOrDefault();
-            if (userDetails != null)
+            catch (Exception ex)
             {
-                Session["UserID"] = userDetails.UserID;
-                return new JsonResult { Data = Session["UserID"] };
+                return new JsonResult { Data = ("Error", "Something Wrong at our side...") };
             }
-            else
-            {
-                var userDetailsLogin = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-                TempData["P_error"] = "Password is incorrect !!!";
-            }
-            return new JsonResult { Data = "LoginFailed" };
         }
         public JsonResult Register(string Pass)
         {
-            string email = Session["email"].ToString();
-            int msg = 0;
-            var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-            if (userDetails != null)
+            try
             {
-                msg = objLogindataAccess.UpdateUserRequest(email, Pass);
-                Session["UserID"] = userDetails.UserID;
-                return new JsonResult { Data = Session["UserID"] };
+                string email = Session["email"].ToString();
+                int msg = 0;
+                var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+                if (userDetails != null)
+                {
+                    msg = objLogindataAccess.UpdateUserRequest(email, Pass);
+                    Session["UserID"] = userDetails.UserID;
+                    return new JsonResult { Data = ("RegistrationSuccessful", Session["UserID"]) };
+                }
+                return new JsonResult { Data = ("RegistrationFailed", "Something Fishy...") };
             }
-            return new JsonResult { Data = Session["Registration Failed. Try later..."] };
+            catch (Exception ex)
+            {
+                return new JsonResult { Data = ("Error", "Something Wrong at our side...") };
+            }
         }
-       
     }
 }

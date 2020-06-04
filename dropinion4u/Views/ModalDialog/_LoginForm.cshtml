@@ -6,103 +6,47 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h5 class="modal-title w-100 font-weight-bold">We don't spam!</h5>
+                <h5 class="modal-title w-100 font-weight-bold" id="hmsg">We don't spam!</h5>
             </div>
             <div class="modal-footer d-flex justify-content-center">
+                
                 <div id="emailform">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input id="email" type="email" class="form-control validate" name="email" placeholder="Enter your best email">
+                        <input id="email" type="email" class="form-control validate" name="email" placeholder="Enter your email address...">
                     </div><br />
-                    <button class="btn btn-default" onclick="submitEmail()" style="background-color:limegreen">Next</button>
+                    <div id="spanerrorNext" style="color:darkred"></div>
+                    <button id="btnNext" class="btn btn-default" onclick="submitEmail()" style="background-color:limegreen" disabled>Next</button>
                     <button class="btn btn-default" data-dismiss="modal">Not today!</button>
                 </div>
                 <div id="passwordform">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                        <input id="password" type="password" class="form-control validate" name="password">
+                        <input id="password" type="password" class="form-control validate" name="password" placeholder="Enter your password...">
                     </div><br />
-                    <button class="btn btn-default" onclick="login()" style="background-color:limegreen">Login</button>
+                    <div id="spanerrorLogin" style="color:darkred"></div>
+                    <button class="btn btn-default" onclick="back()" >No! Not this Email!</button>
+                    <button id="btnLogin" class="btn btn-default" onclick="login()" style="background-color:limegreen" disabled>Login</button>
                     <button class="btn btn-default" data-dismiss="modal">Leave It!</button>
                 </div>
                 <div id="registerform">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                        <input id="registrationpassword" type="password" class="form-control validate" name="registrationpassword">
+                        <input id="registrationpassword" type="password" class="form-control validate" name="registrationpassword" placeholder="Create password...">
                     </div><br />
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                        <input id="confirmpassword" type="password" class="form-control validate" name="confirmpassword">
+                        <input id="confirmpassword" type="password" class="form-control validate" name="confirmpassword" placeholder="Confirm password...">
                     </div><br />
-                    <button class="btn btn-default" onclick="register()" style="background-color:limegreen">Create Account</button>
+                    <div id="spanerrorRegister" style="color:darkred"></div>
+                    <div id="spanerrorConfirm" style="color:darkred"></div>
+                    <button class="btn btn-default" onclick="back()">No! Not this Email!</button>
+                    <button id="btnRegister" class="btn btn-default" onclick="register()" style="background-color:limegreen" disabled>Create Account</button>
                     <button class="btn btn-default" data-dismiss="modal">Later!</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $('#passwordform').hide();
-        $('#registerform').hide();
-    });
-
-    function submitEmail() {
-        if (!$.isEmptyObject($('#email').val())) {
-            $.ajax({
-                url: "/ModalDialog/CheckEmail",
-                type: "POST",
-                dataType: "JSON",
-                data: { email: $('#email').val() },
-                success: function (data) {
-                    if (data == "Login") {
-                        $('#emailform').hide();
-                        $('#passwordform').show();
-                    }
-                    else {
-                        $('#emailform').hide();
-                        $('#registerform').show();
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("fail");
-                }
-            });
-        }
-    }
-
-    function login() {
-        if (!$.isEmptyObject($('#password').val())) {
-            $.ajax({
-                url: "/ModalDialog/Login",
-                type: "POST",
-                dataType: "JSON",
-                data: { pass: $('#password').val() },
-                success: function (data) {
-                    window.location.href = "/home/Index"
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("faillogin");
-                }
-            });
-        }
-    }
-
-    function register() {
-        if (!$.isEmptyObject($('#email').val())) {
-            $.ajax({
-                url: "/ModalDialog/Register",
-                type: "POST",
-                dataType: "JSON",
-                data: { pass: $('#registrationpassword').val() },
-                success: function (data) {
-                    window.location.href = "/home/Index"
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("failregister");
-                }
-            });
-        }
-    }
-</script>`
+<script src="~/CustomScripts/_LoginForm.js"></script>
+`
