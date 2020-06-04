@@ -13,5 +13,15 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+
+        public ActionResult EditProfile()
+        {
+            return View();
+        }
+
+        public ActionResult VerifyAccount()
+        {
+            return View();
+        }
     }
 }
