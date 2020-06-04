@@ -2,7 +2,7 @@
     var txtFeedback = $('.Feedback').val();
     swal({
         title: "Are you sure?",
-        text: "Once modified, you will not be able to recover your profile!",
+        text: "Once You Submit feedback, you will not be able to update your feedback!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -14,7 +14,7 @@
                     type: "POST",
                     dataType: "JSON",
                     success: function (response) {
-                        swal("Poof! Your profile has been modified!", {
+                        swal("Poof! Your feedback has been Submited!", {
                             icon: "success",
                         }).then(function () {                            
                             window.location.href = "/Home/Index"
@@ -31,7 +31,7 @@
 
             }
             else {
-                swal("Your profil is safe!");
+                swal("Your feedback is safe!");
             }
         });
 }
