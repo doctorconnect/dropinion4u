@@ -11,9 +11,11 @@ namespace dropinion4u.Controllers
     public class ModalDialogController : Controller
     {
         private LogindataAccess objLogindataAccess;
+        private WebPartsDataAccess objWebPartsDataAccess;
         public ModalDialogController()
         {
             objLogindataAccess = new LogindataAccess();
+            objWebPartsDataAccess = new WebPartsDataAccess();
 
         }
         // GET: ModalDialog
@@ -30,6 +32,21 @@ namespace dropinion4u.Controllers
         public ActionResult _FeedbackForm()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult Feedback(string Feedback)
+        {
+            try
+            {
+                objWebPartsDataAccess.SubmitFeedBack(Feedback);
+                return Json("Feedback Submmit Successfully");
+            }
+            catch
+            {
+                return Json("Error");
+            }
+            //  return new JsonResult { response = ("Feedback Submmit Successfully") };
         }
 
         public JsonResult CheckEmail(string email)
@@ -67,7 +84,7 @@ namespace dropinion4u.Controllers
             }
             catch (Exception ex)
             {
-                return new JsonResult { Data = ("Error", "Something Wrong at our side...") };
+                return new JsonResult { Data = ("Error",ex+ "Something Wrong at our side...") };
             }
         }
         public JsonResult Login(string Pass)
@@ -90,7 +107,7 @@ namespace dropinion4u.Controllers
             }
             catch (Exception ex)
             {
-                return new JsonResult { Data = ("Error", "Something Wrong at our side...") };
+                return new JsonResult { Data = ("Error",ex+ "Something Wrong at our side...") };
             }
         }
         public JsonResult Register(string Pass)
@@ -110,7 +127,7 @@ namespace dropinion4u.Controllers
             }
             catch (Exception ex)
             {
-                return new JsonResult { Data = ("Error", "Something Wrong at our side...") };
+                return new JsonResult { Data = ("Error",ex+ "Something Wrong at our side...") };
             }
         }
     }

@@ -36,12 +36,11 @@ namespace dropinion4u.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Feedback(string Feedback)
+      
+        public JsonResult Feedback(string Feedback)
         {
-            objWebPartsDataAccess.SubmitFeedBack(Feedback);
-            ViewBag.message = "Submmit Feedback";
-            return RedirectToAction("Index", "Home");
+            objWebPartsDataAccess.SubmitFeedBack(Feedback);            
+            return new JsonResult { Data = ("Feedback Submmit Successfully") };
         }
 
         public ActionResult FAQs()
