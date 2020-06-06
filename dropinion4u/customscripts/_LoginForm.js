@@ -4,6 +4,18 @@
     $('#registerform').hide();
 });
 
+
+
+function validateemail() {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (regex.test($('#email').val().trim())) {
+        $('#btnNext').removeAttr("disabled");
+        $('#spanerrorNext').html('');
+    }
+    $('#email').focus();
+}
+
+
 $('#email').keyup(function () {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (regex.test($('#email').val().trim())) {
@@ -59,6 +71,14 @@ function back() {
     $('#emailform').show();
 }
 
+function validatepwdfield() {
+    var val = $('#password').val().trim().length;
+    if (val > 0) {
+        $('#btnLogin').removeAttr("disabled");
+        $('#spanerrorLogin').html('');
+    }
+    $('#password').focus();
+}
 
 $('#password').keyup(function () {
     var val = $('#password').val().trim().length;
@@ -104,6 +124,10 @@ function login() {
     }
 }
 
+function focuscreatepwdfield() {
+    $('#registrationpassword').focus();
+}
+
 $('#registrationpassword').keyup(function () {
     var val = $('#registrationpassword').val().trim().length;
     if (val > 3) {
@@ -119,7 +143,7 @@ $('#registrationpassword').keyup(function () {
 });
 $('#confirmpassword').keyup(function () {
     var val = $('#confirmpassword').val().trim().length;
-    if (val>3 && $('#confirmpassword').val() == $('#registrationpassword').val()) {
+    if (val > 3 && $('#confirmpassword').val() == $('#registrationpassword').val()) {
         $('#btnRegister').removeAttr("disabled");
         $('#spanerrorConfirm').html('');
     }

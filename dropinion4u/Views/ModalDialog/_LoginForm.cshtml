@@ -10,16 +10,16 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 
-                <div id="emailform">
+                <div id="emailform" onmouseover="validateemail()">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input id="email" type="email" class="form-control validate" name="email" placeholder="Enter your email address...">
+                        <input id="email" type="email" class="form-control validate" name="email" placeholder="Enter your email address..." autofocus>
                     </div><br />
                     <div id="spanerrorNext" style="color:darkred"></div>
                     <button id="btnNext" class="btn btn-default" onclick="submitEmail()" style="background-color:limegreen" disabled>Next</button>
                     <button class="btn btn-default" data-dismiss="modal">Not today!</button>
                 </div>
-                <div id="passwordform">
+                <div id="passwordform" onmouseover="validatepwdfield()">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
                         <input id="password" type="password" class="form-control validate" name="password" placeholder="Enter your password...">
@@ -29,7 +29,7 @@
                     <button id="btnLogin" class="btn btn-default" onclick="login()" style="background-color:limegreen" disabled>Login</button>
                     <button class="btn btn-default" data-dismiss="modal">Leave It!</button>
                 </div>
-                <div id="registerform">
+                <div id="registerform" onmouseover="focuscreatepwdfield()">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
                         <input id="registrationpassword" type="password" class="form-control validate" name="registrationpassword" placeholder="Create password...">

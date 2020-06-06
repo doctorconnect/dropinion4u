@@ -46,14 +46,14 @@
                             @if (Session["UserID"] != null)
                             {
                                 <li>
-                                    <a href="@Url.Action("EditProfile","SelfProfile")">
+                                    <a href="@Url.Action("SelfProfile","UserProfile")">
                                         @*if No photo*@
                                         <span class="glyphicon glyphicon-user"> </span>
                                         @*else*@
 
                                         @Session["UserID"]
                                     </a>
-                                    
+
                                 </li>
                             }
                             <li>
