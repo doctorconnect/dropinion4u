@@ -1,8 +1,52 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "UserProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>User profile</h2>
+<div class="row">
+    <div class="col-sm-3">
+        <br /><br />
+        @if (Session["UserID"] != null)
+        {
+            <p>
+                Cover Photo<br />
+                Profile Photo<br />
+                Name<br />
+                Title<br />
+                Education<br />
+                University<br />
+                Location<br />
+                Followers<br />
+                Following<br />
+                About<br />
+            </p>
+        }
+    </div>
+    <div class="col-sm-6">
+        <br />
+        @if (Session["UserID"] != null)
+        {
+            @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
+        }
+        else
+        {
+            <div style="background-image: url('../../images/createpostbackground.PNG');">
+                <div style="border: 2px solid rgba(246,246,246);background-color: rgba(246,246,246,.85);border-radius: 10px;">
+                    <br />
+                    <div class="text-center">
+                        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
+                            Join Us
+                        </a><br /><br />
+                        <a href="" data-toggle="modal" data-target="#modalLoginForm">
+                            <b><u>Already a Member. Sign In!</u></b>
+                        </a>
+                    </div><br />
+                </div>
+            </div>
+        }
+        <br />
+        @*@Html.Partial("~/Views/Timeline/_UserPost.cshtml")*@
+    </div>
+    <div class="col-sm-3">
+    </div>
+</div>
 

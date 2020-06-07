@@ -346,6 +346,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="customscripts\Feedback.js" />
+    <Content Include="customscripts\_VerificationForm.js" />
     <Content Include="customscripts\_LoginForm.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -460,6 +461,8 @@
     <Content Include="Views\Home\UserProfile.cshtml" />
     <Content Include="Views\UserProfile\SelfProfile.cshtml" />
     <Content Include="Views\UserProfile\UserProfile.cshtml" />
+    <Content Include="Views\WebParts\_VerifyRegistrationBanner.cshtml" />
+    <Content Include="Views\ModalDialog\_VerificationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">

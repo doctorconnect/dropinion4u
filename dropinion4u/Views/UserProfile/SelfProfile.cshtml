@@ -1,8 +1,71 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "SelfProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <div class="col-sm-3">
+        @if (Session["UserID"] != null)
+        {
+        <p><br /><br />
+            Cover Photo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            Profile Photo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            Education&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            N Followers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            N Following&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+            About&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit<br />
+        </p>
+        }
+    </div>
+    <div class="col-sm-6">
+        <br />
+        @if (Session["UserID"] != null)
+        {
+            @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
+        }
+        else
+        {
+            <div style="background-image: url('../../images/createpostbackground.PNG');">
+                <div style="border: 2px solid rgba(246,246,246);background-color: rgba(246,246,246,.85);border-radius: 10px;">
+                    <br />
+                    <div class="text-center">
+                        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
+                            Join Us
+                        </a><br /><br />
+                        <a href="" data-toggle="modal" data-target="#modalLoginForm">
+                            <b><u>Already a Member. Sign In!</u></b>
+                        </a>
+                    </div><br />
+                </div>
+            </div>
+        }
+        <br />
+        @*@Html.Partial("~/Views/Timeline/_MyPost.cshtml")*@
+    </div>
+    <div class="col-sm-3">
+        <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="panel-heading"><h5>MY NEWSFEEDS</h5></div>
+            @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
+        </div>
 
-<h2>Self Profile</h2>
+        <div class="  panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="panel-heading"><h5>FAVOURITE WEBSITES</h5></div>
+            <br />
+            <div style="text-align: center;position: relative;height: 200px;overflow-y: scroll;word-wrap:hyphenate">
+                <a href="https://www.nih.gov">National Institutes of Health</a><br /><br />
+                <a href="https://www.webmd.com">WedMD</a><br /><br />
+                <a href="https://www.drugs.com">Drug information Online</a><br /><br />
+                <a href="https://www.who.int/">World Health organization</a><br /><br />
+                <a href="https://www.worldometers.info/coronavirus/">World Coronavirus Tracker</a><br /><br />
+                <a href="https://www.mohfw.gov.in/">Ministry of Health and Family Welfare - Government of India</a><br /><br />
+                <a href="https://www.mygov.in/covid-19">myGOV - Covid 19 Page </a><br /><br />
+                <a href="https://www.covid19india.org/">Covid 19 India Tracker - A crowdsourced initiative.</a><br /><br />
+                <a href="https://indiasmile.org/covid/">Find How Near Covid19 is</a><br /><br />
+            </div>
+        </div>
+    </div>
+</div>
 

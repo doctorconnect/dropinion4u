@@ -1,0 +1,12 @@
+﻿
+@if (Session["EmailVerified"] != null && Session["EmailVerified"].ToString() == false.ToString())
+{
+    <div id="verifyregistration">
+        <p class="col-sm-10" style="text-align:center">
+            We thank you for registering at dropinion.net. You can now browse through the content. You need to Verify your email address so we can ensure no one else post with your email address.
+        </p>
+        <p id="cookie_stop">
+            <a data-toggle="modal" data-target="#modalVerificationForm" style="cursor:pointer" role="button" tabindex="0" class="cc-btn cc-dismiss">Verify Now</a>
+        </p>
+    </div>
+}

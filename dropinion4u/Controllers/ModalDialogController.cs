@@ -33,6 +33,10 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+        public ActionResult _VerificationForm()
+        {
+            return View();
+        }
 
         [HttpPost]
         public JsonResult Feedback(string Feedback)
@@ -96,6 +100,7 @@ namespace dropinion4u.Controllers
                 if (userDetails != null)
                 {
                     Session["UserID"] = userDetails.UserID;
+                    Session["EmailVerified"] = false;
                     return new JsonResult { Data = ("LoginSuccessful", Session["UserID"]) };
                 }
                 else
