@@ -2,24 +2,30 @@
     ViewBag.Title = "UserProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="row">
     <div class="col-sm-3">
-        <br /><br />
-        @if (Session["UserID"] != null)
-        {
-            <p>
-                Cover Photo<br />
-                Profile Photo<br />
-                Name<br />
-                Title<br />
-                Education<br />
-                University<br />
-                Location<br />
-                Followers<br />
-                Following<br />
-                About<br />
-            </p>
-        }
+        <div style="border: solid 1px #d8d8d8;margin-top:10px;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;">
+            <div class="cover-photo">
+                <div class="fb-timeline-img">
+                    <img src="~/images/Bannerbgrd.png" height="100" />
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="profile-thumb">
+                    <img src="~/images/achievement.png" />
+                    <h4><a href="#" title="Name" style="color:GrayText">Dr. Vinay Goel</a></h4>
+                    <a title="Title" href="#" style="color:GrayText">General Physician</a><br />
+                    <a title="Education" href="#" style="color:GrayText">M.B.B.S</a><br />
+                    <a title="University" href="#" style="color:GrayText">AIMS university</a><br />
+                    <a title="Location" href="#" style="color:GrayText">Gurgaon</a><br />
+                    <a title="Followers" href="#" style="color:GrayText">298 Followers</a><br />
+                    <a title="Following" href="#" style="color:GrayText">301 Following</a><br />
+                </div>
+
+            </div>
+            <p style="width:90%;text-align:center;margin-left:5%;margin-right:5%;">Vinay Goel is a Very good doctor with 10 years of Experience. He is a Guest lecturar in MIT. He is very kind hearted and handsome guy.</p>
+        </div>
     </div>
     <div class="col-sm-6">
         <br />
@@ -44,9 +50,31 @@
             </div>
         }
         <br />
-        @*@Html.Partial("~/Views/Timeline/_UserPost.cshtml")*@
+        @*@Html.Partial("~/Views/Timeline/_MyPost.cshtml")*@
     </div>
     <div class="col-sm-3">
+
+        <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="panel-heading" style="text-align:center"><h4>NEWSFEEDS</h4></div>
+            @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
+        </div>
+
+        <div class="  panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+            <div class="panel-heading" style="text-align:center"><h4>WEBSITES</h4></div>
+            <br />
+            <div style="text-align: center;position: relative;height: 200px;overflow-y: scroll;word-wrap:hyphenate">
+                <a href="https://www.nih.gov">National Institutes of Health</a><br /><br />
+                <a href="https://www.webmd.com">WedMD</a><br /><br />
+                <a href="https://www.drugs.com">Drug information Online</a><br /><br />
+                <a href="https://www.who.int/">World Health organization</a><br /><br />
+                <a href="https://www.worldometers.info/coronavirus/">World Coronavirus Tracker</a><br /><br />
+                <a href="https://www.mohfw.gov.in/">Ministry of Health and Family Welfare - Government of India</a><br /><br />
+                <a href="https://www.mygov.in/covid-19">myGOV - Covid 19 Page </a><br /><br />
+                <a href="https://www.covid19india.org/">Covid 19 India Tracker - A crowdsourced initiative.</a><br /><br />
+                <a href="https://indiasmile.org/covid/">Find How Near Covid19 is</a><br /><br />
+            </div>
+        </div>
     </div>
 </div>
+
 

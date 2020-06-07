@@ -51,3 +51,9 @@
 .likecommentpanel { align-items: center; color: #606770; display: flex; flex: 1 0; font-weight: 600; height: 32px; justify-content: center; line-height: 14px; padding: 0 2px; position: relative; text-decoration: none; transition: 400ms cubic-bezier(.08,.52,.52,1) transform; }
 
 .caret { border-left: 12px solid transparent !important; border-right: 12px solid transparent !important; border-top: 15px solid !important; }
+.panel-body {background: #fff;}
+.cover-photo {position: relative;}
+a:hover {text-decoration: none;}
+.fb-timeline-img img {width: 100%;border-radius: 4px 4px 0 0;-webkit-border-radius: 4px 4px 0 0;}
+.profile-thumb img {width: 80px;height: 80px;border-radius: 50%;-webkit-border-radius: 50%;margin-top: -55px;border: 3px solid #fff;}
+.profile-thumb {float: left;position: relative;}
