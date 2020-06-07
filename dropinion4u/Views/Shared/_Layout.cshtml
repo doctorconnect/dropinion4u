@@ -25,73 +25,92 @@
     <script src="~/Scripts/sweetalert.min.js"></script>
     <script src="~/js/jquery.min.js"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(242,242,242)">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header col-sm-2">
-                    <a href="@Url.Action("Index", "Home")">
-                        <img src="~/images/Logo.png" alt="" height="55px;" />
+<div class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(206,225,236);padding:0px !important;border:none;">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <div class="input-group" style="width:100%">
+                    <a href="@Url.Action("Index", "Home")" class="pull-left">
+                        <img src="~/images/Logo.png" alt="" height="50px;" />
                     </a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="navbar-toggle right" style="margin-left:20px;right:0px;" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <input id="searchbox" type="search" class="form-control validate" name="searchbox" placeholder="Search Dr.Opinion" style="width:170px;margin-left:20px;margin-top:7px;border-radius:20px;">
                 </div>
-                <div class="col-sm-9 right">
-                    <div class="navbar-collapse collapse">
-                        @*@Html.Partial("~/Views/Shared/_search.cshtml")*@
-                        <ul class="nav navbar-nav navbar-right">
-                            @if (Session["UserID"] != null)
-                            {
-                                <li>
-                                    <a href="@Url.Action("SelfProfile","UserProfile")">
-                                        @*if No photo*@
-                                        <span class="glyphicon glyphicon-user"> </span>
-                                        @*else*@
-
-                                        @Session["UserID"]
-                                    </a>
-
-                                </li>
-                            }
+            </div>
+            <div class="right">
+                <div class="navbar-collapse collapse">
+                    @*@Html.Partial("~/Views/Shared/_search.cshtml")*@
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Session["UserID"] != null)
+                        {
                             <li>
-                                <a data-toggle="modal" data-target="#modalFeedbackForm" style="cursor:pointer">
-                                    <span class="glyphicon glyphicon-envelope"></span>
-                                    Feedback
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#">
-                                    More
-                                    <span class="caret"></span>
+                                <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#" style="background-color:rgb(244,244,244); border-radius:20px;height:40px;width:120px;margin-top:4px;padding-left:14px;padding-top:11px;margin-right:18px;">
+                                    @*if No photo*@
+                                    <span class="glyphicon glyphicon-user"> </span>
+                                    @*else*@
+
+                                    @Session["UserID"]
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="@Url.Action("Privacy","Support")">
-                                            <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                            Terms and Conditions
+                                        <a href="@Url.Action("SelfProfile","UserProfile")">
+                                            <span class="glyphicon glyphicon-user"> </span>
+                                            View profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("FAQs","Support")">
+                                        <a href="@Url.Action("Settings","UserProfile")">
                                             <span class="glyphicon glyphicon-question-sign"></span>
-                                            FAQs
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-log-out"></span>
+                                            Logout
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
-                        @*@Html.Partial("_LoginPartial")*@
-                    </div>
-                </div>
-                <div class="col-sm-2">
+                        }
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#" style="background-color:rgb(244,244,244); border-radius:20px;height:40px;width:40px;margin-top:4px;padding-left:6px;padding-top:10px;">
 
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a data-toggle="modal" data-target="#modalFeedbackForm" style="cursor:pointer">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                        Feedback
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Privacy","Support")">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                        Terms and Conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("FAQs","Support")">
+                                        <span class="glyphicon glyphicon-question-sign"></span>
+                                        FAQs
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @*@Html.Partial("_LoginPartial")*@
                 </div>
             </div>
         </div>
     </div>
+</div>
+<body>
     <div class="container">
         @RenderBody()
     </div>
