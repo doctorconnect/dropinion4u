@@ -35,7 +35,7 @@ function submitEmail() {
             url: "/ModalDialog/CheckEmail",
             type: "POST",
             dataType: "JSON",
-            data: { email: $('#email').val() },
+            data: { email: $('#email').val().trim() },
             success: function (data) {
                 if (data.Item1 == "Login") {
                     $('#emailform').hide();
@@ -224,7 +224,7 @@ function requestOTP() {
             url: "/ModalDialog/RequestOTP",
             type: "POST",
             dataType: "JSON",
-            data: { email: $('#confirmemail').val() },
+            data: { email: $('#confirmemail').val().trim() },
             success: function (data) {
                 if (data.Item1 == "OTPSent") {
                     $('#confirmemailform').hide();
