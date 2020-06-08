@@ -1,12 +1,42 @@
-﻿
+﻿<script type="text/javascript">
+    $(function () {
+        $('#verify_stop').click(function () {
+            $('#verifyregistration').slideUp();
+            var nDays = 30;
+            var cookieName = "dropinionverificationcookie";
+            var cookieValue = "true";
+            var today = new Date();
+            var expire = new Date();
+            expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+            document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString() + ";path=/";
+        });
+
+    });
+</script>
 @if (Session["EmailVerified"] != null && Session["EmailVerified"].ToString() == false.ToString())
 {
-    <div id="verifyregistration">
-        <p class="col-sm-10" style="text-align:center">
-            We thank you for registering at dropinion.net. You can now browse through the content. You need to Verify your email address so we can ensure no one else post with your email address.
-        </p>
-        <p id="cookie_stop">
-            <a data-toggle="modal" data-target="#modalVerificationForm" style="cursor:pointer" role="button" tabindex="0" class="cc-btn cc-dismiss">Verify Now</a>
-        </p>
-    </div>
+    if (Request.Cookies["dropinionverificationcookie"] == null)
+    {
+        <div id="verifyregistration">
+            <p class="col-sm-10" style="text-align:center">
+                We thank you for registering at dropinion.net. You can now browse through the content. Please verify your email so we can ensure no one else post with your email.
+                <a data-toggle="modal" data-target="#modalVerificationForm">Verify Now</a>
+            </p>
+            <p id="verify_stop">
+                <a style="cursor:pointer" role="button" tabindex="0" class="cc-btn cc-dismiss">Dismiss</a>
+            </p>
+        </div>
+    }
+    else if (!(Request.Cookies["dropinionverificationcookie"].Value == "true"))
+    {
+        <div id="verifyregistration">
+            <p class="col-sm-10" style="text-align:center">
+                We thank you for registering at dropinion.net. You can now browse through the content. You need to Verify your email address so we can ensure no one else post with your email address.
+                <a data-toggle="modal" data-target="#modalVerificationForm">Verify Now</a>
+            </p>
+            <p id="verify_stop">
+                <a style="cursor:pointer" role="button" tabindex="0" class="cc-btn cc-dismiss">Dismiss</a>
+            </p>
+        </div>
+    }
 }
