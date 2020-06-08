@@ -2,9 +2,9 @@
     $('#spanerrorNext').hide();
     $('#passwordform').hide();
     $('#registerform').hide();
+    $('#confirmemailform').hide();
+    $('#newpasswordform').hide();
 });
-
-
 
 function validateemail() {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -15,12 +15,12 @@ function validateemail() {
     $('#email').focus();
 }
 
-
 $('#email').keyup(function () {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (regex.test($('#email').val().trim())) {
         $('#btnNext').removeAttr("disabled");
         $('#spanerrorNext').html('');
+        $('#spanerrorNext1').html('');
     }
     else {
         $('#spanerrorNext').html('0oo0... valid email addreess is required before proceeding');
@@ -48,19 +48,19 @@ function submitEmail() {
                     $('#hmsg').html('Create account for <a><b>' + data.Item2 + '</b></a>');
                 }
                 else if (data.Item1 == "LoginFailed") {
-                    $('#spanerrorNext').html('0oo0... Email Missing');
-                    $('#spanerrorNext').show();
+                    $('#spanerrorNext1').html('0oo0... Email Missing');
+                    $('#spanerrorNext1').show();
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#spanerrorNext').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                $('#spanerrorNext').show();
+                $('#spanerrorNext1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                $('#spanerrorNext1').show();
             }
         });
     }
     else {
-        $('#spanerrorNext').html('0oo0... valid email addreess is required before proceeding');
-        $('#spanerrorNext').show();
+        $('#spanerrorNext1').html('0oo0... valid email addreess is required before proceeding');
+        $('#spanerrorNext1').show();
     }
 }
 
@@ -85,6 +85,7 @@ $('#password').keyup(function () {
     if (val > 0) {
         $('#btnLogin').removeAttr("disabled");
         $('#spanerrorLogin').html('');
+        $('#spanerrorLogin1').html('');
     }
     else {
         $('#spanerrorLogin').html('0oo0... Password is required to proceed');
@@ -104,23 +105,23 @@ function login() {
                     window.location.href = "/home/Index"
                 }
                 else if (data.Item1 == "LoginFailed") {
-                    $('#spanerrorLogin').html('0oo0... Incorrect Password');
-                    $('#spanerrorLogin').show();
+                    $('#spanerrorLogin1').html('0oo0... Incorrect Password');
+                    $('#spanerrorLogin1').show();
                 }
                 else {
-                    $('#spanerrorLogin').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                    $('#spanerrorLogin').show();
+                    $('#spanerrorLogin1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                    $('#spanerrorLogin1').show();
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#spanerrorLogin').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                $('#spanerrorLogin').show();
+                $('#spanerrorLogin1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                $('#spanerrorLogin1').show();
             }
         });
     }
     else {
-        $('#spanerrorLogin').html('0oo0... Password is required to proceed');
-        $('#spanerrorLogin').show();
+        $('#spanerrorLogin1').html('0oo0... Password is required to proceed');
+        $('#spanerrorLogin1').show();
     }
 }
 
@@ -135,6 +136,7 @@ $('#registrationpassword').keyup(function () {
             $('#btnRegister').removeAttr("disabled");
         }
         $('#spanerrorRegister').html('');
+        $('#spanerrorRegister1').html('');
     }
     else {
         $('#spanerrorRegister').html('0oo0... Password too short');
@@ -166,17 +168,17 @@ function register() {
                     window.location.href = "/home/Index"
                 }
                 else if (data.Item1 == "RegistrationFailed") {
-                    $('#spanerrorRegister').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                    $('#spanerrorRegister').show();
+                    $('#spanerrorRegister1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                    $('#spanerrorRegister1').show();
                 }
                 else {
-                    $('#spanerrorRegister').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                    $('#spanerrorRegister').show();
+                    $('#spanerrorRegister1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                    $('#spanerrorRegister1').show();
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#spanerrorRegister').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                $('#spanerrorRegister').show();
+                $('#spanerrorRegister1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                $('#spanerrorRegister1').show();
             }
         });
     }
@@ -184,4 +186,70 @@ function register() {
         $('#spanerrorConfirm').html('0oo0... Either Password too short or not matching');
         $('#spanerrorConfirm').show();
     }
+}
+
+function confirmemail() {
+    $('#passwordform').hide();
+    $('#confirmemail').val($('#email').val());
+    $('#confirmemailform').show();
+    $('#hmsg').html('Verify Your Email address');
+}
+
+function validateconfirmemail() {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (regex.test($('#confirmemail').val().trim())) {
+        $('#btnConfirmEmail').removeAttr("disabled");
+        $('#spanerrorConfirmEmail').html('');
+    }
+    $('#confirmemail').focus();
+}
+
+$('#confirmemail').keyup(function () {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (regex.test($('#confirmemail').val().trim())) {
+        $('#btnConfirmEmail').removeAttr("disabled");
+        $('#spanerrorConfirmEmail').html('');
+        $('#spanerrorConfirmEmail1').html('');
+    }
+    else {
+        $('#spanerrorConfirmEmail').html('0oo0... valid email addreess is required before proceeding');
+        $('#spanerrorConfirmEmail').show();
+    }
+});
+function requestOTP() {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (regex.test($('#confirmemail').val().trim())) {
+        $.ajax({
+            url: "/ModalDialog/RequestOTP",
+            type: "POST",
+            dataType: "JSON",
+            data: { email: $('#confirmemail').val() },
+            success: function (data) {
+                if (data.Item1 == "OTPSent") {
+                    $('#confirmemailform').hide();
+                    $('#newpasswordform').show();
+                    $('#hmsg').html('Create new password for <a><b>' + data.Item2 + '</b></a>');
+                }
+                else if (data.Item1 == "EmailNotRegistered") {
+                    $('#confirmemailform').hide();
+                    $('#registerform').show();
+                    $('#hmsg').html('Account does not exist. Create account for <a><b>' + data.Item2 + '</b></a>');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $('#spanerrorConfirmEmail1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                $('#spanerrorConfirmEmail1').show();
+            }
+        });
+    }
+    else {
+        $('#spanerrorConfirmEmail1').html('0oo0... valid email addreess is required before proceeding');
+        $('#spanerrorConfirmEmail1').show();
+    }
+}
+
+function backtopwdfield() {
+    $('#hmsg').html('Password for <a><b>' + $('#email').val() + '</b></a>');
+    $('#confirmemailform').hide();
+    $('#passwordform').show();
 }
