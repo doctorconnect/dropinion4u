@@ -12,9 +12,12 @@ namespace dropinion4u.Controllers
     public class HomeController : Controller
     {
         private WebPartsDataAccess objWebPartsDataAccess;
+        private SendEmail objSendEmail;
         public HomeController()
         {
+            
             objWebPartsDataAccess = new WebPartsDataAccess();
+            objSendEmail = new SendEmail();
         }
         public ActionResult HomePage()
         {
@@ -22,6 +25,7 @@ namespace dropinion4u.Controllers
         }
         public ActionResult Index()
         {
+           
             #region -----------------------------------  PRODUCT XML BIND SET----------------------------
 
             var doc = XDocument.Load(Request.PhysicalApplicationPath + "\\App_Data\\products.xml");

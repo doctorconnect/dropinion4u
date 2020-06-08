@@ -12,10 +12,11 @@ namespace dropinion4u.Controllers
     {
         private LogindataAccess objLogindataAccess;
         private WebPartsDataAccess objWebPartsDataAccess;
+        private SendEmail objSendEmail;
         public ModalDialogController()
         {
             objLogindataAccess = new LogindataAccess();
-            objWebPartsDataAccess = new WebPartsDataAccess();
+            objSendEmail = new SendEmail();
 
         }
         // GET: ModalDialog
@@ -135,5 +136,34 @@ namespace dropinion4u.Controllers
                 return new JsonResult { Data = ("Error",ex+ "Something Wrong at our side...") };
             }
         }
+
+        public JsonResult RequestOTP(string email)
+        {
+            Random generator = new Random();
+            Session["Otp"] = generator.Next(0, 1000000).ToString("D6");
+            string x = "Your OTP is "+ Session["Otp"];
+            objSendEmail.SendPasswordToEmail(email, null, "Find Your otp .. ", x);
+            return new JsonResult { Data = ("OTPSent", "Send-Email") };
+
+        }
+
+        public JsonResult VerifyOTP(string otp,string email ,string pass)
+        {
+            if(Session["Otp"].ToString() == otp)
+            {
+                var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+                if (userDetails != null)
+                {
+                    objLogindataAccess.UpdateUserRequest(email, pass);
+                    Session["UserID"] = userDetails.UserID;
+                    return new JsonResult { Data = ("VerifyOTPSuccessful", Session["UserID"]) };
+                }
+            }           
+
+            return new JsonResult { Data = ("InvalidOTP", "Invalid Otp") };
+
+        }
+
+
     }
-}
+    }
