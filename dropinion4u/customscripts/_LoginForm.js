@@ -256,35 +256,34 @@ function backtopwdfield() {
 }
 
 function UpdatePassword() {
-    var val = $('#confirmpassword').val().trim().length;
-    debugger;
-    if (val > 3 ) {
+    var val = $('#newpassword').val().trim().length;
+    if (val > 3 && $('#confirmnewpassword').val() == $('#newpassword').val()) {
         $.ajax({
             url: "/ModalDialog/VerifyOTP",
             type: "POST",
             dataType: "JSON",
-            data: { otp: $('#otp').val(), email: $('#confirmemail').val() , pass: $('#confirmnewpassword').val() },
+            data: { otp: $('#otp').val(), email: $('#confirmemail').val(), pass: $('#newpassword').val() },
             success: function (data) {
                 if (data.Item1 == "VerifyOTPSuccessful") {
                     window.location.href = "/home/Index"
                 }
                 else if (data.Item1 == "InvalidOTP") {
-                    $('#spanerrorRegister1').html('Check You Otp');
-                    $('#spanerrorRegister1').show();
+                    $('#spanerrornewpwd1').html('Check You Otp');
+                    $('#spanerrornewpwd1').show();
                 }
                 else {
-                    $('#spanerrorRegister1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                    $('#spanerrorRegister1').show();
+                    $('#spanerrornewpwd1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                    $('#spanerrornewpwd1').show();
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#spanerrorRegister1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                $('#spanerrorRegister1').show();
+                $('#spanerrornewpwd1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                $('#spanerrornewpwd1').show();
             }
         });
     }
     else {
-        $('#spanerrorConfirm').html('0oo0... Either Password too short or not matching');
-        $('#spanerrorConfirm').show();
+        $('#spanerrorConfirmnewpwd').html('0oo0... Either Password too short or not matching');
+        $('#spanerrorConfirmnewpwd').show();
     }
 }
