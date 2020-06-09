@@ -346,6 +346,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\w3.css" />
     <Content Include="customscripts\CustomLoader.js" />
     <Content Include="customscripts\Feedback.js" />
     <Content Include="customscripts\_VerificationForm.js" />
