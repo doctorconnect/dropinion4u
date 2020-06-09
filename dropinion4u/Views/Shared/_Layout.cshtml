@@ -14,11 +14,12 @@
         @Scripts.Render("/js/jquery.sequence-min.js")
         @Scripts.Render("/js/template.js")
         @Scripts.Render("/js/jquery.bxslider.js")*@
+
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    <link href="~/Content/chat.css" rel="stylesheet" />
+
     <script src="~/Scripts/sweetalert.min.js"></script>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/customscripts/CustomLoader.js"></script>
@@ -75,8 +76,8 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <span class="glyphicon glyphicon-log-out"></span>
+                                            <a href="javascript:void(0);" class="glyphicon glyphicon-log-out" id="logout" onclick="logout()">
+                                                @*<span class="glyphicon glyphicon-log-out"></span>*@
                                                 Logout
                                             </a>
                                         </li>
@@ -106,6 +107,7 @@
                                             FAQs
                                         </a>
                                     </li>
+
                                 </ul>
                             </li>
                         </ul>
@@ -126,6 +128,7 @@
             <p class="pull-right"><a href="@Url.Action("Privacy", "Support")" target="_blank">Terms and Conditions</a></p>
         </div>
     </div>
+   
 </body>
 @Html.Partial("~/Views/WebParts/_VerifyRegistrationBanner.cshtml")
 @Html.Partial("~/Views/ModalDialog/_VerificationForm.cshtml")
@@ -134,7 +137,7 @@
 @Html.Partial("~/Views/ModalDialog/_PostForm.cshtml")
 @Html.Partial("~/Views/ModalDialog/_FeedbackForm.cshtml")
 </html>
-
+<script src="~/CustomScripts/_LoginForm.js"></script>
 <style>
     .buscar-caja {
         position: absolute;

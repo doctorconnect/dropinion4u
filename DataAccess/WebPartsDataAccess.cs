@@ -24,12 +24,13 @@ namespace DataAccess
         private string GetconnectionKey(string KEY)
        {
             string connectionkey = string.Empty;
+            string server = HttpContext.Current.Session["MachineName"].ToString();
 
             if (HttpContext.Current.Request.Url.ToString().Contains("dropinion"))
             {
                 connectionkey = DBConstants.Connectstring;
             }
-            else if (HttpContext.Current.Request.Url.ToString().Contains("44327"))
+            else if (server == "DESKTOP-A5HEOI8")
             {
                 
                 connectionkey = DBConstants.LocConnectB;

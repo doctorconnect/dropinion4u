@@ -313,3 +313,18 @@ function UpdatePassword() {
         $('#spanerrorConfirmnewpwd').show();
     }
 }
+
+function logout() {
+    debugger;
+    $.ajax({
+        url: "/ModalDialog/Logout",
+        type: "POST",
+        dataType: "JSON",
+        success: function (data) {
+            if (data.Item1 == "LogoutSuccessful") {                
+                window.location.href = "/home/Index"
+                toastr.success('Yes! You have successfully Logout your Acount!', 'Thanks for serve us !!!')
+            }
+        }
+    })
+}

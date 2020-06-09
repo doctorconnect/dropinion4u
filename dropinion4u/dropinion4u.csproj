@@ -346,6 +346,13 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="customscripts\toastrImp.js" />
+    <Content Include="Scripts\pnotify-custom-min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="toastrsample.htm" />
     <Content Include="Content\w3.css" />
     <Content Include="customscripts\CustomLoader.js" />
     <Content Include="customscripts\Feedback.js" />
@@ -418,6 +425,8 @@
     <Content Include="js\template.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\dropinionLocalFolder.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
