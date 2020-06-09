@@ -29,7 +29,7 @@
                     <div id="spanerrorLogin1" style="color:darkred"></div>
                     <button class="btn btn-default" onclick="back()">No! Not this Email!</button>
                     <button id="btnLogin" class="btn btn-default" onclick="login()" style="background-color:limegreen" disabled>Login</button>
-                    <button class="btn btn-default" data-dismiss="modal">Leave It!</button>
+                    <button class="btn btn-default" data-dismiss="modal" onclick="back()">Leave It!</button>
                 </div>
                 <div id="registerform" onmouseover="focuscreatepwdfield()">
                     <div class="input-group">
@@ -45,7 +45,7 @@
                     <div id="spanerrorRegister1" style="color:darkred"></div>
                     <button class="btn btn-default" onclick="back()">No! Not this Email!</button>
                     <button id="btnRegister" class="btn btn-default" onclick="register()" style="background-color:limegreen" disabled>Create Account</button>
-                    <button class="btn btn-default" data-dismiss="modal">Later!</button>
+                    <button class="btn btn-default" data-dismiss="modal" onclick="back()">Later!</button>
                 </div>
                 <div id="confirmemailform" onmouseover="validateconfirmemail()">
                     <div class="input-group">
@@ -74,8 +74,7 @@
                     <div id="spanerrorConfirmnewpwd" style="color:darkred"></div>
                     <div id="spanerrornewpwd1" style="color:darkred"></div>
                     <button class="btn btn-default" onclick="back()">Login Without Updating Password</button>
-                    <button id="btnUpdatePassword" class="btn btn-default" onclick="UpdatePassword()" style="background-color:limegreen" disabled>Update Password</button>
-                    <button class="btn btn-default" data-dismiss="modal">Later!</button>
+                    <button id="btnUpdatePassword" class="btn btn-default" onclick="UpdatePassword()" style="background-color:limegreen" disabled>Update Password</button>                    
                 </div>
             </div>
         </div>

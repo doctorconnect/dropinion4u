@@ -21,7 +21,6 @@
     <link href="~/Content/chat.css" rel="stylesheet" />
     <script src="~/Scripts/sweetalert.min.js"></script>
     <script src="~/js/jquery.min.js"></script>
-    <script src="~/customscripts/CustomLoader.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(242,242,242);padding:0px !important;border:1px solid rgb(250,250,250);">
@@ -39,7 +38,7 @@
                         </button>
                         @*<input id="searchbox" type="search" class="form-control validate" name="searchbox" placeholder="Search Dr.Opinion" style="width:170px;margin-left:20px;margin-top:7px;border-radius:20px;">*@
                         <div class="buscar-caja pull-left">
-                            <input type="text" name="" class="buscar-txt" placeholder="Search Dr.Opinion" />
+                            <input type="text" name="" class="buscar-txt" onmouseover="$(this).focus();" placeholder="Search Dr.Opinion" />
                             <a class="buscar-btn" style="text-decoration:none">
                                 @*<i class="far fa-search"></i>*@
                                 &#128270;
@@ -134,8 +133,25 @@
 @Html.Partial("~/Views/ModalDialog/_PostForm.cshtml")
 @Html.Partial("~/Views/ModalDialog/_FeedbackForm.cshtml")
 </html>
-
+<script>
+    $(document).ajaxStart(function (e) {
+        $('body').addClass('wait');
+        $('button').addClass('wait');
+    }).ajaxComplete(function () {
+        $('body').removeClass('wait');
+        $('button').removeClass('wait');
+    });
+</script>
 <style>
+    body.wait *, body.wait {
+        cursor: wait !important;
+    }
+    button.wait *, button.wait {
+        pointer-events: none;
+        opacity: 1;
+        cursor:not-allowed
+    }
+
     .buscar-caja {
         position: absolute;
         top: 50%;
