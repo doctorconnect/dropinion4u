@@ -141,9 +141,9 @@ namespace dropinion4u.Controllers
         {
             Random generator = new Random();
             Session["Otp"] = generator.Next(0, 1000000).ToString("D6");
-            string x = "Your OTP is "+ Session["Otp"];
-            objSendEmail.SendPasswordToEmail(email, null, "Find Your otp .. ", x);
-            return new JsonResult { Data = ("OTPSent", "Send-Email") };
+            string x = "Dear User,<br/><br/>Greetings from Dr.Opinion.<br/><br/>Your OTP is " + Session["Otp"] + "<br/><br/>Thanks<br/>The Dr.Opinion Team";
+            objSendEmail.SendPasswordToEmail(email, null, "[Dr.Opinion] OTP Details ", x);
+            return new JsonResult { Data = ("OTPSent", email) };
 
         }
 

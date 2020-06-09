@@ -14,7 +14,6 @@ function validateemail() {
     }
     $('#email').focus();
 }
-
 $('#email').keyup(function () {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (regex.test($('#email').val().trim())) {
@@ -27,7 +26,6 @@ $('#email').keyup(function () {
         $('#spanerrorNext').show();
     }
 });
-
 function submitEmail() {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (regex.test($('#email').val().trim())) {
@@ -68,9 +66,9 @@ function back() {
     $('#hmsg').html('We don\'t spam!');
     $('#passwordform').hide();
     $('#registerform').hide();
+    $('#newpasswordform').hide();
     $('#emailform').show();
 }
-
 function validatepwdfield() {
     var val = $('#password').val().trim().length;
     if (val > 0) {
@@ -79,7 +77,6 @@ function validatepwdfield() {
     }
     $('#password').focus();
 }
-
 $('#password').keyup(function () {
     var val = $('#password').val().trim().length;
     if (val > 0) {
@@ -128,7 +125,6 @@ function login() {
 function focuscreatepwdfield() {
     $('#registrationpassword').focus();
 }
-
 $('#registrationpassword').keyup(function () {
     var val = $('#registrationpassword').val().trim().length;
     if (val > 3) {
@@ -143,7 +139,6 @@ $('#registrationpassword').keyup(function () {
         $('#spanerrorRegister').show();
     }
 });
-
 $('#confirmpassword').keyup(function () {
     var val = $('#confirmpassword').val().trim().length;
     if (val > 3 && $('#confirmpassword').val() == $('#registrationpassword').val()) {
@@ -155,7 +150,6 @@ $('#confirmpassword').keyup(function () {
         $('#spanerrorConfirm').show();
     }
 });
-
 function register() {
     var val = $('#registrationpassword').val().trim().length;
     if (val > 3 && $('#confirmpassword').val() == $('#registrationpassword').val()) {
@@ -195,7 +189,6 @@ function confirmemail() {
     $('#confirmemailform').show();
     $('#hmsg').html('Verify Your Email address');
 }
-
 function validateconfirmemail() {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (regex.test($('#confirmemail').val().trim())) {
@@ -204,7 +197,6 @@ function validateconfirmemail() {
     }
     $('#confirmemail').focus();
 }
-
 $('#confirmemail').keyup(function () {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (regex.test($('#confirmemail').val().trim())) {
@@ -248,42 +240,76 @@ function requestOTP() {
         $('#spanerrorConfirmEmail1').show();
     }
 }
-
 function backtopwdfield() {
     $('#hmsg').html('Password for <a><b>' + $('#email').val() + '</b></a>');
     $('#confirmemailform').hide();
     $('#passwordform').show();
 }
 
+function focuscreatenewpwdfield() {
+    $('#otp').focus();
+}
+$('#newpassword').keyup(function () {
+    var val = $('#newpassword').val().trim().length;
+    if (val > 3) {
+        if ($('#confirmpassword').val() == $('#newpassword').val()) {
+            $('#btnUpdatePassword').removeAttr("disabled");
+        }
+        $('#spanerrornewpwd').html('');
+        $('#spanerrornewpwd1').html('');
+    }
+    else {
+        $('#spanerrornewpwd').html('0oo0... Password too short');
+        $('#spanerrornewpwd').show();
+    }
+});
+$('#confirmnewpassword').keyup(function () {
+    var val = $('#confirmnewpassword').val().trim().length;
+    if (val > 3 && $('#confirmnewpassword').val() == $('#newpassword').val()) {
+        $('#btnUpdatePassword').removeAttr("disabled");
+        $('#spanerrorConfirmnewpwd').html('');
+    }
+    else {
+        $('#spanerrorConfirmnewpwd').html('0oo0... Password should match');
+        $('#spanerrorConfirmnewpwd').show();
+    }
+});
 function UpdatePassword() {
     var val = $('#newpassword').val().trim().length;
-    if (val > 3 && $('#confirmnewpassword').val() == $('#newpassword').val()) {
-        $.ajax({
-            url: "/ModalDialog/VerifyOTP",
-            type: "POST",
-            dataType: "JSON",
-            data: { otp: $('#otp').val(), email: $('#confirmemail').val(), pass: $('#newpassword').val() },
-            success: function (data) {
-                if (data.Item1 == "VerifyOTPSuccessful") {
-                    window.location.href = "/home/Index"
-                }
-                else if (data.Item1 == "InvalidOTP") {
-                    $('#spanerrornewpwd1').html('Check You Otp');
-                    $('#spanerrornewpwd1').show();
-                }
-                else {
+    var otplen = $('#otp').val().trim().length;
+    if (otplen == 6) {
+        if (val > 3 && $('#confirmnewpassword').val() == $('#newpassword').val()) {
+            $.ajax({
+                url: "/ModalDialog/VerifyOTP",
+                type: "POST",
+                dataType: "JSON",
+                data: { otp: $('#otp').val(), email: $('#confirmemail').val(), pass: $('#newpassword').val() },
+                success: function (data) {
+                    if (data.Item1 == "VerifyOTPSuccessful") {
+                        window.location.href = "/home/Index"
+                    }
+                    else if (data.Item1 == "InvalidOTP") {
+                        $('#spanerrornewpwd1').html('Your OTP is Incorrect');
+                        $('#spanerrornewpwd1').show();
+                    }
+                    else {
+                        $('#spanerrornewpwd1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
+                        $('#spanerrornewpwd1').show();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
                     $('#spanerrornewpwd1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
                     $('#spanerrornewpwd1').show();
                 }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $('#spanerrornewpwd1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
-                $('#spanerrornewpwd1').show();
-            }
-        });
+            });
+        }
+        else {
+            $('#spanerrorConfirmnewpwd').html('0oo0... Either Password too short or not matching');
+            $('#spanerrorConfirmnewpwd').show();
+        }
     }
     else {
-        $('#spanerrorConfirmnewpwd').html('0oo0... Either Password too short or not matching');
+        $('#spanerrorConfirmnewpwd').html('0oo0... OTP should be of 6 digits');
         $('#spanerrorConfirmnewpwd').show();
     }
 }
