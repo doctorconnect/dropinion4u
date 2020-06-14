@@ -1,18 +1,6 @@
-﻿body { padding-top: 50px; }
+﻿body { margin-top: 85px; }
 
-/* Set padding to keep content from hitting the edges */
-.body-content { padding-left: 10px; padding-right: 10px; }
-
-/* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column */
-.dl-horizontal dt { white-space: normal; }
-
-#nvadiv { display: block; width: 80%; -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); box-shadow: 1px 1px 1px rgba(0,0,0,0.2); }
-
-#nvadiv > li > a { display: block; padding: 12px 14px; font-size: 1.0em; color: #d4d4d4; text-decoration: none; border-bottom: 1px solid #212121; background-color: #343434; background: -webkit-gradient(linear, left top, left bottom, from(#343434), to(#292929)); background: -webkit-linear-gradient(top, #343434, #292929); background: -moz-linear-gradient(top, #343434, #292929); background: -ms-linear-gradient(top, #343434, #292929); background: -o-linear-gradient(top, #343434, #292929); background: linear-gradient(top, #343434, #292929); }
-
-#nvadiv > li > a:hover, #nav > li > a.open { color: #e9e9e9; border-bottom-color: #384f76; background-color: #6985b5; background: -webkit-gradient(linear, left top, left bottom, from(#6985b5), to(#456397)); background: -webkit-linear-gradient(top, #6985b5, #456397); background: -moz-linear-gradient(top, #6985b5, #456397); background: -ms-linear-gradient(top, #6985b5, #456397); background: -o-linear-gradient(top, #6985b5, #456397); background: linear-gradient(top, #6985b5, #456397); }
-
-#verifyregistration { position: fixed;font-size:smaller; top: 50px; left: 5%; right: 5%; width: 90%; padding: 3px 5px; display: flex; align-items: center; justify-content: space-between; background-color: #f6bcbc;    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
+#verifyregistration { position: fixed;font-size:smaller; top: 70px; left: 5%; right: 5%; width: 100%; padding: 3px 5px; display: flex; align-items: center; justify-content: space-between; background-color: #f6bcbc;    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
 
 #cookie_disclaimer { position: fixed; bottom: 30px; left: 5%; right: 5%; width: 90%; padding: 3px 5px; display: flex; align-items: center; justify-content: space-between; background-color: rgba(239, 239, 239, 0.90);    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
 
@@ -57,3 +45,12 @@ a:hover {text-decoration: none;}
 .fb-timeline-img img {width: 100%;border-radius: 4px 4px 0 0;-webkit-border-radius: 4px 4px 0 0;}
 .profile-thumb img {width: 80px;height: 80px;border-radius: 50%;-webkit-border-radius: 50%;margin-top: -55px;border: 3px solid #fff;}
 .profile-thumb {float: left;position: relative;}
+
+/* Search Box*/
+.buscar-caja { position: absolute; top: 50%; left: 230px; transform: translate(-50%, -50%); background-color: rgb(242,242,242); height: 50px; width: 50px; border-radius: 50%; }
+.buscar-caja:hover { background: white; }
+.buscar-caja:hover > .buscar-txt { width: 225px; padding: 0 0 0 50px;}
+.buscar-caja:hover > .buscar-btn { background: white; }
+.buscar-btn { color: #e84118; float: right; width: 50px; height: 50px;border-radius: 50%; background-color: rgb(242,242,242); display: flex; justify-content: center; align-items: center; transition: 0.4s; cursor: pointer; position: absolute;}
+.buscar-btn > i { font-size: 30px; }
+.buscar-txt { border: none; background: white; outline: none; float: left; padding: 0; color: GrayText; font-size: 16px; transition: 0.4s; line-height: 50px; width: 0px;border-radius: 25px; }

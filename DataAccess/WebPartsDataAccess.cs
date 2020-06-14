@@ -35,7 +35,7 @@ namespace DataAccess
                 
                 connectionkey = DBConstants.LocConnectB;
             }
-            else
+            else //if(server == "LAPTOP - S690SLSV")
             {
                 connectionkey = DBConstants.LocConnectV;
             }
