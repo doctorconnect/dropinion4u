@@ -9,12 +9,7 @@
     @*<script data-ad-client="ca-pub-2775227006482625" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("/Content/bootstrap.min.css")
-    @*@Scripts.Render("/js/jsMarQuee.js")
-        @Scripts.Render("/js/jquery.sequence-min.js")
-        @Scripts.Render("/js/template.js")
-        @Scripts.Render("/js/jquery.bxslider.js")*@
-
+    @*@Styles.Render("/Content/bootstrap.min.css")*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/bundles/bootstrap")
@@ -22,100 +17,102 @@
 
     <script src="~/Scripts/sweetalert.min.js"></script>
     <script src="~/js/jquery.min.js"></script>
+    <script src="~/customscripts/CustomLoader.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(242,242,242);padding:0px !important;border:1px solid rgb(250,250,250);">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <div class="input-group" style="width:100%">
-                        <a href="@Url.Action("Index", "Home")" style="margin-left:50px;">
-                            <img src="~/images/Logo.png" alt="" height="50px;" />
-                        </a>
-                        <button type="button" class="navbar-toggle right" style="margin-left:20px;right:0px;" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        @*<input id="searchbox" type="search" class="form-control validate" name="searchbox" placeholder="Search Dr.Opinion" style="width:170px;margin-left:20px;margin-top:7px;border-radius:20px;">*@
-                        <div class="buscar-caja pull-left">
-                            <input type="text" name="" class="buscar-txt" onmouseover="$(this).focus();" placeholder="Search Dr.Opinion" />
-                            <a class="buscar-btn" style="text-decoration:none">
-                                @*<i class="far fa-search"></i>*@
-                                &#128270;
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="navbar-collapse collapse">
-                        @*@Html.Partial("~/Views/Shared/_search.cshtml")*@
-                        <ul class="nav navbar-nav navbar-right">
-                            @if (Session["UserID"] != null)
-                            {
-                                <li>
-                                    @*<a class="dropdown-toggle" data-toggle="dropdown" title="User" href="#" style="background-color:rgb(244,244,244); border-radius:20px;height:40px;width:120px;margin-top:4px;padding-left:14px;padding-top:11px;margin-right:18px;">
-                                            <span class="glyphicon glyphicon-user"> </span>
-                                            Vinay
-                                        </a>*@
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" tabindex="0" style="background-color:rgb(242,242,242); border-radius:20px;height:40px;width:40px;margin-top:0px;padding-left:6px;padding-top:5px;margin-right:18px;">
-                                        <img style="border-radius:20px;" height="40" src="~/images/1.png" width="40" alt="">
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="@Url.Action("SelfProfile","UserProfile")">
-                                                <span class="glyphicon glyphicon-user"> </span>
-                                                View profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Settings","UserProfile")">
-                                                <span class="glyphicon glyphicon-question-sign"></span>
-                                                Settings
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);" class="glyphicon glyphicon-log-out" id="logout" onclick="logout()">
-                                                @*<span class="glyphicon glyphicon-log-out"></span>*@
-                                                Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            }
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#" style="background-color:rgb(242,242,242); border-radius:20px;height:40px;width:40px;margin-top:4px;padding-left:6px;padding-top:10px;">
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a data-toggle="modal" data-target="#modalFeedbackForm" style="cursor:pointer">
-                                            <span class="glyphicon glyphicon-envelope"></span>
-                                            Feedback
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Privacy","Support")">
-                                            <span class="glyphicon glyphicon-exclamation-sign"></span>
-                                            Terms and Conditions
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("FAQs","Support")">
-                                            <span class="glyphicon glyphicon-question-sign"></span>
-                                            FAQs
-                                        </a>
-                                    </li>
+        <div class="navbar-header">
+            <div class="input-group" style="width:100%">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/images/Logo.png" alt="" height="50px;" />
+                </a>
 
-                                </ul>
-                            </li>
-                        </ul>
-                        @*@Html.Partial("_LoginPartial")*@
-                    </div>
+                @*<input id="searchbox" type="search" class="form-control validate" name="searchbox" placeholder="Search Dr.Opinion" style="width:170px;margin-left:20px;margin-top:7px;border-radius:20px;">*@
+                <div class="buscar-caja pull-left">
+                    <input id="txtsearchbox" type="text" name="" class="buscar-txt" onmouseover="$(this).focus();" placeholder="Search Dr.Opinion" />
+                    <a class="buscar-btn" style="text-decoration:none">
+                        @*<i class="far fa-search"></i>*@
+                        &#128270;
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="col-xs-12 navbar-header hidden-sm hidden-md hidden-lg hidden-xl">
+            <span class="col-xs-3 glyphicon glyphicon-user" onclick="showProfile()" style="cursor:pointer;color:darkviolet;text-align:center;background-color:rgba(246,246,246);border:1px solid white;border-radius: 10px;height:30px;padding-top:6px;" dir="auto"></span>
+            <span class="col-xs-3 glyphicon glyphicon-book" onclick="showFeeds()" style="cursor: pointer; color: limegreen; text-align: center; background-color: rgba(246,246,246); border: 1px solid white; border-radius: 10px; height: 30px; padding-top: 6px" dir="auto"></span>
+            <span class="col-xs-3 glyphicon glyphicon-bookmark" onclick="showRight()" style="cursor: pointer; color: red; text-align: center; background-color: rgba(246,246,246); border: 1px solid white; border-radius: 10px; height: 30px; padding-top: 6px;" dir="auto"></span>
+            <span class="col-xs-3 glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#nvadiv" style="color:red;text-align:center;background-color:rgba(246,246,246);border:1px solid white;border-radius: 10px;height:30px;padding-top:6px;" dir="auto"></span>
+            @*<button type="button" class="navbar-toggle right" style="margin-left:20px;right:0px;" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </span>*@
+        </div>
+        <div class="navbar-collapse collapse" id="nvadiv" style="border:0;margin-right:15px;">
+            <ul class="nav navbar-nav navbar-right">
+                @if (Session["UserID"] != null)
+                {
+                    <li>
+                        @*<a class="dropdown-toggle" data-toggle="dropdown" title="User" href="#" style="background-color:rgb(244,244,244); border-radius:20px;height:40px;width:120px;margin-top:4px;padding-left:14px;padding-top:11px;margin-right:18px;">
+                                <span class="glyphicon glyphicon-user"> </span>
+                                Vinay
+                            </a>*@
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" tabindex="0" style="background-color:rgb(242,242,242); border-radius:20px;height:40px;width:40px;margin-top:0px;padding-left:6px;padding-top:5px;margin-right:18px;">
+                            <img style="border-radius:20px;" height="40" src="~/images/1.png" width="40" alt="">
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="@Url.Action("SelfProfile","UserProfile")">
+                                    <span class="glyphicon glyphicon-user"> </span>
+                                    View profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Settings","UserProfile")">
+                                    <span class="glyphicon glyphicon-question-sign"></span>
+                                    Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="glyphicon glyphicon-log-out" id="logout" onclick="logout()">
+                                    @*<span class="glyphicon glyphicon-log-out"></span>*@
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" title="More" href="#" style="background-color:rgb(242,242,242); border-radius:20px;height:40px;width:40px;margin-top:4px;padding-left:6px;padding-top:10px;">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a data-toggle="modal" data-target="#modalFeedbackForm" style="cursor:pointer">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                Feedback
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Privacy","Support")">
+                                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                Terms and Conditions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("FAQs","Support")">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                                FAQs
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
+
     <div class="container bootstrap snippet">
         @RenderBody()
     </div>
@@ -127,7 +124,7 @@
             <p class="pull-right"><a href="@Url.Action("Privacy", "Support")" target="_blank">Terms and Conditions</a></p>
         </div>
     </div>
-   
+
 </body>
 @Html.Partial("~/Views/WebParts/_VerifyRegistrationBanner.cshtml")
 @Html.Partial("~/Views/ModalDialog/_VerificationForm.cshtml")
@@ -136,81 +133,71 @@
 @Html.Partial("~/Views/ModalDialog/_PostForm.cshtml")
 @Html.Partial("~/Views/ModalDialog/_FeedbackForm.cshtml")
 </html>
-
+@*<script>
+        $(document).ajaxStart(function (e) {
+            $('body').addClass('wait');
+            $('button').addClass('wait');
+        }).ajaxComplete(function () {
+            $('body').removeClass('wait');
+            $('button').removeClass('wait');
+        });
+    </script>
+    <style>
+        body.wait *, body.wait {
+            cursor: wait !important;
+        }
+        button.wait *, button.wait {
+            pointer-events: none;
+            opacity: 1;
+            cursor:not-allowed
+        }
+    </style>*@
 <script>
-    $(document).ajaxStart(function (e) {
-        $('body').addClass('wait');
-        $('button').addClass('wait');
-    }).ajaxComplete(function () {
-        $('body').removeClass('wait');
-        $('button').removeClass('wait');
-    });
+    function showProfile() {
+        $('#divRight').addClass('hidden-xs');
+        $('#divFeeds').addClass('hidden-xs');
+        $('#divProfile').removeClass('hidden-xs');
+
+        //$('#divRight').fadeOut('fast', function () {
+        //    $('#divRight').addClass('hidden-xs');
+        //});
+        //$('#divFeeds').fadeOut('fast', function () {
+        //    $('#divFeeds').addClass('hidden-xs');
+        //});
+        //$('#divProfile').fadeIn('slow', function () {
+        //    $('#divProfile').removeClass('hidden-xs');
+        //});
+    }
+    function showFeeds() {
+        $('#divRight').addClass('hidden-xs');
+        $('#divProfile').addClass('hidden-xs');
+        $('#divFeeds').removeClass('hidden-xs');
+
+        //$('#divRight').fadeOut('fast', function () {
+        //    $('#divRight').addClass('hidden-xs');
+        //});
+        //$('#divProfile').fadeOut('fast', function () {
+        //    $('#divProfile').addClass('hidden-xs');
+        //});
+        //$('#divFeeds').fadeIn('slow', function () {
+        //    $('#divFeeds').removeClass('hidden-xs');
+        //});
+    }
+    function showRight() {
+        $('#divFeeds').addClass('hidden-xs');
+        $('#divProfile').addClass('hidden-xs');
+        $('#divRight').removeClass('hidden-xs');
+
+        //$('#divFeeds').fadeOut('fast', function () {
+        //    $('#divFeeds').addClass('hidden-xs');
+        //});
+        //$('#divProfile').fadeOut('fast', function () {
+        //    $('#divProfile').addClass('hidden-xs');
+        //});
+        //$('#divRight').fadeIn('slow', function () {
+        //    $('#divRight').removeClass('hidden-xs');
+        //});
+    }
 </script>
-<style>
-    body.wait *, body.wait {
-        cursor: wait !important;
-    }
-    button.wait *, button.wait {
-        pointer-events: none;
-        opacity: 1;
-        cursor:not-allowed
-    }
-
-    .buscar-caja {
-        position: absolute;
-        top: 50%;
-        left: 25px;
-        transform: translate(-50%, -50%);        
-        background-color: rgb(242,242,242);
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-    }
-        .buscar-caja:hover {
-            background: white;
-        }
-        .buscar-caja:hover > .buscar-txt {
-            width: 300px;
-            padding: 0 0 0 50px;
-        }
-
-        .buscar-caja:hover > .buscar-btn {
-            background: white;
-        }
-
-    .buscar-btn {
-        color: #e84118;
-        float: right;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        /*background: white;*/
-        background-color: rgb(242,242,242);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.4s;
-        cursor: pointer;
-        position: absolute;
-    }
-
-        .buscar-btn > i {
-            font-size: 30px;
-        }
-
-    .buscar-txt {
-        border: none;
-        background: white;
-        outline: none;
-        float: left;
-        padding: 0;
-        color: GrayText;
-        font-size: 16px;
-        transition: 0.4s;
-        line-height: 50px;
-        width: 0px;
-        border-radius:25px;
-        padding-right:50px;
-    }
 </style>
 <script src="~/CustomScripts/_LoginForm.js"></script>

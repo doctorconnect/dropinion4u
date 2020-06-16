@@ -3,12 +3,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-sm-3">
-        <br />
-        @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
+    <div class="col-sm-4 hidden-xs" id="divProfile">
+        @if (Session["UserID"] != null)
+        {
+            <div style="border: solid 1px #d8d8d8;margin-top:10px;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;">
+                <div class="cover-photo">
+                    <div class="fb-timeline-img">
+                        <img src="~/images/Bannerbgrd.png" height="100" />
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="profile-thumb">
+                        <img src="~/images/achievement.png" />
+                        <h4><a href="#" title="Name" style="color:GrayText">Dr. Vinay Goel</a></h4>
+                        <a title="Title" href="#" style="color:GrayText">General Physician</a><br />
+                        <a title="Education" href="#" style="color:GrayText">M.B.B.S</a><br />
+                        <a title="University" href="#" style="color:GrayText">AIMS university</a><br />
+                        <a title="Location" href="#" style="color:GrayText">Gurgaon</a><br />
+                        <a title="Followers" href="#" style="color:GrayText">298 Followers</a><br />
+                        <a title="Following" href="#" style="color:GrayText">301 Following</a><br />
+                    </div>
+
+                </div>
+                <p style="width:90%;text-align:center;margin-left:5%;margin-right:5%;">Vinay Goel is a Very good doctor with 10 years of Experience. He is a Guest lecturar in MIT. He is very kind hearted and handsome guy.</p>
+            </div>
+        }
+        else
+        {
+            @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
+        }
     </div>
-    <div class="col-sm-6">        
-        <br />
+    <div class="col-sm-5" id="divFeeds">
         @if (Session["UserID"] != null)
         {
             @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
@@ -36,15 +61,14 @@
         <br />
         @*@Html.Partial("~/Views/Timeline/_FeedPost.cshtml")*@
     </div>
-    <div class="col-sm-3">
-             
-        <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
-            <div class="panel-heading" style="text-align:center"><h4>NEWSFEEDS</h4></div>
+    <div class="col-sm-3 hidden-xs" id="divRight">
+        <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8;">
+            <div class="panel-heading" style="text-align:center"><h6>NEWSFEEDS</h6></div>
             @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
-       
+
         <div class="  panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
-            <div class="panel-heading" style="text-align:center"><h4>WEBSITES</h4></div>
+            <div class="panel-heading" style="text-align:center"><h6>WEBSITES</h6></div>
             <br />
             <div style="text-align: center;position: relative;height: 200px;overflow-y: scroll;word-wrap:hyphenate">
                 <a href="https://www.nih.gov">National Institutes of Health</a><br /><br />

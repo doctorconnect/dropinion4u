@@ -315,7 +315,6 @@ function UpdatePassword() {
 }
 
 function logout() {
-    debugger;
     $.ajax({
         url: "/ModalDialog/Logout",
         type: "POST",
