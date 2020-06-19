@@ -18,7 +18,7 @@ namespace DataAccess
         public WebPartsDataAccess(string key = null)
         {
             string connectionkey = GetconnectionKey(key);
-           // ObjDirectoryDataAccess = new WebPartsDataAccess(); 
+             ObjDirectoryDataAccess = new WebPartsDataAccess(); 
             m_Database = DatabaseFactory.CreateDatabase(connectionkey);            
         }
         private string GetconnectionKey(string KEY)
