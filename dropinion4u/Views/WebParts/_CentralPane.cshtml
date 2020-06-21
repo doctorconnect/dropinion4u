@@ -12,11 +12,11 @@
                         <div class="postimage postimage2" data-novc="1"></div>
                     </a>
                     <!--Post Text box-->
-                    <span role="textbox" contenteditable="true" class="textarea col-9" id="txtPost" style="background-color:rgb(242,242,242)"></span>
+                    <span role="textbox" contenteditable="true" class="textarea col-9" id="txtPost" style="background-color:rgb(242,242,242);"></span>
                     &nbsp;
                     <!--Post Button-->
                     <div style="position:relative" >
-                        <span class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Post</span>
+                        <span id="btnPost" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Post</span>
                     </div>
                 </div>
                 @*<div class="row">
@@ -84,7 +84,7 @@
         });
     });
 
-    $('#txtPost').keypress(function () {
+    $('#txtPost').keyup(function () {
         var maxLength = $(this).val().length;
         if (maxLength > 1000) {
             alert('You cannot enter more than 1000 chars');
