@@ -1,8 +1,8 @@
 ﻿/*body { margin-top: 85px; }*/
 
-#verifyregistration { position: fixed;font-size:smaller; top: 55px; width: 100%; padding: 0px 5px; display: flex; align-items: center; justify-content: space-between; background-color: #f6bcbc;    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
+#verifyregistration { position: fixed;font-size:smaller; top: 80px; left: 5%; right: 5%; width: 90%; padding: 0px 5px; display: flex; align-items: center; justify-content: space-between; background-color: #f6bcbc;    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
 
-#cookie_disclaimer { position: fixed; bottom: 30px; left: 5%; right: 5%; width: 90%; padding: 3px 5px; display: flex; align-items: center; justify-content: space-between; background-color: rgba(239, 239, 239, 0.90);    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
+#cookie_disclaimer { position: fixed;font-size:smaller;  bottom: 10px; left: 5%; right: 5%; width: 90%; padding: 0px 5px; display: flex; align-items: center; justify-content: space-between; background-color: rgba(239, 239, 239, 0.90);    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
 
 #cookie_stop { border-radius: 2px; width: 100px; cursor: pointer; }
 
@@ -11,7 +11,7 @@
 #jsMarquee { position: relative; /* mandatory */ /* width: 200px;*/ height: 400px; /* set as required */  overflow: hidden; /* mandatory */}
 
 
-.postveryveryouter { border-bottom-right-radius: 8px; border-top-left-radius: 8px; overflow-y: hidden; box-shadow: 0 1px 2px var(--shadow-2); box-sizing: border-box; border-top-right-radius: 8px; overflow-x: hidden; position: relative;  border-bottom-left-radius: 8px; width: 100%; background-color: var(--surface-background); }
+.postveryveryouter { position: relative; width: 100%; border-radius: 8px; overflow-y: hidden; overflow-x: hidden;box-shadow: 0 1px 2px var(--shadow-2); box-sizing: border-box; background-color: var(--surface-background); }
 
 .postveryouter { padding-top: 12px; padding-bottom: 10px; flex-wrap: wrap; display: flex; padding-right: 16px; padding-left: 16px; align-items: center;     }
 

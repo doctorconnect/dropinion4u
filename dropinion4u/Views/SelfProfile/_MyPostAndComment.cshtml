@@ -9,7 +9,7 @@
     int loggedUserId = Convert.ToInt32(HttpContext.Current.Session["ID"]);
 }
 <link href="~/Content/Site2.css" rel="stylesheet" />
-<div class="grey-border">
+@*<div class="grey-border">
     <div class="input-post">
         <textarea id="txtPost" class="form-control input-sm txtPost"></textarea>
         <div class="row">
@@ -21,8 +21,7 @@
             </div>
         </div>
     </div>
-    <!-- end textarea post -->
-</div>
+</div>*@
 @foreach (var cp in PostList)
 {
     <div class="grey-border">
@@ -135,27 +134,7 @@
             });
     }
 
-    $(function () {
-        $("#btnPost").click(function () {
-            var msg1 = $('.txtPost').val();
-            var msg = msg1.replace('&', '!!').replace('/', '!!!');
-                  if (msg != null) {
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/SavePost?Message=" + msg,
-                    contentType: "application/html; charset=utf-8",
-                    datatype: "html",
-                    success: function (t) {
-                        $("#dvHomePostsAndCommentBind").html(t)
-                    },
-                    error: function () {
-                        $("#dvHomePostsAndCommentBind").html("PostsAndComment  Not Found");
-                        window.location.href = "/Home/Error";
-                    }
-                });
-            }
-        });
-    });
+    
 
     function DeletePost(key) {
         //var Identifier = "POST";
@@ -228,15 +207,7 @@
                     }
                 });
             }
-        }
-
-    $('#txtPost').keypress(function () {
-        var maxLength = $(this).val().length;
-        if (maxLength > 1000) {
-            alert('You cannot enter more than 1000 chars');
-            return false;
-        }
-    });
+        }   
 
 </script>
 

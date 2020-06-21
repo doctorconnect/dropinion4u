@@ -16,24 +16,24 @@
 @if (Request.Cookies["dropiniondisclaimer4xy921"] == null)
 {
     <div id="cookie_disclaimer">
-        <p class="col-sm-10" style="text-align:center">
+        <div class="col-sm-10" style="text-align:center">
             This website uses cookies to ensure you get the best experience on our website.
-            <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-        </p>
-        <p id="cookie_stop">
-            <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
-        </p>
+            <a href="@Url.Action("Privacy", "Support")" target="_blank" class="btn btn-sm btn-link">Learn more</a>
+        </div>
+        <div id="cookie_stop">
+            <a role="button" tabindex="0" class="btn btn-sm btn-light btn-outline-info">Got it!</a>
+        </div>
     </div>
 }
 else if (!(Request.Cookies["dropiniondisclaimer4xy921"].Value == "true"))
 {
     <div id="cookie_disclaimer">
-        <p class="col-sm-10">
+        <div class="col-sm-10">
             This website uses cookies to ensure you get the best experience on our website.
-            <a href="@Url.Action("Privacy", "Support")" target="_blank">Learn more</a>
-        </p>
-        <p id="cookie_stop">
-            <a role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a>
-        </p>
+            <a href="@Url.Action("Privacy", "Support")" target="_blank" class="btn btn-sm btn-link">Learn more</a>
+        </div>
+        <div id="cookie_stop">
+            <a role="button" tabindex="0" class="btn btn-sm btn-light btn-outline-info" >Got it!</a>
+        </div>
     </div>
 }

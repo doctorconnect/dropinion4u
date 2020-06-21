@@ -32,20 +32,21 @@
         else
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
-            <br/>
-        }
+
+        }<br/>
     </div>
     <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
         {
             @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
+            @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
         }
         else
         {
             <div style="background-image: url('../../images/createpostbackground.PNG');background-size:100% 100%;text-align:center">
                 <div style="border: 2px solid rgba(246,246,246);background-color: rgba(246,246,246,.85);border-radius: 10px;">
                     <div>
-                        <br/>
+                        <br />
                         <a href="" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalLoginForm">
                             <b>Join Us</b>
                         </a><br />
@@ -57,11 +58,7 @@
             </div>
         }
         <br />
-        @if (Session["UserID"] != null)
-        {
-            @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
-        }
-        </div>
+    </div>
     <div class="col-lg-2" id="divRight">
         <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8;">
             <div class="panel-heading" style="text-align:center"><h6>NEWSFEEDS</h6></div>
