@@ -2,11 +2,12 @@
     ViewBag.Title = "HomePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br/>
 <div class="row">
     <div class="col-lg-5" id="divProfile">
         @if (Session["UserID"] != null)
         {
-            <div style="border: solid 1px #d8d8d8;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;">
+            <div style="border: solid 1px #d8d8d8;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;height:350px;">
                 <div class="cover-photo">
                     <div class="fb-timeline-img">
                         <img src="~/images/Bannerbgrd.png" height="100" />
@@ -31,6 +32,7 @@
         else
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
+            <br/>
         }
     </div>
     <div class="col-lg-5" id="divFeeds">
@@ -40,26 +42,22 @@
         }
         else
         {
-            <div style="background-image: url('../../images/createpostbackground.PNG');">
+            <div style="background-image: url('../../images/createpostbackground.PNG');background-size:100% 100%;text-align:center">
                 <div style="border: 2px solid rgba(246,246,246);background-color: rgba(246,246,246,.85);border-radius: 10px;">
-                    <br />
-                    <div class="text-center">
-                        @*<a href="@Url.Action("Signin","Login")" class="btn btn-default btn-rounded mb-4">
+                    <div>
+                        <br/>
+                        <a href="" class="btn btn-info" role="button" data-toggle="modal" data-target="#modalLoginForm">
                             <b>Join Us</b>
-                        </a><br /><br />*@
-                        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
-                            Join Us
-                        </a><br /><br />
-                        @*<a href="@Url.Action("Signin","Login")">*@
+                        </a><br />
                         <a href="" data-toggle="modal" data-target="#modalLoginForm">
                             <b><u>Already a Member. Sign In!</u></b>
                         </a>
-                    </div><br />
+                    </div>
                 </div>
             </div>
         }
         <br />
-        @if (Session["UserID"] == null)
+        @if (Session["UserID"] != null)
         {
             @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
         }
