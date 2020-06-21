@@ -2,21 +2,28 @@
     ViewBag.Title = "HomePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br/>
+<br />
 <div class="row">
     <div class="col-lg-5" id="divProfile">
         @if (Session["UserID"] != null)
         {
-            <div style="border: solid 1px #d8d8d8;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;height:350px;">
-                <div class="cover-photo">
-                    <div class="fb-timeline-img">
-                        <img src="~/images/Bannerbgrd.png" height="100" />
+            <div style="border: 2px solid rgba(246,246,246,.9); border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px;">
+                <div style="border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;">
+                    <div class="cover-photo">
+                        <div class="fb-timeline-img">
+                            <img src="~/images/Bannerbgrd.png" height="100" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="profile-thumb">
+                            <img src="~/images/achievement.png" />
+                        </div>
                     </div>
                 </div>
-                <div class="panel-body">
-                    <div class="profile-thumb">
-                        <img src="~/images/achievement.png" />
-                        <h4><a href="#" title="Name" style="color:GrayText">Dr. Vinay Goel</a></h4>
+                <h4><a href="#" title="Name" style="color:GrayText;margin-left:10px;">Dr. Vinay Goel</a></h4>
+                <hr />
+                <div class="row">
+                    <div class="col-5" style="text-align:center">
                         <a title="Title" href="#" style="color:GrayText">General Physician</a><br />
                         <a title="Education" href="#" style="color:GrayText">M.B.B.S</a><br />
                         <a title="University" href="#" style="color:GrayText">AIMS university</a><br />
@@ -24,16 +31,18 @@
                         <a title="Followers" href="#" style="color:GrayText">298 Followers</a><br />
                         <a title="Following" href="#" style="color:GrayText">301 Following</a><br />
                     </div>
-
+                    <div class="col-6" style="text-align:center;color:GrayText;font-size:small">
+                        Vinay Goel is a Very good doctor with 10 years of Experience. He is a Guest lecturar in MIT. He is very kind hearted and handsome guy.
+                    </div>
                 </div>
-                <p style="width:90%;text-align:center;margin-left:5%;margin-right:5%;">Vinay Goel is a Very good doctor with 10 years of Experience. He is a Guest lecturar in MIT. He is very kind hearted and handsome guy.</p>
+                <br/>
             </div>
         }
         else
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
 
-        }<br/>
+        }<br />
     </div>
     <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
@@ -60,12 +69,12 @@
         <br />
     </div>
     <div class="col-lg-2" id="divRight">
-        <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8;">
+        <div class=" panel panel-primary round service-wrapper" style="border: 2px solid rgba(246,246,246,.9);">
             <div class="panel-heading" style="text-align:center"><h6>NEWSFEEDS</h6></div>
             @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
 
-        <div class="  panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8; margin-top: 10px; background-color: White;">
+        <div class="  panel panel-primary round service-wrapper" style="border: 2px solid rgba(246,246,246,.9); margin-top: 10px; background-color: White;">
             <div class="panel-heading" style="text-align:center"><h6>WEBSITES</h6></div>
             <br />
             <div style="text-align: center;position: relative;height: 200px;overflow-y: scroll;word-wrap:hyphenate">
