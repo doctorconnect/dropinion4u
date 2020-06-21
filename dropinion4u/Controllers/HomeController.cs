@@ -12,10 +12,11 @@ namespace dropinion4u.Controllers
     public class HomeController : Controller
     {
         private WebPartsDataAccess objWebPartsDataAccess;
+        private DirectoryDataAccess objDirectoryDataAccess;
         private SendEmail objSendEmail;
         public HomeController()
         {
-            
+            objDirectoryDataAccess = new DirectoryDataAccess();
             objWebPartsDataAccess = new WebPartsDataAccess();
             objSendEmail = new SendEmail();
         }
@@ -84,5 +85,81 @@ namespace dropinion4u.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SavePost(string Message)
+        {
+            var msg = objDirectoryDataAccess.SubmitPost(Message.Replace("!!", "&").Replace("!!!", "'\'"));
+            ViewBag.PostList = objDirectoryDataAccess.GetPost();
+            return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult SaveComment(int PostId, string txtcomment, string Identifier)
+        {
+            int msg = 0;
+            msg = objDirectoryDataAccess.SubmitCommentt(PostId, txtcomment, Identifier);
+            if (msg > 0)
+                TempData["Success"] = "Comment Posted";
+            else if (msg == 0)
+                TempData["error"] = "Some Error Occured. Please Contact Admin";
+
+            if (Identifier == "POST")
+            {
+                ViewBag.PostList = objDirectoryDataAccess.GetPost();
+                return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+            }            
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult PostLikes()
+        {
+            int keyId = int.Parse(Request.QueryString["key"]);
+            string Identifier = Request.QueryString["Identifier"];
+            try
+            {
+                int msg = 0;
+                msg = objDirectoryDataAccess.SubmitLike(keyId, Identifier);
+                if (msg > 0)
+                    TempData["success"] = "Post Liked";
+                else
+                    TempData["error"] = "Some Error Occured. Please Contact Admin";
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            if (Identifier == "POST")
+            {
+                ViewBag.PostList = objDirectoryDataAccess.GetPost();
+                return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+            }            
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult FlagPost()
+        {
+            string keyId = Request.QueryString["key"];
+            string Id = Request.QueryString["Id"].PadLeft(9, '0');
+            string Identifier = Request.QueryString["Identifier"];
+            try
+            {
+                int msg = 0;
+                msg = objDirectoryDataAccess.PostFlag(int.Parse(keyId));
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            if (Identifier == "POST")
+            {
+                ViewBag.PostList = objDirectoryDataAccess.GetPost();
+                return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

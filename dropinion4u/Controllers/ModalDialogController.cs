@@ -17,6 +17,7 @@ namespace dropinion4u.Controllers
         public ModalDialogController()
         {
             objLogindataAccess = new LogindataAccess();
+            objWebPartsDataAccess = new WebPartsDataAccess();
             objSendEmail = new SendEmail();
 
         }

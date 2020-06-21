@@ -45,8 +45,8 @@
                     <br />
                     <div class="text-center">
                         @*<a href="@Url.Action("Signin","Login")" class="btn btn-default btn-rounded mb-4">
-                                <b>Join Us</b>
-                            </a><br /><br />*@
+                            <b>Join Us</b>
+                        </a><br /><br />*@
                         <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">
                             Join Us
                         </a><br /><br />
@@ -59,8 +59,11 @@
             </div>
         }
         <br />
-        @*@Html.Partial("~/Views/Timeline/_FeedPost.cshtml")*@
-    </div>
+        @if (Session["UserID"] == null)
+        {
+            @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
+        }
+        </div>
     <div class="col-lg-2" id="divRight">
         <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8;">
             <div class="panel-heading" style="text-align:center"><h6>NEWSFEEDS</h6></div>
