@@ -1,4 +1,4 @@
-﻿body { margin-top: 85px; }
+﻿/*body { margin-top: 85px; }*/
 
 #verifyregistration { position: fixed;font-size:smaller; top: 70px; left: 5%; right: 5%; width: 100%; padding: 3px 5px; display: flex; align-items: center; justify-content: space-between; background-color: #f6bcbc;    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
 

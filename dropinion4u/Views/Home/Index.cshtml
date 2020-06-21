@@ -3,10 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-sm-4 hidden-xs" id="divProfile">
+    <div class="col-lg-5" id="divProfile">
         @if (Session["UserID"] != null)
         {
-            <div style="border: solid 1px #d8d8d8;margin-top:10px;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;">
+            <div style="border: solid 1px #d8d8d8;border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0;">
                 <div class="cover-photo">
                     <div class="fb-timeline-img">
                         <img src="~/images/Bannerbgrd.png" height="100" />
@@ -33,7 +33,7 @@
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
         }
     </div>
-    <div class="col-sm-5" id="divFeeds">
+    <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
         {
             @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
@@ -61,7 +61,7 @@
         <br />
         @*@Html.Partial("~/Views/Timeline/_FeedPost.cshtml")*@
     </div>
-    <div class="col-sm-3 hidden-xs" id="divRight">
+    <div class="col-lg-2" id="divRight">
         <div class=" panel panel-primary round service-wrapper" style="border: solid 1px #d8d8d8;">
             <div class="panel-heading" style="text-align:center"><h6>NEWSFEEDS</h6></div>
             @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
