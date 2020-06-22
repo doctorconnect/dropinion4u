@@ -89,7 +89,9 @@
                 @*<span style="padding-left: 6px;">@LikeList.Where(l => l.PostId == cp.PostId).Count() like(s)</span>*@
             </div>
             <div>
-                @CommentList.Where(l => l.PostId == cp.PostId).Count() comment(s)
+                <button class="btn btn-default" title="Comment On Post" onclick="showhide(@cp.PostId);">
+                    @CommentList.Where(l => l.PostId == cp.PostId).Count() comment(s)
+                </button>
             </div>
         </div>
         <hr />
@@ -109,17 +111,15 @@
                     <span class="fa fa-share-alt" style="color:GrayText;font-size:18px;margin-right:6px;"></span>Share
                 </button>
             </span>
-            
+
         </div>
         @if (CommentList.Where(l => l.PostId == cp.PostId).Count() > 0)
         {
             <hr />
         }
 
-        <div style="display:none; margin-top:10px;" id="P_@cp.PostId" class="publishComment">
-            @foreach (var cmt in CommentList.Where(l => l.PostId == cp.PostId))
-            {
-            <div style="display:flex;padding:4px 16px 4px 16px">
+        <div style="display:none;" id="P_@cp.PostId" class="publishComment">
+            <div class="input-group" id="@cp.PostId">
                 <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
                     <div style="position: relative;">
                         <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
@@ -127,19 +127,34 @@
                     </div>
                     <div class="postimage postimage2" data-novc="1"></div>
                 </a>
-                <h4 class="media-heading">
-                    <a href="/User/UserProfile?Usercode=@cmt.UserCode">@cmt.CommentedByName</a>
-                    <small>@cmt.CommentedDate</small>
-                </h4>
-                <p>@cmt.Message</p>
-            </div>
-            }
-
-            <div class="input-group input-group-sm " id="@cp.PostId">
+                <!--Post Text box-->
                 <input type="hidden" class="PostId" value="@cp.PostId" />
-                <input type="text" name="txtvale" id="txt_@cp.PostId" class="form-control txtcomment" placeholder="write a comment..." />
-                <div class="input-group-btn"><button id="@cp.PostId" onclick="PostComment(this);" class="btn btn-primary postComment">Comment</button></div>
-            </div>
+                <span role="textbox" contenteditable="true" class="textarea col-7" id="txt_@cp.PostId" style="background-color:rgb(242,242,242);"></span>
+                &nbsp;
+                <!--Post Button-->
+                <div style="position:relative">
+                    <span id="@cp.PostId" onclick="PostComment(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Comment</span>
+                </div>
+            </div><br />
+            @foreach (var cmt in CommentList.Where(l => l.PostId == cp.PostId))
+            {
+                <div class="input-group" style="margin-bottom: 6px;">
+                    <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
+                        <div style="position: relative;">
+                            <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
+                            <div class="postimage postimageone" style="height: 32px; width: 32px;"></div>
+                        </div>
+                        <div class="postimage postimage2" data-novc="1"></div>
+                    </a>
+                    <div class="col-10 input-group">
+                        <div role="textbox" style="background-color:rgb(242,242,242);border-radius:8px;padding: 10px 10px;">
+                            <a href="/User/UserProfile?Usercode=@cmt.UserCode">@cmt.CommentedByName</a>
+                            @cmt.Message
+                        </div>
+                        <small class="w-100">@cmt.CommentedDate</small>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 }
