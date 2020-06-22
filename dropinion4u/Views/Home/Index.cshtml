@@ -4,7 +4,7 @@
 }
 <br />
 <div class="row">
-    <div class="col-lg-5" id="divProfile">
+    <div class="col-lg-4" id="divProfile">
         @if (Session["UserID"] != null)
         {
             <div style="border: 2px solid rgba(246,246,246,.9); border-radius: 4px 4px 4px 4px; -webkit-border-radius: 4px 4px 4px 4px;">
@@ -23,32 +23,36 @@
                 <h4><a href="#" title="Name" style="color:GrayText;margin-left:10px;">Dr. Vinay Goel</a></h4>
                 <hr />
                 <div class="row">
-                    <div class="col-5" style="text-align:center">
-                        <a title="Title" href="#" style="color:GrayText">General Physician</a><br />
+                    <div class="col-5" style="text-align:center;">
+                        <a title="Title" href="#" style="color:GrayText;">General Physician</a><br />
                         <a title="Education" href="#" style="color:GrayText">M.B.B.S</a><br />
                         <a title="University" href="#" style="color:GrayText">AIMS university</a><br />
                         <a title="Location" href="#" style="color:GrayText">Gurgaon</a><br />
                         <a title="Followers" href="#" style="color:GrayText">298 Followers</a><br />
                         <a title="Following" href="#" style="color:GrayText">301 Following</a><br />
                     </div>
-                    <div class="col-6" style="text-align:center;color:GrayText;font-size:small">
-                        Vinay Goel is a Very good doctor with 10 years of Experience. He is a Guest lecturar in MIT. He is very kind hearted and handsome guy.
+                    <div class="col-6" style="text-align:center;color:GrayText;font-size:small;background-color: rgba(246,246,246,.9);">
+                        <h3>About</h3>
+                        <p>
+                            Vinay Goel is a Very good doctor with 10 years of Experience. He is a Guest lecturar in MIT. He is very kind hearted and handsome guy.
+                        </p>
                     </div>
                 </div>
-                <br/>
+                <br />
             </div>
         }
         else
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
-
         }<br />
+        @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
     </div>
     <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
         {
             @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
-            @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
+            @Html.Partial("~/Views/Timeline/_FeedPost.cshtml")
+
         }
         else
         {
@@ -68,13 +72,13 @@
         }
         <br />
     </div>
-    <div class="col-lg-2" id="divRight">
-        <div class=" panel panel-primary round service-wrapper" style="border: 2px solid rgba(246,246,246,.9);">
+    <div class="col-lg-3" id="divRight">
+        <div class="panel panel-primary round service-wrapper" style="border: 2px solid rgba(246,246,246,.9);border-radius: 4px;">
             <div class="panel-heading" style="text-align:center"><h6>NEWSFEEDS</h6></div>
             @Html.Partial("~/Views/WebParts/_RssFeeds.cshtml")
         </div>
 
-        <div class="  panel panel-primary round service-wrapper" style="border: 2px solid rgba(246,246,246,.9); margin-top: 10px; background-color: White;">
+        <div class="panel panel-primary round service-wrapper" style="border: 2px solid rgba(246,246,246,.9);border-radius: 4px; margin-top: 10px; background-color: White;">
             <div class="panel-heading" style="text-align:center"><h6>WEBSITES</h6></div>
             <br />
             <div style="text-align: center;position: relative;height: 200px;overflow-y: scroll;word-wrap:hyphenate">
