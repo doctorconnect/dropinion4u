@@ -105,10 +105,6 @@ namespace DataAccess
         }
 
 
-
-
-
-
         private UserRegistrationModel GetUserRegistrationDetailsFromDataReader(IDataReader datareader)
         {
             objUserRegistrationModel = new UserRegistrationModel();
