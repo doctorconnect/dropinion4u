@@ -86,13 +86,26 @@ namespace dropinion4u.Controllers
             return View();
         }
 
+        public ActionResult LoadPostsAndCommentPartialView()
+        {
+            ViewBag.PostList = objDirectoryDataAccess.GetPost();
+            return PartialView("~/Views/SelfProfile/_MyPostAndComment.cshtml");
+        }
+
+        public ActionResult Loadlikecount()
+        {
+            string keyId = Request.QueryString["key"];
+            ViewBag.PostList = objDirectoryDataAccess.GetPost();
+            return PartialView("~/Views/SelfProfile/_likeCount.cshtml", new ViewDataDictionary { { "cpid", keyId } });
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult SavePost(string Message)
         {
             var msg = objDirectoryDataAccess.SubmitPost(Message.Replace("!!", "&").Replace("!!!", "'\'"));
             ViewBag.PostList = objDirectoryDataAccess.GetPost();
-            return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+            return PartialView("~/Views/SelfProfile/_MyPostAndComment.cshtml");
         }
 
         [HttpPost]
@@ -100,15 +113,10 @@ namespace dropinion4u.Controllers
         {
             int msg = 0;
             msg = objDirectoryDataAccess.SubmitCommentt(PostId, txtcomment, Identifier);
-            if (msg > 0)
-                TempData["Success"] = "Comment Posted";
-            else if (msg == 0)
-                TempData["error"] = "Some Error Occured. Please Contact Admin";
-
-            if (Identifier == "POST")
+          if (Identifier == "POST")
             {
                 ViewBag.PostList = objDirectoryDataAccess.GetPost();
-                return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+                return PartialView("~/Views/SelfProfile/_MyPostAndComment.cshtml");
             }            
             return RedirectToAction("Index", "Home");
         }
@@ -133,7 +141,7 @@ namespace dropinion4u.Controllers
             if (Identifier == "POST")
             {
                 ViewBag.PostList = objDirectoryDataAccess.GetPost();
-                return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+                return PartialView("~/Views/SelfProfile/_MyPostAndComment.cshtml");
             }            
             return RedirectToAction("Index", "Home");
         }
@@ -156,7 +164,7 @@ namespace dropinion4u.Controllers
             if (Identifier == "POST")
             {
                 ViewBag.PostList = objDirectoryDataAccess.GetPost();
-                return PartialView("~/Views/MyProfile/_MyPostAndComment.cshtml");
+                return PartialView("~/Views/SelfProfile/_MyPostAndComment.cshtml");
             }
             return RedirectToAction("Index", "Home");
         }

@@ -15,6 +15,8 @@ namespace DataAccess
         public const string SUBMITUSERDETAILS = "UspSubmitDetails";
         public const string UPDATEUSERDETAILS = "Dro_UpdateUserDetails";
         public const string SUBMITFEEDBACK = "DRO_UspSubmitFeedback";
+        public const string PROCSUBMITUSERREQUEST = "uspSubmitUserRequest";
+        public const string PROCCHECKUSEREXISTS = "uspGetUserExists";
 
         //  Post  Proc
         public const string PROCGETLISTOFPOST = "uspGetListOfPost";

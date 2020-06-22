@@ -190,6 +190,8 @@ namespace DataAccess
                 m_Database.AddInParameter(dbCommand, "@CreatedBy", DbType.String, HttpContext.Current.Session["UserNTID"].ToString());
                 m_Database.AddInParameter(dbCommand, "@Message", DbType.String, msg);
                 m_Database.AddInParameter(dbCommand, "@Identifier", DbType.String, Identifier);
+                m_Database.AddInParameter(dbCommand, "@Points", DbType.String, 0);
+
                 success = m_Database.ExecuteNonQuery(dbCommand);
             }
             return success;
@@ -204,6 +206,8 @@ namespace DataAccess
                 m_Database.AddInParameter(dbCommand, "@LikeBy", DbType.Int32, HttpContext.Current.Session["ID"].ToString());
                 m_Database.AddInParameter(dbCommand, "@CreatedBy", DbType.String, HttpContext.Current.Session["UserNTID"].ToString());
                 m_Database.AddInParameter(dbCommand, "@Identifier", DbType.String, Identifier);
+                m_Database.AddInParameter(dbCommand, "@Points", DbType.String, 0);
+
                 success = m_Database.ExecuteNonQuery(dbCommand);
             }
             return success;

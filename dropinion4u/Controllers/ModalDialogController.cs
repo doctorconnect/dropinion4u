@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using BusinessEntities;
 using DataAccess;
 using dropinion4u.Models;
 
@@ -100,6 +102,7 @@ namespace dropinion4u.Controllers
             try
             {
                 string email = Session["email"].ToString();
+                var useex = objLogindataAccess.GetUserExist(email, Pass);
                 var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email && x.UserPassword == Pass).FirstOrDefault();
                 if (userDetails != null)
                 {
@@ -128,7 +131,30 @@ namespace dropinion4u.Controllers
                 var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
                 if (userDetails != null)
                 {
-                    msg = objLogindataAccess.UpdateUserRequest(email, Pass);
+                    UserRegistrationModel user = new UserRegistrationModel();
+                    user.RoleId = 12;
+                    user.UserCode = RandomDigits(8);
+                    user.UserNTID = "HUB" + RandomDigits(4);
+                    user.UserName = "GUEST";
+                    user.UserEmail = email;
+                    user.ManagerName = "INDIA";
+                    user.ManagerNTID = Pass;
+                    user.ManagerCode = Pass;
+                    user.ManagerEmail = email;
+                    user.BusinessSegmentId = 1;
+                    user.CapabilitiesId = 1;
+                    user.LOBId = 1;
+                    user.Status = 6;
+                    user.AboutMe = "Describe yourself in 140 characters";
+
+
+                    var imagPath = Server.MapPath("~/images/avtar.png");
+                    Image img = Image.FromFile(imagPath);
+                    byte[] imageDatabytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
+                   
+                    msg = objLogindataAccess.SubmitUserRequest(null, imageDatabytes, user);
+                    
+                    //msg = objLogindataAccess.UpdateUserRequest(email, Pass);
                     Session["UserID"] = userDetails.UserID;
                     return new JsonResult { Data = ("RegistrationSuccessful", Session["UserID"]) };
                 }
@@ -174,5 +200,13 @@ namespace dropinion4u.Controllers
             return new JsonResult { Data = ("LogoutSuccessful", Session["UserID"]) };
         }
 
+        public string RandomDigits(int length)
+        {
+            var random = new Random();
+            string s = string.Empty;
+            for (int i = 0; i < length; i++)
+                s = String.Concat(s, random.Next(10).ToString());
+            return s;
+        }
     }
     }
