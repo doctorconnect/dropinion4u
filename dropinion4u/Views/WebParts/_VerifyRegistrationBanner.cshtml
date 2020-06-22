@@ -18,25 +18,25 @@
     if (Request.Cookies["dropinionverificationcookie"] == null)
     {
         <div id="verifyregistration">
-            <p class="col-sm-10" style="text-align:center">
+            <div class="col-sm-10" style="text-align:center">
                 We thank you for registering at dropinion.net. You can now browse through the content. Please verify your email so we can ensure no one else post with your email.
-                <a data-toggle="modal" data-target="#modalVerificationForm">Verify Now</a>
-            </p>
-            <p id="verify_stop">
-                <a style="cursor:pointer" role="button" tabindex="0" class="cc-btn cc-dismiss">Dismiss</a>
-            </p>
+                <a data-toggle="modal" href="#" data-target="#modalVerificationForm" class="btn btn-sm btn-link">Verify Now</a>
+            </div>
+            <div id="verify_stop">
+                <a style="cursor:pointer" role="button" tabindex="0" class="btn btn-sm btn-outline-danger">Dismiss</a>
+            </div>
         </div>
     }
     else if (!(Request.Cookies["dropinionverificationcookie"].Value == "true"))
     {
         <div id="verifyregistration">
-            <p class="col-sm-10" style="text-align:center">
+            <div class="col-sm-10" style="text-align:center">
                 We thank you for registering at dropinion.net. You can now browse through the content. You need to Verify your email address so we can ensure no one else post with your email address.
-                <a data-toggle="modal" data-target="#modalVerificationForm">Verify Now</a>
-            </p>
-            <p id="verify_stop">
-                <a style="cursor:pointer" role="button" tabindex="0" class="cc-btn cc-dismiss">Dismiss</a>
-            </p>
+                <a data-toggle="modal" href="#" data-target="#modalVerificationForm" class="btn btn-sm btn-link">Verify Now</a>
+            </div>
+            <div id="verify_stop">
+                <a style="cursor:pointer" role="button" tabindex="0" class="btn btn-sm btn-outline-danger">Dismiss</a>
+            </div>
         </div>
     }
 }

@@ -2,45 +2,111 @@
     <div style="position:relative;width:100%;display:flex;">
         <div class="postveryveryouter" style="border: 2px solid rgba(246,246,246,.9);">
             <div class="postveryouter">
-                <!--User Image-->
-                <a style="color: #385898;" aria-label="Vinay Goel's timeline" class="postouter" href="@Url.Action("UserProfile", "UserProfile")" role="link" tabindex="0">
-                    <div style="position: relative;">
-                        <img class="postimage" style="display: block;border: 0;" height="40" src="~/images/1.png" width="40" alt="">
-                        <div class="postimage postimageone" style="height: 40px; width: 40px;"></div>
+                <div class="input-group">
+                    <!--User Image-->
+                    <a style="color: #385898;" aria-label="Vinay Goel's timeline" class="postouter" href="@Url.Action("UserProfile", "UserProfile")" role="link" tabindex="0">
+                        <div style="position: relative;">
+                            <img class="postimage" style="display: block;border: 0;" height="40" src="~/images/1.png" width="40" alt="">
+                            <div class="postimage postimageone" style="height: 40px; width: 40px;"></div>
+                        </div>
+                        <div class="postimage postimage2" data-novc="1"></div>
+                    </a>
+                    <!--Post Text box-->
+                    <span role="textbox" contenteditable="true" class="textarea col-9" id="txtPost" style="background-color:rgb(242,242,242);"></span>
+                    &nbsp;
+                    <!--Post Button-->
+                    <div style="position:relative" >
+                        <span id="btnPost" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Post</span>
                     </div>
-                    <div class="postimage postimage2" data-novc="1"></div>
-                </a>
+                </div>
+                @*<div class="row">
+                        <div class="col-sm-6 post-icons">
+                        </div>
+                        <div class="col-sm-6 post-btn text-right">
+                            <br />
+                            <input type="button" placeholder="Create Post" id="btnPost" class="btn btn-default btn-primary btn-group-lg" value="Post">
+                        </div>
+                    </div>*@
                 <!--Post Button-->
-                <div style="background-color:rgb(242,242,242)" data-toggle="modal" data-target="#modalPostForm" class="postbutton" role="button" tabindex="0">
-                    <div style="font-size:15px;">Wanna Create a Post, User?</div>
-                    <div class="postbutton2" data-novc="1" style="border-radius: 20px;"></div>
-                </div>
+                @*<div style="background-color:rgb(242,242,242)" data-toggle="modal" data-target="#modalPostForm" class="postbutton" role="button" tabindex="0">
+                        <div style="font-size:15px;">Wanna Create a Post, User?</div>
+                        <div class="postbutton2" data-novc="1" style="border-radius: 20px;"></div>
+                    </div>*@
                 <!--More options Buttons-->
-                <div class="CreatePostMore">
-                    <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
-                        <div class="CreatePostMoreimageouter">
-                            @*<img src="~/images/Camera.png" alt="" height="20" width="20">*@
-                            <span class="glyphicon glyphicon-tasks" style="color:darkviolet" dir="auto"></span>&nbsp;&nbsp;Create Blog
-                        </div>
-                        <div data-novc="1"></div>
+            <div class="CreatePostMore">
+                <input accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska" style="display:none;" multiple="" type="file">
+                <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
+                    <div class="CreatePostMoreimageouter">
+                        @*<img src="~/images/Photo.png" alt="" height="20" width="20">*@
+                        <span class="fa fa-picture-o" style="color:limegreen" dir="auto"></span>&nbsp;&nbsp;Photo/Video
                     </div>
-                    <input accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska" style="display:none;" multiple="" type="file">
-                    <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
-                        <div class="CreatePostMoreimageouter">
-                            @*<img src="~/images/Photo.png" alt="" height="20" width="20">*@
-                            <span class="glyphicon glyphicon-picture" style="color:limegreen" dir="auto"></span>&nbsp;&nbsp;Photo/Video
-                        </div>
-                        <div data-novc="1">
-                        </div>
-                    </div>
-                    <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
-                        <div class="CreatePostMoreimageouter">
-                            <span class="glyphicon glyphicon-file" style="color:red" dir="auto"></span>&nbsp;&nbsp;Document
-                        </div>
-                        <div data-novc="1"></div>
+                    <div data-novc="1">
                     </div>
                 </div>
+                <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
+                    <div class="CreatePostMoreimageouter">
+                        <span class="fa fa-file" style="color:red" dir="auto"></span>&nbsp;&nbsp;Document
+                    </div>
+                    <div data-novc="1"></div>
+                </div>
+                <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
+                    <div class="CreatePostMoreimageouter">
+                        @*<img src="~/images/Camera.png" alt="" height="20" width="20">*@
+                        <span class="fa fa-tasks" style="color:darkviolet" dir="auto"></span>&nbsp;&nbsp;Article
+                    </div>
+                    <div data-novc="1"></div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $("#btnPost").click(function () {
+            var msg1 = $('.txtPost').val();
+            var msg = msg1.replace('&', '!!').replace('/', '!!!');
+            if (msg != null) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/SavePost?Message=" + msg,
+                    contentType: "application/html; charset=utf-8",
+                    datatype: "html",
+                    success: function (t) {
+                        $("#dvHomePostsAndCommentBind").html(t)
+                    },
+                    error: function () {
+                        $("#dvHomePostsAndCommentBind").html("PostsAndComment  Not Found");
+                        window.location.href = "/Home/Error";
+                    }
+                });
+            }
+        });
+    });
+
+    $('#txtPost').keyup(function () {
+        var maxLength = $(this).val().length;
+        if (maxLength > 1000) {
+            alert('You cannot enter more than 1000 chars');
+            return false;
+        }
+    });
+
+</script>
+
+<style>
+    .textarea {
+        border-radius:8px;
+        padding: 10px 10px;
+        display: block;
+        overflow: hidden;
+        resize: both;
+        min-height: 40px;
+        line-height: 20px;
+    }
+
+        .textarea[contenteditable]:empty::before {
+            content: "Wanna Create a Post, User?";
+            color: gray;
+        }
+</style>

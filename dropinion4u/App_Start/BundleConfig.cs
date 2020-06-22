@@ -28,8 +28,8 @@ namespace dropinion4u
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css", "~/Content/toastr.css"));           
+                      "~/Content/bootstrap.css", "~/Content/font-awesome.min.css",
+                       "~/Content/toastr.css", "~/Content/site.css"));           
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

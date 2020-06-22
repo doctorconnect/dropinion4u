@@ -56,8 +56,8 @@ label {
     font-family: arial;
 }
 
-input, select { /*height:28px !important;*/
-    line-height: 15px !important;
+/*input, select {*/ /*height:28px !important;*/
+    /*line-height: 15px !important;
 }
 
 input, select, textarea {
@@ -68,7 +68,7 @@ input, select, textarea {
     font-family: arial;
     font-size: 12px !important;
     border: solid 1px #b1b2b3 !important;
-}
+}*/
 
 textarea {
     height: 65px !important;
