@@ -106,12 +106,12 @@ namespace dropinion4u.Controllers
                 //objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email && x.UserPassword == Pass).FirstOrDefault();
                 if (userDetails != null)
                 {
-                    Session["UserID"] = userDetails.Id;
-                    Session["ID"] = "6";
-                    Session["UserNTID"] = userDetails.UserNTID;
-                    Session["CapabilitiesId"] = userDetails.CapabilitiesId;
-                    Session["Adminstrator"] = userDetails.IsAdmin;
-                    Session["EmailVerified"] = false;
+                    HttpContext.Session["UserID"] = userDetails.Id;
+                    HttpContext.Session["ID"] = userDetails.Id;
+                    HttpContext.Session["UserNTID"] =  userDetails.UserNTID;
+                    HttpContext.Session["CapabilitiesId"] = userDetails.CapabilitiesId;
+                    HttpContext.Session["Adminstrator"] = userDetails.IsAdmin;
+                    HttpContext.Session["EmailVerified"] = false;
                     return new JsonResult { Data = ("LoginSuccessful", Session["UserID"]) };
                 }
                 else

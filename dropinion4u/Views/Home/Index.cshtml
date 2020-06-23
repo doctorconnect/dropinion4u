@@ -45,13 +45,16 @@
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
         }<br />
-        <div id="dvHomePostsAndCommentBind">
-            <div class="loaderCenter">
-                <span class="loadingText">Recent Post's Loading....</span>
+       
+            <div id="dvHomePostsAndCommentBind">
+                <div class="loaderCenter">
+                    <span class="loadingText">Login to Access Post's ....</span>
+                </div>
             </div>
+            @*@Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")*@
+        
         </div>
-        @*@Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")*@
-    </div>
+
     <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
         {
@@ -101,9 +104,14 @@
     </div>
 </div>
 
-<script>    
+<script>
+
+    var UserID = @Session["UserID"];
+
     $(document).ready(function () {
-        LoadPostsAndComment();
+        if (UserID != null) {
+            LoadPostsAndComment();
+        }
         });
 
     function LoadPostsAndComment() {
