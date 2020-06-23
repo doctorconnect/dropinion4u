@@ -101,12 +101,16 @@ namespace dropinion4u.Controllers
         {
             try
             {
-                string email = Session["email"].ToString();
-                var useex = objLogindataAccess.GetUserExist(email, Pass);
-                var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email && x.UserPassword == Pass).FirstOrDefault();
+                string email = Session["email"].ToString();                
+                var userDetails = objLogindataAccess.GetRegisteredUserDetail(email, Pass).FirstOrDefault();
+                //objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email && x.UserPassword == Pass).FirstOrDefault();
                 if (userDetails != null)
                 {
-                    Session["UserID"] = userDetails.UserID;
+                    Session["UserID"] = userDetails.Id;
+                    Session["ID"] = "6";
+                    Session["UserNTID"] = userDetails.UserNTID;
+                    Session["CapabilitiesId"] = userDetails.CapabilitiesId;
+                    Session["Adminstrator"] = userDetails.IsAdmin;
                     Session["EmailVerified"] = false;
                     return new JsonResult { Data = ("LoginSuccessful", Session["UserID"]) };
                 }
@@ -128,8 +132,9 @@ namespace dropinion4u.Controllers
             {
                 string email = Session["email"].ToString();
                 int msg = 0;
-                var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-                if (userDetails != null)
+               // var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+                var userDetails = objLogindataAccess.GetRegisteredUserDetail(email, Pass).FirstOrDefault();
+                if (userDetails == null)
                 {
                     UserRegistrationModel user = new UserRegistrationModel();
                     user.RoleId = 12;

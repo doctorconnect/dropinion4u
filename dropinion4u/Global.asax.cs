@@ -30,10 +30,10 @@ namespace dropinion4u
             HttpContext.Current.Session["UserHostAddress"] = HttpContext.Current.Request.UserHostAddress;
             HttpContext.Current.Session["UserAgent"] = HttpContext.Current.Request.UserAgent;
             HttpContext.Current.Session["UserHostName"] = HttpContext.Current.Request.UserHostName;
-            HttpContext.Current.Session["ID"] = "6";
-            HttpContext.Current.Session["UserNTID"] = "HUBshiv";
-            HttpContext.Current.Session["CapabilitiesId"] = "1";
-            HttpContext.Current.Session["Adminstrator"] = "1";
+            //HttpContext.Current.Session["ID"] = "6";
+            //HttpContext.Current.Session["UserNTID"] = "HUBshiv";
+            //HttpContext.Current.Session["CapabilitiesId"] = "1";
+            //HttpContext.Current.Session["Adminstrator"] = "1";
 
         }
     }

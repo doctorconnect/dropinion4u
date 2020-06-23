@@ -2,7 +2,7 @@
 
 namespace BusinessEntities
 {
-    public class UserRegistrationModel
+    public class UserRegistrationModel:Base
     {
         public int UserID { get; set; }
         public string UserEmail { get; set; }

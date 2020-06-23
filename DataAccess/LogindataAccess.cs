@@ -21,7 +21,7 @@ namespace DataAccess
             // ObjDirectoryDataAccess = new WebPartsDataAccess(); 
             m_Database = DatabaseFactory.CreateDatabase(connectionkey);
         }
-        private string GetconnectionKey(string KEY)
+        private string GetconnectionKey(string KEY=null)
         {
             string connectionkey = string.Empty;
             string server = HttpContext.Current.Session["MachineName"].ToString();
@@ -58,11 +58,28 @@ namespace DataAccess
             return objUserRegistrationModel;
         }
 
+        public List<UserRegistrationModel> GetRegisteredUserDetail(string UserEmail, string UserPassword)
+        {
+            List<UserRegistrationModel> objUserRegistrationModel = new List<UserRegistrationModel>();
+            using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.PROCGETREGISTEREDUSERDETAILS))
+            {
+                m_Database.AddInParameter(dbCommand, "@Email", DbType.String, UserEmail);
+                m_Database.AddInParameter(dbCommand, "@Password", DbType.String, UserPassword);
+                using (IDataReader dataReader = m_Database.ExecuteReader(dbCommand))
+                {
+                    while (dataReader.Read())
+                    {
+                        objUserRegistrationModel.Add(GetUserDetailsFromDataReader(dataReader));
+                    }
+                }
+            }
+            return objUserRegistrationModel;
+        }
         public int GetUserExist(string UserEmail, string UserPassword)
         
         {
-            int success = 0;
-            using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.SUBMITUSERDETAILS))
+            int success = 0;            
+            using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.PROCCHECKUSEREXISTS))
             {
                 m_Database.AddInParameter(dbCommand, "@Email", DbType.String, UserEmail);
                 m_Database.AddInParameter(dbCommand, "@Password", DbType.String, UserPassword);
@@ -71,7 +88,7 @@ namespace DataAccess
                 {
                     while (dataReader.Read())
                     {
-                        int Y = dataReader.GetInt32(dataReader.GetOrdinal("tot"));
+                        int Y = SafeTypeHandling.ConvertStringToInt32(dataReader["tot"]);
                     }
                 }
             }
@@ -152,5 +169,36 @@ namespace DataAccess
             }
             return success;
         }
+        private UserRegistrationModel GetUserDetailsFromDataReader(IDataReader datareader)
+        {
+            objUserRegistrationModel = new UserRegistrationModel();
+            objUserRegistrationModel.Id = SafeTypeHandling.ConvertStringToInt32(datareader["Id"]);
+            objUserRegistrationModel.UserCode = SafeTypeHandling.ConvertToString(datareader["UserCode"]);
+            objUserRegistrationModel.UserEmail = SafeTypeHandling.ConvertToString(datareader["UserEmail"]);
+            objUserRegistrationModel.UserName = SafeTypeHandling.ConvertToString(datareader["UserName"]);
+            objUserRegistrationModel.UserNTID = SafeTypeHandling.ConvertToString(datareader["UserNTID"]);
+            objUserRegistrationModel.ManagerCode = SafeTypeHandling.ConvertToString(datareader["ManagerCode"]);
+            objUserRegistrationModel.ManagerEmail = SafeTypeHandling.ConvertToString(datareader["ManagerEmail"]);
+            objUserRegistrationModel.ManagerName = SafeTypeHandling.ConvertToString(datareader["ManagerName"]);
+            objUserRegistrationModel.ManagerNTID = SafeTypeHandling.ConvertToString(datareader["ManagerNTID"]);
+            objUserRegistrationModel.RoleId = SafeTypeHandling.ConvertStringToInt32(datareader["RoleId"]);
+            objUserRegistrationModel.LOBId = SafeTypeHandling.ConvertStringToInt32(datareader["LOBId"]);
+            objUserRegistrationModel.Status = SafeTypeHandling.ConvertStringToInt32(datareader["UserStatus"]);
+            objUserRegistrationModel.StatusType = SafeTypeHandling.ConvertToString(datareader["StatusType"]);
+            objUserRegistrationModel.RoleName = SafeTypeHandling.ConvertToString(datareader["RoleName"]);
+            objUserRegistrationModel.LOBName = SafeTypeHandling.ConvertToString(datareader["LOBName"]);
+            objUserRegistrationModel.BusinessSegmentName = SafeTypeHandling.ConvertToString(datareader["BsName"]);
+            objUserRegistrationModel.CapabilitiesName = SafeTypeHandling.ConvertToString(datareader["CapName"]);
+            objUserRegistrationModel.IsActive = SafeTypeHandling.ConvertStringToBoolean(datareader["IsActive"]);
+            objUserRegistrationModel.AboutMe = SafeTypeHandling.ConvertToString(datareader["AboutMe"]);
+            objUserRegistrationModel.CapabilitiesId = SafeTypeHandling.ConvertStringToInt32(datareader["CapabilitiesId"]);
+            objUserRegistrationModel.BusinessSegmentId = SafeTypeHandling.ConvertStringToInt32(datareader["BusinessSegmentId"]);
+            objUserRegistrationModel.UserPhoto = (byte[])datareader["UserPhoto"];
+            objUserRegistrationModel.ImgStatus = SafeTypeHandling.ConvertStringToInt32(datareader["ImgStatus"]);
+            objUserRegistrationModel.IsAdmin = SafeTypeHandling.ConvertStringToBoolean(datareader["IsAdmin"]);
+
+            return objUserRegistrationModel;
+        }
+
     }
 }
