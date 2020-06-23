@@ -6,79 +6,115 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h5 class="modal-title w-100 font-weight-bold" id="hmsg">We don't spam!</h5>
+                <h5 class="modal-title w-100" id="hmsg">We don't spam!</h5>
             </div>
-            <div class="modal-footer d-flex justify-content-center">
-
-                <div id="emailform" onmouseover="validateemail()">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <div id="emailform" onmouseover="validateemail()">
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
                         <input id="email" type="email" class="form-control validate" name="email" placeholder="Enter your email address..." autofocus>
-                    </div><br />
-                    <div id="spanerrorNext" style="color:darkred"></div>
-                    <div id="spanerrorNext1" style="color:darkred"></div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
+                    <div id="spanerrorNext" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorNext1" class="w-100" style="color:darkred"></div>
                     <button id="btnNext" class="btn btn-success" onclick="submitEmail()" disabled>Next</button>
                     <button class="btn btn-light" data-dismiss="modal">Not today!</button>
                 </div>
-                <div id="passwordform" onmouseover="validatepwdfield()">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+            </div>
+            <div id="passwordform" onmouseover="validatepwdfield()">
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                        </div>
                         <input id="password" type="password" class="form-control validate" name="password" placeholder="Enter your password...">
-                    </div><a href="#" onclick="confirmemail()">Forgot Password</a><br />
-                    <div id="spanerrorLogin" style="color:darkred"></div>
-                    <div id="spanerrorLogin1" style="color:darkred"></div>
-                    <button class="btn btn-secondary" onclick="back()">No! Not this Email!</button>
+                    </div>
+                    <a href="#" onclick="confirmemail()">Forgot Password</a>
+                </div>
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
+                    <div id="spanerrorLogin" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorLogin1" class="w-100" style="color:darkred"></div>
                     <button id="btnLogin" class="btn btn-success" onclick="login()" disabled>Login</button>
+                    <button class="btn btn-secondary" onclick="back()">No! Not this Email!</button>
                     <button class="btn btn-light" data-dismiss="modal" onclick="back()">Leave It!</button>
                 </div>
-                <div id="registerform" onmouseover="focuscreatepwdfield()">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+            </div>
+            <div id="registerform" onmouseover="focuscreatepwdfield()">
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                        </div>
                         <input id="registrationpassword" type="password" class="form-control validate" name="registrationpassword" placeholder="Create password...">
-                    </div><br />
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                        </div>
                         <input id="confirmpassword" type="password" class="form-control validate" name="confirmpassword" placeholder="Confirm password...">
-                    </div><br />
-                    <div id="spanerrorRegister" style="color:darkred"></div>
-                    <div id="spanerrorConfirm" style="color:darkred"></div>
-                    <div id="spanerrorRegister1" style="color:darkred"></div>
-                    <button class="btn btn-secondary" onclick="back()">No! Not this Email!</button>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
+                    <div id="spanerrorRegister" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorConfirm" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorRegister1" class="w-100" style="color:darkred"></div>
                     <button id="btnRegister" class="btn btn-success" onclick="register()" disabled>Create Account</button>
+                    <button class="btn btn-secondary" onclick="back()">No! Not this Email!</button>
                     <button class="btn btn-light" data-dismiss="modal" onclick="back()">Later!</button>
                 </div>
-                <div id="confirmemailform" onmouseover="validateconfirmemail()">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            </div>
+            <div id="confirmemailform" onmouseover="validateconfirmemail()">
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
                         <input id="confirmemail" type="email" class="form-control validate" name="email" placeholder="Enter your email address..." autofocus>
-                    </div><br />
-                    <div id="spanerrorConfirmEmail" style="color:darkred"></div>
-                    <div id="spanerrorConfirmEmail1" style="color:darkred"></div>
-                    <button class="btn btn-secondary" onclick="backtopwdfield()">Back</button>
-                    <button id="btnConfirmEmail" class="btn btn-success" onclick="requestOTP()" style="background-color:limegreen" disabled>Request OTP</button>
+                    </div>
                 </div>
-                <div id="newpasswordform" onmouseover="focuscreatenewpwdfield()">
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
+                    <div id="spanerrorConfirmEmail" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorConfirmEmail1" class="w-100" style="color:darkred"></div>
+                    <button id="btnConfirmEmail" class="btn btn-success" onclick="requestOTP()" style="background-color:limegreen" disabled>Request OTP</button>
+                    <button class="btn btn-secondary" onclick="backtopwdfield()">Back</button>
+                </div>
+            </div>
+            <div id="newpasswordform" onmouseover="focuscreatenewpwdfield()">
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                        </div>
                         <input id="otp" type="text" class="form-control validate" name="otp" placeholder="Enter OTP...">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                        </div>
                         <input id="newpassword" type="password" class="form-control validate" name="newpassword" placeholder="Create password...">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                        </div>
                         <input id="confirmnewpassword" type="password" class="form-control validate" name="confirmnewpassword" placeholder="Confirm password...">
                     </div><br />
-                    <div id="spanerrornewpwd" style="color:darkred"></div>
-                    <div id="spanerrorConfirmnewpwd" style="color:darkred"></div>
-                    <div id="spanerrornewpwd1" style="color:darkred"></div>
+                    <div id="spanerrornewpwd" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorConfirmnewpwd" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrornewpwd1" class="w-100" style="color:darkred"></div>
+                    <button id="btnUpdatePassword" class="btn btn-success" onclick="UpdatePassword()" style="background-color:limegreen" disabled>Update Password</button>
                     <button class="btn btn-secondary" onclick="back()">Login Without Updating Password</button>
-                    <button id="btnUpdatePassword" class="btn btn-success" onclick="UpdatePassword()" style="background-color:limegreen" disabled>Update Password</button>                    
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script src="~/CustomScripts/_LoginForm.js"></script>
-`
+                `
