@@ -45,10 +45,15 @@
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
         }<br />
+        <div id="dvHomePostsAndCommentBind">
+            <div class="loaderCenter">
+                <span class="loadingText">Recent Post's Loading....</span>
+            </div>
+        </div>
         @if (Session["UserID"] != null)
         {
-            @Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")
-        }        
+            @*@Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")*@
+        }
     </div>
     <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
@@ -98,3 +103,26 @@
         </div>
     </div>
 </div>
+
+<script>    
+    $(document).ready(function () {
+        LoadPostsAndComment();
+        });
+
+    function LoadPostsAndComment() {
+        $.ajax
+            ({
+                url: "/Home/LoadPostsAndCommentPartialView",
+                contentType: "application/html; charset=utf-8",
+                type: "POST",
+                datatype: "html",
+                success: function (t) {
+                    $("#dvHomePostsAndCommentBind").html(t)
+                },
+                error: function () {
+                    $("#dvHomePostsAndCommentBind").html("Post Not Found");
+                    window.location.href = "/Home/Error";
+                }
+            })
+    }
+</script>

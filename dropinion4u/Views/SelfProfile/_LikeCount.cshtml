@@ -1,0 +1,10 @@
+﻿@using DataAccess;
+@model BusinessEntities.posts
+
+@{
+    List<BusinessEntities.posts> LikeList = new DataAccess.DirectoryDataAccess().GetLikeCount("POST");
+    int childPage =Convert.ToInt32(ViewData["cpid"]);
+}
+
+
+<span style="padding-left: 6px;">@LikeList.Where(l => l.PostId == childPage).Count() like(s)</span>
