@@ -158,9 +158,9 @@ namespace dropinion4u.Controllers
                     byte[] imageDatabytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
                    
                     msg = objLogindataAccess.SubmitUserRequest(null, imageDatabytes, user);
-                    
+
                     //msg = objLogindataAccess.UpdateUserRequest(email, Pass);
-                    Session["UserID"] = userDetails.UserID;
+                    Session["UserID"] = user.UserCode;
                     return new JsonResult { Data = ("RegistrationSuccessful", Session["UserID"]) };
                 }
                 return new JsonResult { Data = ("RegistrationFailed", "Something Fishy...") };

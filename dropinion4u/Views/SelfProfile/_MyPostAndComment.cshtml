@@ -2,7 +2,7 @@
 @model BusinessEntities.posts
 @{
     List<BusinessEntities.posts> CommentList = new DataAccess.DirectoryDataAccess().GetCommentListOnPost("POST");
-    //List<BusinessEntities.posts> LikeList = new DataAccess.DirectoryDataAccess().GetLikeCount("POST");
+    List<BusinessEntities.posts> LikeList = new DataAccess.DirectoryDataAccess().GetLikeCount("POST");
     List<BusinessEntities.posts> PostList = new DataAccess.DirectoryDataAccess().GetPost();
 
     int RoleId = Convert.ToInt32(HttpContext.Current.Session["RoleId"]);
@@ -85,8 +85,8 @@
                 <span aria-label="See who reacted to this" role="toolbar" style="align-items: center;display: flex;">
                     <span class="fa fa-thumbs-up" style="color:blue"></span>
                 </span>
-                @Html.Partial("~/Views/SelfProfile/_likeCount.cshtml", new ViewDataDictionary { { "cpid", cp.PostId } })
-                @*<span style="padding-left: 6px;">@LikeList.Where(l => l.PostId == cp.PostId).Count() like(s)</span>*@
+                @*@Html.Partial("~/Views/SelfProfile/_likeCount.cshtml", new ViewDataDictionary { { "cpid", cp.PostId } })*@
+                <span style="padding-left: 6px;">@LikeList.Where(l => l.PostId == cp.PostId).Count() like(s)</span>
             </div>
             <div>
                 <button class="btn btn-default" title="Comment On Post" onclick="showhide(@cp.PostId);">

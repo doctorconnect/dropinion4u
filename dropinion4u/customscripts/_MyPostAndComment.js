@@ -3,24 +3,12 @@
     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
 }
 
-$(document).ready(function () {
-    var success = '@TempData["success"]';
-    if (success != null && success != undefined && success != '')
-        toasterSuccessMessage(success);
-    function toasterSuccessMessage(message) {
-        new PNotify({
-            title: 'Success',
-            text: message,
-            type: 'success',
-            styling: 'bootstrap3'
-        });
-    }
-});
 
 function LoadPostLike(Id) {
+    debugger;
     $.ajax
         ({
-            url: "Home/PostLikes?key=" + Id.id,
+            url: "PostLikes?key=" + Id.id,
             contentType: "application/html; charset=utf-8",
             type: "POST",
             datatype: "html",

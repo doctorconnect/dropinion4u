@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dropinion4u", "dropinion4u\dropinion4u.csproj", "{45E869D1-435E-47FE-9879-CF9881190BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{76BBFB42-9311-4540-AEB4-1DA53A6698EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{76BBFB42-9311-4540-AEB4-1DA53A6698EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntities", "BusinessEntities\BusinessEntities.csproj", "{C0B6EFB2-0A5F-4463-9F23-8CB7C03C9192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessEntities", "BusinessEntities\BusinessEntities.csproj", "{C0B6EFB2-0A5F-4463-9F23-8CB7C03C9192}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
