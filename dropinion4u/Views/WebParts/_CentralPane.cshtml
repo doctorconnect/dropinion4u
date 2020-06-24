@@ -15,7 +15,7 @@
                     <span role="textbox" contenteditable="true" class="textarea col-9" id="txtPost" style="background-color:rgb(242,242,242);"></span>
                     &nbsp;
                     <!--Post Button-->
-                    <div style="position:relative" >
+                    <div style="position:relative">
                         <span id="btnPost" onclick="Post(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Post</span>
                     </div>
                 </div>
@@ -33,83 +33,33 @@
                         <div class="postbutton2" data-novc="1" style="border-radius: 20px;"></div>
                     </div>*@
                 <!--More options Buttons-->
-            <div class="CreatePostMore">
-                <input accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska" style="display:none;" multiple="" type="file">
-                <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
-                    <div class="CreatePostMoreimageouter">
-                        @*<img src="~/images/Photo.png" alt="" height="20" width="20">*@
-                        <span class="fa fa-picture-o" style="color:limegreen" dir="auto"></span>&nbsp;&nbsp;Photo/Video
+                <div class="CreatePostMore">
+                    <input accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska" style="display:none;" multiple="" type="file">
+                    <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
+                        <div class="CreatePostMoreimageouter">
+                            @*<img src="~/images/Photo.png" alt="" height="20" width="20">*@
+                            <span class="fa fa-picture-o" style="color:limegreen" dir="auto"></span>&nbsp;&nbsp;Photo/Video
+                        </div>
+                        <div data-novc="1">
+                        </div>
                     </div>
-                    <div data-novc="1">
+                    <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
+                        <div class="CreatePostMoreimageouter">
+                            <span class="fa fa-file" style="color:red" dir="auto"></span>&nbsp;&nbsp;Document
+                        </div>
+                        <div data-novc="1"></div>
+                    </div>
+                    <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
+                        <div class="CreatePostMoreimageouter">
+                            @*<img src="~/images/Camera.png" alt="" height="20" width="20">*@
+                            <span class="fa fa-tasks" style="color:darkviolet" dir="auto"></span>&nbsp;&nbsp;Article
+                        </div>
+                        <div data-novc="1"></div>
                     </div>
                 </div>
-                <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
-                    <div class="CreatePostMoreimageouter">
-                        <span class="fa fa-file" style="color:red" dir="auto"></span>&nbsp;&nbsp;Document
-                    </div>
-                    <div data-novc="1"></div>
-                </div>
-                <div class="CreatePostMoreimageouter CreatePostMoreimagecontainer" role="button" tabindex="0">
-                    <div class="CreatePostMoreimageouter">
-                        @*<img src="~/images/Camera.png" alt="" height="20" width="20">*@
-                        <span class="fa fa-tasks" style="color:darkviolet" dir="auto"></span>&nbsp;&nbsp;Article
-                    </div>
-                    <div data-novc="1"></div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(function () {
-        $("#btnPost").click(function () {
-            var msg1 = $('.txtPost').val();
-            var msg = msg1.replace('&', '!!').replace('/', '!!!');
-            if (msg != null) {
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/SavePost?Message=" + msg,
-                    contentType: "application/html; charset=utf-8",
-                    datatype: "html",
-                    success: function (t) {
-                        $("#dvHomePostsAndCommentBind").html(t)
-                    },
-                    error: function () {
-                        $("#dvHomePostsAndCommentBind").html("PostsAndComment  Not Found");
-                        window.location.href = "/Home/Error";
-                    }
-                });
-            }
-        });
-    });
 
-    function Post() {
-        debugger;
-        var msg1 = $('.txtPost').val();
-        var msg = msg1.replace('&', '!!').replace('/', '!!!');
-        if (msg != null) {
-            $.ajax({
-                type: "POST",
-                url: "/Home/SavePost?Message=" + msg,
-                contentType: "application/html; charset=utf-8",
-                datatype: "html",
-                success: function (t) {
-                    $("#dvHomePostsAndCommentBind").html(t)
-                },
-                error: function () {
-                    $("#dvHomePostsAndCommentBind").html("PostsAndComment  Not Found");
-                    window.location.href = "/Home/Error";
-                }
-            });
-        }
-    }
-
-    $('#txtPost').keyup(function () {
-        var maxLength = $(this).val().length;
-        if (maxLength > 1000) {
-            alert('You cannot enter more than 1000 chars');
-            return false;
-        }
-    });
-</script>
+<script src="~/CustomScripts/_CentralPane.js"></script>

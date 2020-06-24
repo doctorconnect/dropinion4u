@@ -45,24 +45,17 @@
         {
             @Html.Partial("~/Views/WebParts/_Carousal.cshtml")
         }<br />
-       
-            <div id="dvHomePostsAndCommentBind">
-                <div class="loaderCenter">
-                    <span class="loadingText">Login to Access Post's ....</span>
-                </div>
-            </div>
-            @*@Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")*@
-        
-        </div>
-
-    <div class="col-lg-5" id="divFeeds">
         @if (Session["UserID"] != null)
         {
-            @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
             @Html.Partial("~/Views/Timeline/_FeedPost.cshtml")
 
-        }
-        else
+        }        
+        @*@Html.Partial("~/Views/SelfProfile/_MyPostAndComment.cshtml")*@
+
+    </div>
+
+    <div class="col-lg-5" id="divFeeds">
+        @if (Session["UserID"] == null)
         {
             <div style="background-image: url('../../images/createpostbackground.PNG');background-size:100% 100%;text-align:center">
                 <div style="border: 2px solid rgba(246,246,246);background-color: rgba(246,246,246,.85);border-radius: 10px;">
@@ -78,6 +71,15 @@
                 </div>
             </div>
         }
+        else
+        {
+            @Html.Partial("~/Views/WebParts/_CentralPane.cshtml")
+        }
+        <div id="dvHomePostsAndCommentBind">
+            <div class="loaderCenter">
+                <span class="loadingText">Login to Access Post's ....</span>
+            </div>
+        </div>
         <br />
     </div>
     <div class="col-lg-3" id="divRight">
