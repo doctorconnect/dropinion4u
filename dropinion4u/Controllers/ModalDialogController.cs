@@ -217,5 +217,23 @@ namespace dropinion4u.Controllers
                 s = String.Concat(s, random.Next(10).ToString());
             return s;
         }
+
+
+        public JsonResult EditUserDetails(UserRegistrationModel user)
+        {
+            try
+            {
+                    var imagPath = Server.MapPath("~/images/avtar.png");
+                    Image img = Image.FromFile(imagPath);
+                    byte[] imageDatabytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
+                    int msg = objLogindataAccess.SubmitUserRequest(null, imageDatabytes, user);
+                    Session["UserID"] = user.UserCode;
+                    return new JsonResult { Data = ("EditUserSuccess", Session["UserID"]) };
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult { Data = ("Error", ex + "Something Wrong at our side...") };
+            }
+        }
     }
     }

@@ -34,16 +34,13 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
-                    <button id="btnUpdateProfile" class="btn btn-success" disabled>Update Profile</button>
+                    <div id="spanerrorEditPrfl" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorEditPrfl1" class="w-100" style="color:darkred"></div>
+                    <button id="btnUpdateProfile" class="btn btn-success" onclick="editUserDetails()">Update Profile</button>
                     <button class="btn btn-light" data-dismiss="modal">Skip for now!</button>
                 </div>
             </div>
         </div>
     </div>
 }
-<script type="text/javascript">
-    $("button[data-dismiss=modal]").click(function () {
-        $(".modal.in").removeClass("in").addClass("fade").fadeOut();
-        $(".modal-backdrop").remove();
-    });
-</script>
+<script src="~/customscripts/_EditProfile.js"></script>
