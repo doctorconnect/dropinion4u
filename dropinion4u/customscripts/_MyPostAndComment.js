@@ -5,7 +5,6 @@
 
 
 function LoadPostLike(Id) {
-    debugger;
     $.ajax
         ({
             url: "PostLikes?key=" + Id.id,

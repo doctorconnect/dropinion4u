@@ -354,6 +354,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="customscripts\index.js" />
     <Content Include="customscripts\toastrImp.js" />
     <Content Include="customscripts\_CentralPane.js" />
     <Content Include="customscripts\_MyPostAndComment.js" />
@@ -592,6 +593,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\SelfProfile\_MyPostAndComment.cshtml" />
     <Content Include="Views\SelfProfile\_LikeCount.cshtml" />
+    <Content Include="Views\ModalDialog\_EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">

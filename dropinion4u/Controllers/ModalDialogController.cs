@@ -43,6 +43,10 @@ namespace dropinion4u.Controllers
             return View();
         }
 
+        public ActionResult _EditProfile()
+        {
+            return View();
+        }
         [HttpPost]
         public JsonResult Feedback(string Feedback)
         {
