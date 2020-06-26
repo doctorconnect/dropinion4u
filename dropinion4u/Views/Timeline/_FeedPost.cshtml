@@ -49,6 +49,10 @@
     <div class="posttext">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </div>
+
+    <!--Image Container-->
+
+
     <div class="likecommentinfo" style="">
         <div style="align-items: center;display: flex;flex-grow: 1;overflow-x: hidden;overflow-y: hidden;">
             <span aria-label="See who reacted to this" role="toolbar" style="align-items: center;display: flex;">
@@ -58,7 +62,7 @@
             <span style="padding-left: 6px;">Meenu Goel and 289 others</span>
         </div>
         <div>
-            201 comments
+            201 comments  23 shares
         </div>
     </div>
     <hr />
@@ -74,7 +78,7 @@
         </span>
     </div>
     <hr />
-    <div style="display:flex;padding:4px 16px 4px 16px">
+    <div class="input-group" style="padding:10px 0px 10px 4px">
         <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
             <div style="position: relative;">
                 <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
@@ -82,7 +86,17 @@
             </div>
             <div class="postimage postimage2" data-novc="1"></div>
         </a>
-        <form class="commentbox">
+
+        <!--Post Text box-->
+        <input type="hidden" class="PostId" value="{postid}" />
+        <span role="textbox" contenteditable="true" class="textarea col-8 col-sm-9 col-md-9 col-lg-6 col-xl-7" id="txt_{postid}" style="background-color:rgb(242,242,242);"></span>
+        &nbsp;
+        <!--Post Button-->
+        <div style="position:relative">
+            <span id="{postid}" onclick="PostComment(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Comment</span>
+        </div>
+
+        @*<form class="commentbox">
             <div class=" _3d2q _7c_r _4w79">
                 <div style="position:absolute">Write a comment...</div>
                 <div class="_5rpb">
@@ -90,7 +104,7 @@
                 </div>
             </div>
             <ul class="_1obb"></ul>
-        </form>
+        </form>*@
     </div>
 </div>
 

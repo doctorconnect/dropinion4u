@@ -94,7 +94,7 @@
                 </button>
             </div>
         </div>
-        <hr />
+        <hr/>
         <div style="display: flex;">
             <span class="likecommentpanel">
                 <button class="btn btn-default" title="Like Post" id="@cp.PostId&Identifier=POST" onclick="LoadPostLike(this);">
@@ -113,29 +113,30 @@
             </span>
 
         </div>
-        @if (CommentList.Where(l => l.PostId == cp.PostId).Count() > 0)
+        @*@if (CommentList.Where(l => l.PostId == cp.PostId).Count() > 0)
         {
             <hr />
-        }
+        }*@
+        <hr/>
+        <div class="input-group" id="@cp.PostId" style="padding:10px 0px 10px 4px">
+            <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
+                <div style="position: relative;">
+                    <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
+                    <div class="postimage postimageone" style="height: 32px; width: 32px;"></div>
+                </div>
+                <div class="postimage postimage2" data-novc="1"></div>
+            </a>
+            <!--Post Text box-->
+            <input type="hidden" class="PostId" value="@cp.PostId" />
+            <span role="textbox" contenteditable="true" class="textarea col-8 col-sm-9 col-md-9 col-lg-7 col-xl-8" id="txt_@cp.PostId" style="background-color:rgb(242,242,242);"></span>
+            &nbsp;
+            <!--Post Button-->
+            <div style="position:relative;">
+                <span id="@cp.PostId" onclick="PostComment(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Comment</span>
+            </div>
+        </div>
 
         <div style="display:none;" id="P_@cp.PostId" class="publishComment">
-            <div class="input-group" id="@cp.PostId">
-                <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
-                    <div style="position: relative;">
-                        <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
-                        <div class="postimage postimageone" style="height: 32px; width: 32px;"></div>
-                    </div>
-                    <div class="postimage postimage2" data-novc="1"></div>
-                </a>
-                <!--Post Text box-->
-                <input type="hidden" class="PostId" value="@cp.PostId" />
-                <span role="textbox" contenteditable="true" class="textarea col-7" id="txt_@cp.PostId" style="background-color:rgb(242,242,242);"></span>
-                &nbsp;
-                <!--Post Button-->
-                <div style="position:relative">
-                    <span id="@cp.PostId" onclick="PostComment(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Comment</span>
-                </div>
-            </div><br />
             @foreach (var cmt in CommentList.Where(l => l.PostId == cp.PostId))
             {
                 <div class="input-group" style="margin-bottom: 6px;">
@@ -159,5 +160,3 @@
     </div>
 }
 <script src="~/customscripts/_MyPostAndComment.js"></script>
-
-
