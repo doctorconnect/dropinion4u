@@ -74,7 +74,12 @@ a:hover {text-decoration: none;}
     color: gray;
 }
 
-.textarea[contenteditable]:empty::before {
+.comment[contenteditable]:empty::before {
     content: "Write a comment...";
+    color: gray;
+}
+
+.reply[contenteditable]:empty::before {
+    content: "Reply to comment...";
     color: gray;
 }
