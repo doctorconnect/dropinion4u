@@ -14,11 +14,7 @@
         <div class="userimageandtitle">
             <!--User Image-->
             <a style="color: #385898;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
-                <div style="position: relative;">
-                    <img class="postimage" style="display: block;border: 0;" height="40" src="~/images/1.png" width="40" alt="">
-                    <div class="postimage postimageone" style="height: 40px; width: 40px;"></div>
-                </div>
-                <div class="postimage postimage2" data-novc="1"></div>
+                <img class="postimage" style="display: block;border: 0;" height="40" src="~/images/1.png" width="40" alt="">
             </a>
             <div style="flex-grow: 1;">
                 <strong><a style="color:black;" href="/User/UserProfile?Usercode=@cp.UserCode"> @cp.PostedByName</a></strong>
@@ -122,11 +118,7 @@
         <hr />
         <div class="input-group" id="@cp.PostId" style="padding:10px 0px 10px 4px">
             <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
-                <div style="position: relative;">
-                    <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
-                    <div class="postimage postimageone" style="height: 32px; width: 32px;"></div>
-                </div>
-                <div class="postimage postimage2" data-novc="1"></div>
+                <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
             </a>
             <!--Post Text box-->
             <input type="hidden" class="PostId" value="@cp.PostId" />
@@ -141,22 +133,16 @@
         <div style="display:none;" id="P_@cp.PostId" class="publishComment">
             @foreach (var cmt in CommentList.Where(l => l.PostId == cp.PostId))
             {
-                <div class="input-group" style="margin-bottom: 6px;">
-                    <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
-                        <div style="position: relative;">
-                            <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
-                            <div class="postimage postimageone" style="height: 32px; width: 32px;"></div>
-                        </div>
-                        <div class="postimage postimage2" data-novc="1"></div>
-                    </a>
-                    <div class="col-10 input-group">
-                        <div role="textbox" style="background-color:rgb(242,242,242);border-radius:8px;padding: 10px 10px;">
-                            <a href="/User/UserProfile?Usercode=@cmt.UserCode">@cmt.CommentedByName</a>
-                            @cmt.Message
-                        </div>
-                        <small class="w-100">@cmt.CommentedDate</small>
-                    </div>
+            <div class="input-group" style="margin-bottom: 6px;">
+                <a style="color: #385898;padding-top:6px;padding-left:4px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
+                    <img class="postimage" style="display: block;border: 0;" height="30" src="~/images/1.png" width="30" alt="">
+                </a>
+                <div class="col-10 col-sm-11 col-lg-10 col-xl-10" role="textbox" style="background-color:rgb(242,242,242);border-radius:8px;padding: 10px 10px;">
+                    <a href="/User/UserProfile?Usercode=@cmt.UserCode">@cmt.CommentedByName</a>
+                    <small class="pull-right" style="color:GrayText;font-size:x-small;">@cmt.CommentedDate</small><br />
+                    @cmt.Message
                 </div>
+            </div>
             }
         </div>
     </div>
