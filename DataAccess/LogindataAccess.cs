@@ -75,20 +75,19 @@ namespace DataAccess
             }
             return objUserRegistrationModel;
         }
-        public int GetUserExist(string UserEmail, string UserPassword)
+        public int GetUserExist(string UserEmail)
         
         {
             int success = 0;            
             using (DbCommand dbCommand = m_Database.GetStoredProcCommand(DBConstants.PROCCHECKUSEREXISTS))
             {
                 m_Database.AddInParameter(dbCommand, "@Email", DbType.String, UserEmail);
-                m_Database.AddInParameter(dbCommand, "@Password", DbType.String, UserPassword);
-
+               
                 using (IDataReader dataReader = m_Database.ExecuteReader(dbCommand))
                 {
                     while (dataReader.Read())
                     {
-                        int Y = SafeTypeHandling.ConvertStringToInt32(dataReader["tot"]);
+                         success = SafeTypeHandling.ConvertStringToInt32(dataReader["tot"]);
                     }
                 }
             }

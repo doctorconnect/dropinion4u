@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -60,37 +61,19 @@ namespace dropinion4u.Controllers
 
         public JsonResult CheckEmail(string email)
         {
+            Session["email"] = email;
             try
             {
-                if (email != null && email != "")
+                int x = objLogindataAccess.GetUserExist(email);
+                if (x==0)
                 {
-                    Session["email"] = email;
-                    var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-                    if (userDetails == null)
-                    {
-                        string pass = "xytxmshivnandan123456dropinior";
-                        objLogindataAccess.SubmitUserRequest(email, pass);
-                        TempData["success"] = "Submit User Request sucess ";
-                        return new JsonResult { Data = ("Register", email) };
-                    }
-                    else
-                    {
-                        var userDetailsLogin = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
-
-                        if (userDetailsLogin.UserPassword == "xytxmshivnandan123456dropinior")
-                        {
-                            return new JsonResult { Data = ("Register", email) };
-                        }
-                        else
-                        {
-                            return new JsonResult { Data = ("Login", email) };
-                        }
-                    }
+                    return new JsonResult { Data = ("Register", email) };
                 }
                 else
                 {
-                    return new JsonResult { Data = ("LoginFailed", "EmailMissing") };
+                    return new JsonResult { Data = ("Login", email) };
                 }
+
             }
             catch (Exception ex)
             {
@@ -136,11 +119,14 @@ namespace dropinion4u.Controllers
                 var userDetails = objLogindataAccess.GetRegisteredUserDetail(email, Pass).FirstOrDefault();
                 if (userDetails == null)
                 {
+                    MailAddress addr = new MailAddress(email);
+                    string username = addr.User;
+
                     UserRegistrationModel user = new UserRegistrationModel();
                     user.RoleId = 12;
                     user.UserCode = RandomDigits(8);
                     user.UserNTID = "HUB" + RandomDigits(4);
-                    user.UserName = "GUEST";
+                    user.UserName = username;
                     user.UserEmail = email;
                     user.ManagerName = "INDIA";
                     user.ManagerNTID = Pass;
@@ -159,8 +145,16 @@ namespace dropinion4u.Controllers
                    
                     msg = objLogindataAccess.SubmitUserRequest(null, imageDatabytes, user);
 
+                   var userinfo = objLogindataAccess.GetRegisteredUserDetail(email, Pass).FirstOrDefault();
                     //msg = objLogindataAccess.UpdateUserRequest(email, Pass);
                     Session["UserID"] = user.UserCode;
+             //     HttpContext.Session["UserID"] = user.Id;
+                    HttpContext.Session["ID"] = userinfo.Id;
+                    HttpContext.Session["UserNTID"] = userinfo.UserNTID;
+                    HttpContext.Session["CapabilitiesId"] = userinfo.CapabilitiesId;
+                    HttpContext.Session["Adminstrator"] = userinfo.IsAdmin;
+                    HttpContext.Session["EmailVerified"] = false;
+
                     return new JsonResult { Data = ("RegistrationSuccessful", Session["UserID"]) };
                 }
                 return new JsonResult { Data = ("RegistrationFailed", "Something Fishy...") };
@@ -212,6 +206,73 @@ namespace dropinion4u.Controllers
             for (int i = 0; i < length; i++)
                 s = String.Concat(s, random.Next(10).ToString());
             return s;
+        }
+
+        public JsonResult CheckEmail1(string email)
+        {
+            string pass = "xytxmshivnandan123456dropinior";
+            try
+            {
+                if (email != null && email != "")
+                {
+                    Session["email"] = email;
+                    var userDetails = objLogindataAccess.GetRegisteredUserDetail(email, pass);
+                    //  var userDetails = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+                    if (userDetails == null)
+                    {
+                        MailAddress addr = new MailAddress(email);
+                        string username = addr.User;
+
+                        UserRegistrationModel user = new UserRegistrationModel();
+                        user.RoleId = 12;
+                        user.UserCode = RandomDigits(8);
+                        user.UserNTID = "HUB" + RandomDigits(4);
+                        user.UserName = username;
+                        user.UserEmail = email;
+                        user.ManagerName = "INDIA";
+                        user.ManagerNTID = pass;
+                        user.ManagerCode = pass;
+                        user.ManagerEmail = email;
+                        user.BusinessSegmentId = 1;
+                        user.CapabilitiesId = 1;
+                        user.LOBId = 1;
+                        user.Status = 6;
+                        user.AboutMe = "Describe yourself in 140 characters";
+
+
+                        var imagPath = Server.MapPath("~/images/avtar.png");
+                        Image img = Image.FromFile(imagPath);
+                        byte[] imageDatabytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
+
+                        objLogindataAccess.SubmitUserRequest(null, imageDatabytes, user);
+                        //objLogindataAccess.SubmitUserRequest(email, pass);
+
+                        return new JsonResult { Data = ("Register", email) };
+                    }
+                    else
+                    {
+                        var userDetailsLogin = objLogindataAccess.GetRegisteredUserDetail(email, pass).FirstOrDefault();
+                        // var userDetailsLogin = objLogindataAccess.GetListOfRegisteredUser().Where(x => x.UserEmail == email).FirstOrDefault();
+
+                        if (userDetailsLogin.UserPassword == "xytxmshivnandan123456dropinior")
+                        {
+                            return new JsonResult { Data = ("Register", email) };
+                        }
+                        else
+                        {
+                            return new JsonResult { Data = ("Login", email) };
+                        }
+                    }
+                }
+                else
+                {
+                    return new JsonResult { Data = ("LoginFailed", "EmailMissing") };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult { Data = ("Error", ex + "Something Wrong at our side...") };
+            }
         }
     }
     }
