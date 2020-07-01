@@ -1,0 +1,90 @@
+﻿@if (Request.QueryString["target"] == "updateProfile")
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal in" id="modalEditProfileForm" tabindex="-1" role="dialog" aria-labelledby="channelModal" style="display:block">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title w-100" id="hmsg">Edit Profile</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name</span>
+                        </div>
+                        <input id="txtName" type="text" class="form-control validate" name="txtName" placeholder="Enter your name..." autofocus>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Title</span>
+                        </div>
+                        <input id="txtTitle" type="text" class="form-control validate" name="txtName" placeholder="eg: General Physician..." autofocus>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Education</span>
+                        </div>
+                        <input id="txtEducation" type="text" class="form-control validate" name="txtName" placeholder="e.g: MBBS..." autofocus>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Location</span>
+                        </div>
+                        <input id="txtLocation" type="text" class="form-control validate" name="txtName" placeholder="Enter your city..." autofocus>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
+                    <div id="spanerrorEditPrfl" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorEditPrfl1" class="w-100" style="color:darkred"></div>
+                    <button id="btnUpdateProfile" class="btn btn-success" onclick="editUserDetails()">Update Profile</button>
+                    <button class="btn btn-light" data-dismiss="modal">Skip for now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="modal fade" id="modalEditProfileForm" tabindex="-1" role="dialog" aria-labelledby="channelModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title w-100" id="hmsg">Edit Profile</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name</span>
+                        </div>
+                        <input id="txtName" type="text" class="form-control validate" name="txtName" placeholder="Enter your name..." autofocus>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Title</span>
+                        </div>
+                        <input id="txtTitle" type="text" class="form-control validate" name="txtName" placeholder="eg: General Physician..." autofocus>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Education</span>
+                        </div>
+                        <input id="txtEducation" type="text" class="form-control validate" name="txtName" placeholder="e.g: MBBS..." autofocus>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Location</span>
+                        </div>
+                        <input id="txtLocation" type="text" class="form-control validate" name="txtName" placeholder="Enter your city..." autofocus>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0 none;margin-top:-20px;">
+                    <div id="spanerrorEditPrfl" class="w-100" style="color:darkred"></div>
+                    <div id="spanerrorEditPrfl1" class="w-100" style="color:darkred"></div>
+                    <button id="btnUpdateProfile" class="btn btn-success" onclick="editUserDetails()">Update Profile</button>
+                    <button class="btn btn-light" data-dismiss="modal">Skip for now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/customscripts/_EditProfile.js"></script>

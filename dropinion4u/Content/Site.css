@@ -1,5 +1,7 @@
 ﻿/*body { margin-top: 85px; }*/
 
+hr{margin-bottom:0px;margin-top:0px;}
+
 #verifyregistration { position: fixed;font-size:smaller; top: 80px; left: 5%; right: 5%; width: 90%; padding: 0px 5px; display: flex; align-items: center; justify-content: space-between; background-color: #f6bcbc;    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
 
 #cookie_disclaimer { position: fixed;font-size:smaller;  bottom: 10px; left: 5%; right: 5%; width: 90%; padding: 0px 5px; display: flex; align-items: center; justify-content: space-between; background-color: rgba(239, 239, 239, 0.90);    border-radius: 5px; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); }
@@ -72,7 +74,12 @@ a:hover {text-decoration: none;}
     color: gray;
 }
 
-.textarea[contenteditable]:empty::before {
+.comment[contenteditable]:empty::before {
     content: "Write a comment...";
+    color: gray;
+}
+
+.reply[contenteditable]:empty::before {
+    content: "Reply to comment...";
     color: gray;
 }

@@ -5,18 +5,14 @@
                 <div class="input-group">
                     <!--User Image-->
                     <a style="color: #385898;" aria-label="Vinay Goel's timeline" class="postouter" href="@Url.Action("UserProfile", "UserProfile")" role="link" tabindex="0">
-                        <div style="position: relative;">
-                            <img class="postimage" style="display: block;border: 0;" height="40" src="~/images/1.png" width="40" alt="">
-                            <div class="postimage postimageone" style="height: 40px; width: 40px;"></div>
-                        </div>
-                        <div class="postimage postimage2" data-novc="1"></div>
+                        <img class="postimage" style="display: block;border: 0;" height="40" src="~/images/1.png" width="40" alt="">                            
                     </a>
                     <!--Post Text box-->
-                    <span role="textbox" contenteditable="true" class="textarea col-9" id="txtPost" style="background-color:rgb(242,242,242);"></span>
+                    <span role="textbox" contenteditable="true" class="textarea col-8 col-sm-9 col-md-10 col-lg-9 col-xl-9" id="txtPost" style="background-color:rgb(242,242,242);"></span>
                     &nbsp;
                     <!--Post Button-->
                     <div style="position:relative">
-                        <span id="btnPost" onclick="Post(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:0">Post</span>
+                        <span id="btnPost" onclick="Post(this);" class="input-group-addon btn btn-sm btn-primary" style="max-height:30px;position:absolute;bottom:5px;background-color:lightseagreen;font-weight:bold;color:white">Post</span>
                     </div>
                 </div>
                 @*<div class="row">

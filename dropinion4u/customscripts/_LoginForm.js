@@ -3,8 +3,9 @@
     $('#passwordform').hide();
     $('#registerform').hide();
     $('#confirmemailform').hide();
-    $('#newpasswordform').hide();
+    $('#newpasswordform').hide();  
 });
+
 
 function validateemail() {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -160,7 +161,7 @@ function register() {
             data: { pass: $('#registrationpassword').val() },
             success: function (data) {
                 if (data.Item1 == "RegistrationSuccessful") {
-                    window.location.href = "/home/Index"
+                    window.location.href = "/home/Index?target=updateProfile"
                 }
                 else if (data.Item1 == "RegistrationFailed") {
                     $('#spanerrorRegister1').html('0oo0... something is wrong at our side. we will fix that soon. Try some other day');
@@ -320,7 +321,7 @@ function logout() {
         type: "POST",
         dataType: "JSON",
         success: function (data) {
-            if (data.Item1 == "LogoutSuccessful") {                
+            if (data.Item1 == "LogoutSuccessful") {
                 window.location.href = "/home/Index"
                 toastr.success('Yes! You have successfully Logout your Acount!', 'Thanks for serve us !!!')
             }

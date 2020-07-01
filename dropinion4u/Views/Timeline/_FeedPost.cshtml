@@ -8,16 +8,16 @@
             <div class="postimage postimage2" data-novc="1"></div>
         </a>
         <div style="flex-grow: 1;">
-            <strong><a href="@Url.Action("UserProfile", "Home")"> User Name</a> </strong>
+            <strong><a style="color:black;" href="/User/UserProfile?Usercode=42530442"> User Name</a> </strong>
             <div>
                 <ul class="navbar-nav mr-auto" style="display:-webkit-inline-box;">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            1 hr &nbsp;
+                        <a style="color:GrayText;font-size:x-small" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <time class="timeago">1 hr &nbsp;</time>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a style="color:GrayText;font-size:x-small" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="fa fa-globe"></span>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
             <div class="navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="ellipsisfeed_0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a style="color:GrayText;" class="nav-link" href="#" id="ellipsisfeed_0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="fa fa-ellipsis-v"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="ellipsisfeed_0">
@@ -49,6 +49,10 @@
     <div class="posttext">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </div>
+
+    <!--Image Container-->
+
+
     <div class="likecommentinfo" style="">
         <div style="align-items: center;display: flex;flex-grow: 1;overflow-x: hidden;overflow-y: hidden;">
             <span aria-label="See who reacted to this" role="toolbar" style="align-items: center;display: flex;">
@@ -58,23 +62,32 @@
             <span style="padding-left: 6px;">Meenu Goel and 289 others</span>
         </div>
         <div>
-            201 comments
+            201 comments  23 shares
         </div>
     </div>
     <hr />
     <div style="display: flex;">
         <span class="likecommentpanel">
-            <span class="fa fa-thumbs-up" style="color:GrayText;font-size:18px;margin-right:6px;"></span>Like
+            <button class="btn btn-default" title="Like Post" id="{id}&Identifier=POST" onclick="LoadPostLike(this);">
+                <span class="fa fa-thumbs-o-up" style="color:GrayText;font-size:14px;"></span>
+                <span style="font-size:small">Like</span>
+            </button>
         </span>
         <span class="likecommentpanel">
-            <span class="fa fa-comment" style="color:GrayText;font-size:18px;margin-right:6px;"></span>Comment
+            <button class="btn btn-default" title="Comment On Post">
+                <span class="fa fa-comment-o" style="color:GrayText;font-size:14px;"></span>
+                <span style="font-size:small">Comment</span>
+            </button>
         </span>
         <span class="likecommentpanel">
-            <span class="fa fa-share-alt" style="color:GrayText;font-size:18px;margin-right:6px;"></span>Share
+            <button class="btn btn-default" title="Share Post" onclick="">
+                <span class="fa fa-share-square-o" style="color:GrayText;font-size:14px;"></span>
+                <span style="font-size:small">Share</span>
+            </button>
         </span>
     </div>
     <hr />
-    <div style="display:flex;padding:4px 16px 4px 16px">
+    <div class="input-group" style="padding:10px 0px 10px 4px">
         <a style="color: #385898;padding-top:6px;" class="postouter" href="@Url.Action("UserProfile", "Home")" role="link" tabindex="0">
             <div style="position: relative;">
                 <img class="postimage" style="display: block;border: 0;" height="32" src="~/images/1.png" width="32" alt="">
@@ -82,7 +95,17 @@
             </div>
             <div class="postimage postimage2" data-novc="1"></div>
         </a>
-        <form class="commentbox">
+
+        <!--Post Text box-->
+        <input type="hidden" class="PostId" value="{postid}" />
+        <span role="textbox" contenteditable="true" class="comment textarea col-9 col-sm-10 col-md-10 col-lg-9 col-xl-9" id="txt_{postid}" style="background-color:rgb(242,242,242);"></span>
+        &nbsp;
+        <!--Post Button-->
+        <div style="position:relative">
+            <span id="{postid}" onclick="PostComment(this);" class="fa fa-chevron-circle-right" style="font-size:30px;position:absolute;bottom:0;color:lightseagreen"></span>
+        </div>
+
+        @*<form class="commentbox">
             <div class=" _3d2q _7c_r _4w79">
                 <div style="position:absolute">Write a comment...</div>
                 <div class="_5rpb">
@@ -90,7 +113,7 @@
                 </div>
             </div>
             <ul class="_1obb"></ul>
-        </form>
+        </form>*@
     </div>
 </div>
 
