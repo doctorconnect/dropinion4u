@@ -594,6 +594,7 @@
     <Content Include="Views\SelfProfile\_MyPostAndComment.cshtml" />
     <Content Include="Views\SelfProfile\_LikeCount.cshtml" />
     <Content Include="Views\ModalDialog\_EditProfile.cshtml" />
+    <Content Include="Views\Shared\_Layoutother.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
